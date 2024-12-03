@@ -1,0 +1,75 @@
+name: Registrar Libro
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: 'Título del libro'
+        required: true
+      author:
+        description: 'Autor del libro'
+        required: true
+      genre:
+        description: 'Género literario'
+        required: true
+      year:
+        description: 'Año de publicación'
+        required: true
+      status:
+        description: 'Estado del libro (Favorito, Pendiente, En lectura, Acabado)'
+        required: true
+        default: 'Pendiente'
+
+jobs:
+  add-book:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Descargar el repositorio
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
+
+      # 2. Crear las carpetas y archivos si no existen
+      - name: Configurar estructura de libros
+        run: |
+          mkdir -p Libros
+          touch Libros/favoritos.json Libros/pendientes.json Libros/en_lectura.json Libros/acabados.json
+          for file in favoritos.json pendientes.json en_lectura.json acabados.json; do
+            if [ ! -s Libros/$file ]; then
+              echo '{"books":[]}' > Libros/$file
+            fi
+          done
+
+      # 3. Añadir el libro a la categoría seleccionada
+      - name: Registrar libro
+        run: |
+          # Elegir el archivo basado en el estado del libro
+          case "${{ github.event.inputs.status }}" in
+            Favorito) file="favoritos.json" ;;
+            Pendiente) file="pendientes.json" ;;
+            "En lectura") file="en_lectura.json" ;;
+            Acabado) file="acabados.json" ;;
+            *) echo "Estado inválido: ${{ github.event.inputs.status }}" && exit 1 ;;
+          esac
+
+          # Crear el objeto libro
+          BOOK=$(jq -n \
+            --arg title "${{ github.event.inputs.title }}" \
+            --arg author "${{ github.event.inputs.author }}" \
+            --arg genre "${{ github.event.inputs.genre }}" \
+            --arg year "${{ github.event.inputs.year }}" \
+            '{title: $title, author: $author, genre: $genre, year: $year}')
+
+          # Leer el archivo actual y añadir el libro
+          EXISTING=$(cat Libros/$file)
+          UPDATED=$(echo $EXISTING | jq --argjson book "$BOOK" '.books += [$book]')
+          echo "$UPDATED" > Libros/$file
+
+      # 4. Hacer commit y push de los cambios
+      - name: Commit y push de los cambios
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add Libros/favoritos.json Libros/pendientes.json Libros/en_lectura.json Libros/acabados.json
+          git commit -m "Libro registrado: ${{ github.event.inputs.title }} (Estado: ${{ github.event.inputs.status }})"
+          git push
