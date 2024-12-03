@@ -9,6 +9,10 @@
   - **Autor**: asdasd
   - **Género**: adasd
   - **Año**: adasd
+- **Título**: loco
+  - **Autor**: loco
+  - **Género**: loco
+  - **Año**: loco
 
 ## Acabados
 
@@ -19,4 +23,8 @@
   - **Autor**: asdasd
   - **Género**: adasd
   - **Año**: adasd
+- **Título**: loco
+  - **Autor**: loco
+  - **Género**: loco
+  - **Año**: loco
 
