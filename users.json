@@ -1,3 +1,11 @@
 {
-  "users": []
+  "users": [
+    {
+      "name": "Miguel",
+      "surname": "Vázquez",
+      "birthdate": "08/02/1990",
+      "email": "migue.626@gmail.com",
+      "notifications": "Si"
+    }
+  ]
 }
