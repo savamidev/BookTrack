@@ -28,38 +28,89 @@ jobs:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      # 2. Crear la carpeta `Perfil` si no existe
-      - name: Crear carpeta Perfil
-        run: mkdir -p Perfil
-
-      # 3. Generar archivo README.md personalizado
-      - name: Generar archivo de bienvenida
+      # 2. Crear la carpeta `Usuarios/[nombre_apellido]` si no existe
+      - name: Crear carpeta personal para el usuario
         run: |
-          echo "# 🎉 ¡Hola, ${{ github.event.inputs.name }}!" > Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
-          echo "" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
-          echo "Bienvenido a **BookTrack**, ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}." >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
-          echo "¡Nos alegra que te unas a nuestra comunidad lectora! 📚✨" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
-          echo "" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
-          echo "## 📋 **Tu información personal**" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
-          echo "- **Nombre completo**: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
-          echo "- **Fecha de nacimiento**: ${{ github.event.inputs.birthdate }}" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
-          echo "- **Correo electrónico**: ${{ github.event.inputs.email }}" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
-          echo "- **Notificaciones**: ${{ github.event.inputs.notifications }}" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
-          echo "" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
-          echo "## 🚀 **¿Qué hacer ahora?**" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
-          echo "1. 🌟 **Personaliza tu perfil**: Agrega tus primeras lecturas en la carpeta \`BBDD\`." >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
-          echo "2. 📖 **Explora clubes de lectura**: Únete y comparte tus libros favoritos." >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
-          echo "3. 🎯 **Desafíos grupales**: Participa en retos mensuales." >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
-          echo "" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
-          echo "---" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
-          echo "¡Gracias por unirte a BookTrack, donde cada libro cuenta una historia! 🌍" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+          user_dir="Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}"
+          mkdir -p "$user_dir"
 
-      # 4. Hacer commit y push de los cambios
+      # 3. Guardar los datos del usuario en `Usuarios/users.json`
+      - name: Guardar los datos del usuario en `users.json`
+        run: |
+          user_data=$(jq -n \
+            --arg name "${{ github.event.inputs.name }}" \
+            --arg surname "${{ github.event.inputs.surname }}" \
+            --arg birthdate "${{ github.event.inputs.birthdate }}" \
+            --arg email "${{ github.event.inputs.email }}" \
+            --arg notifications "${{ github.event.inputs.notifications }}" \
+            '{name: $name, surname: $surname, birthdate: $birthdate, email: $email, notifications: $notifications}')
+
+          # Verificar si `users.json` ya existe, si es así, agregar el nuevo usuario
+          if [ -f Usuarios/users.json ]; then
+            jq --argjson new_user "$user_data" '.users += [$new_user]' Usuarios/users.json > temp.json && mv temp.json Usuarios/users.json
+          else
+            # Si `users.json` no existe, crear uno nuevo
+            echo '{"users":['"$user_data"']}' > Usuarios/users.json
+          fi
+
+      # 4. Crear o actualizar el `README.md` con la lista de usuarios
+      - name: Crear o actualizar README.md
+        run: |
+          README="Usuarios/README.md"
+
+          # Si el archivo README.md no existe, crearlo
+          if [ ! -f "$README" ]; then
+            echo "# 📚 **Lista de Usuarios Registrados**" > $README
+            echo "" >> $README
+          fi
+
+          # Añadir el nuevo usuario al README.md
+          echo "## ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}" >> $README
+          echo "- **Nombre completo**: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}" >> $README
+          echo "- **Fecha de nacimiento**: ${{ github.event.inputs.birthdate }}" >> $README
+          echo "- **Correo electrónico**: ${{ github.event.inputs.email }}" >> $README
+          echo "- **Notificaciones**: ${{ github.event.inputs.notifications }}" >> $README
+          echo "" >> $README
+
+      # 5. Crear un README.md creativo y divertido dentro de la carpeta personal del usuario
+      - name: Crear README.md personal para el usuario
+        run: |
+          user_dir="Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}"
+          user_readme="$user_dir/README.md"
+
+          # Crear un README con un mensaje creativo y divertido
+          echo "# 🎉 Bienvenido, ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}!" > $user_readme
+          echo "" >> $user_readme
+          echo "¡Hola, ${{ github.event.inputs.name }}! 😎" >> $user_readme
+          echo "Te damos la bienvenida a tu espacio personal en **BookTrack**, tu lugar para organizar, compartir y explorar tus lecturas. 📚✨" >> $user_readme
+          echo "" >> $user_readme
+          echo "## 📋 **Tus Datos**" >> $user_readme
+          echo "- **Nombre completo**: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}" >> $user_readme
+          echo "- **Fecha de nacimiento**: ${{ github.event.inputs.birthdate }}" >> $user_readme
+          echo "- **Correo electrónico**: ${{ github.event.inputs.email }}" >> $user_readme
+          echo "- **Notificaciones**: ${{ github.event.inputs.notifications }}" >> $user_readme
+          echo "" >> $user_readme
+          echo "## 🚀 **Próximos pasos**" >> $user_readme
+          echo "1. 🌟 **Personaliza tu perfil**: Agrega tus lecturas en la carpeta `Usuarios/`." >> $user_readme
+          echo "2. 📖 **Explora clubes de lectura**: Únete y comparte tus libros favoritos." >> $user_readme
+          echo "3. 🎯 **Desafíos grupales**: Participa en retos mensuales." >> $user_readme
+          echo "" >> $user_readme
+          echo "¡Estamos muy emocionados de tenerte aquí, ${{ github.event.inputs.name }}! Que tus lecturas sean infinitas y siempre encuentres tu próxima gran historia. 📖✨" >> $user_readme
+
+      # 6. Hacer commit y push de los cambios
       - name: Commit y push de los cambios
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
-          git commit -m "Nuevo perfil creado: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}"
-          git push
 
+          # Añadir todos los archivos modificados
+          git add Usuarios/users.json Usuarios/README.md "Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}/README.md"
+
+          # Generar el mensaje de commit dinámicamente
+          commit_message="Nuevo usuario registrado: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}"
+          git commit -m "$commit_message"
+
+          # Realizar el push con el token de autenticación
+          git push
