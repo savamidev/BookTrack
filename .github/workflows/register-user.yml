@@ -33,29 +33,26 @@ jobs:
         run: mkdir -p Perfil
 
       # 3. Generar archivo README.md personalizado
-      - name: Crear archivo de bienvenida
+      - name: Generar archivo de bienvenida
         run: |
-          cat <<EOF > Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
-# 🎉 ¡Hola, ${{ github.event.inputs.name }}!
-
-Bienvenido a **BookTrack**, ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}.  
-¡Nos alegra que te unas a nuestra comunidad lectora! 📚✨  
-
-## 📋 **Tu información personal**  
-- **Nombre completo**: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}  
-- **Fecha de nacimiento**: ${{ github.event.inputs.birthdate }}  
-- **Correo electrónico**: ${{ github.event.inputs.email }}  
-- **Notificaciones**: ${{ github.event.inputs.notifications }}  
-
-## 🚀 **¿Qué hacer ahora?**  
-1. 🌟 **Personaliza tu perfil**: Agrega tus primeras lecturas en la carpeta `BBDD`.  
-2. 📖 **Explora clubes de lectura**: Únete y comparte tus libros favoritos.  
-3. 🎯 **Desafíos grupales**: Participa en retos mensuales.  
-
----
-
-¡Gracias por unirte a BookTrack, donde cada libro cuenta una historia! 🌍  
-EOF
+          echo "# 🎉 ¡Hola, ${{ github.event.inputs.name }}!" > Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+          echo "" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+          echo "Bienvenido a **BookTrack**, ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}." >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+          echo "¡Nos alegra que te unas a nuestra comunidad lectora! 📚✨" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+          echo "" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+          echo "## 📋 **Tu información personal**" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+          echo "- **Nombre completo**: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+          echo "- **Fecha de nacimiento**: ${{ github.event.inputs.birthdate }}" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+          echo "- **Correo electrónico**: ${{ github.event.inputs.email }}" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+          echo "- **Notificaciones**: ${{ github.event.inputs.notifications }}" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+          echo "" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+          echo "## 🚀 **¿Qué hacer ahora?**" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+          echo "1. 🌟 **Personaliza tu perfil**: Agrega tus primeras lecturas en la carpeta \`BBDD\`." >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+          echo "2. 📖 **Explora clubes de lectura**: Únete y comparte tus libros favoritos." >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+          echo "3. 🎯 **Desafíos grupales**: Participa en retos mensuales." >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+          echo "" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+          echo "---" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+          echo "¡Gracias por unirte a BookTrack, donde cada libro cuenta una historia! 🌍" >> Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
 
       # 4. Hacer commit y push de los cambios
       - name: Commit y push de los cambios
@@ -65,3 +62,4 @@ EOF
           git add Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
           git commit -m "Nuevo perfil creado: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}"
           git push
+
