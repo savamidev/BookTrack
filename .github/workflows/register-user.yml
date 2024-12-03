@@ -28,39 +28,40 @@ jobs:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      # 2. Instalar Node.js (necesario para usar jq)
-      - name: Instalar Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
+      # 2. Crear la carpeta `Perfil` si no existe
+      - name: Crear carpeta Perfil
+        run: mkdir -p Perfil
 
-      # 3. Registrar el usuario
-      - name: Registrar usuario
+      # 3. Crear el archivo README.md personalizado
+      - name: Generar archivo de bienvenida
         run: |
-          # Crear el objeto del nuevo usuario
-          USER=$(jq -n \
-            --arg name "${{ github.event.inputs.name }}" \
-            --arg surname "${{ github.event.inputs.surname }}" \
-            --arg birthdate "${{ github.event.inputs.birthdate }}" \
-            --arg email "${{ github.event.inputs.email }}" \
-            --arg notifications "${{ github.event.inputs.notifications }}" \
-            '{name: $name, surname: $surname, birthdate: $birthdate, email: $email, notifications: $notifications}')
+          cat <<EOF > Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+# 🎉 ¡Hola, ${{ github.event.inputs.name }}!
 
-          # Leer el contenido actual de users.json
-          EXISTING_USERS=$(cat users.json)
+Bienvenido a **BookTrack**, ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}.  
+¡Nos alegra que te unas a nuestra comunidad lectora! 📚✨  
 
-          # Añadir el nuevo usuario al archivo
-          UPDATED_USERS=$(echo $EXISTING_USERS | jq --argjson user "$USER" '.users += [$user]')
+## 📋 **Tu información personal**  
+- **Nombre completo**: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}  
+- **Fecha de nacimiento**: ${{ github.event.inputs.birthdate }}  
+- **Correo electrónico**: ${{ github.event.inputs.email }}  
+- **Notificaciones**: ${{ github.event.inputs.notifications }}  
 
-          # Guardar el contenido actualizado en users.json
-          echo "$UPDATED_USERS" > users.json
+## 🚀 **¿Qué hacer ahora?**  
+1. 🌟 **Personaliza tu perfil**: Agrega tus primeras lecturas en la carpeta `BBDD`.  
+2. 📖 **Explora clubes de lectura**: Únete y comparte tus libros favoritos.  
+3. 🎯 **Desafíos grupales**: Participa en retos mensuales.  
+
+---
+
+¡Gracias por unirte a BookTrack, donde cada libro cuenta una historia! 🌍  
+EOF
 
       # 4. Hacer commit de los cambios
       - name: Commit y push de los cambios
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add users.json
-          git commit -m "Nuevo usuario registrado: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}"
+          git add Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
+          git commit -m "Nuevo perfil creado: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}"
           git push
-
