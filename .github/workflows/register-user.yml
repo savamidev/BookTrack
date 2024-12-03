@@ -28,7 +28,7 @@ jobs:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      # 2. Crear la carpeta personal para el usuario dentro de `Usuarios`
+      # 2. Crear carpeta personal para el usuario dentro de `Usuarios`
       - name: Crear carpeta personal para el usuario
         run: |
           user_dir="Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}"
