@@ -20,7 +20,12 @@ jobs:
           echo '{"books":[]}' > Libros/acabados.json
           echo '{"books":[]}' > Libros/favoritos.json
 
-      # 3. Hacer commit y push de los cambios
+      # 3. Eliminar el archivo README.md en la carpeta Libros
+      - name: Eliminar README.md
+        run: |
+          rm -f Libros/README.md
+
+      # 4. Hacer commit y push de los cambios
       - name: Commit y push de los cambios
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -28,5 +33,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add Libros/pendientes.json Libros/en_lectura.json Libros/acabados.json Libros/favoritos.json
-          git commit -m "Limpiar base de datos de libros"
+          git commit -m "Limpiar base de datos de libros y eliminar README.md"
           git push
