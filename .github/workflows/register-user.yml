@@ -47,13 +47,13 @@ jobs:
             '{name: $name, surname: $surname, birthdate: $birthdate, email: $email, notifications: $notifications}')
 
           # Leer el contenido actual de users.json
-          EXISTING_USERS=$(cat BBDD/users.json)
+          EXISTING_USERS=$(cat users.json)
 
           # Añadir el nuevo usuario al archivo
           UPDATED_USERS=$(echo $EXISTING_USERS | jq --argjson user "$USER" '.users += [$user]')
 
           # Guardar el contenido actualizado en users.json
-          echo "$UPDATED_USERS" > BBDD/users.json
+          echo "$UPDATED_USERS" > users.json
 
       # 4. Hacer commit de los cambios
       - name: Commit y push de los cambios
