@@ -32,8 +32,8 @@ jobs:
       - name: Crear carpeta Perfil
         run: mkdir -p Perfil
 
-      # 3. Crear el archivo README.md personalizado
-      - name: Generar archivo de bienvenida
+      # 3. Generar archivo README.md personalizado
+      - name: Crear archivo de bienvenida
         run: |
           cat <<EOF > Perfil/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}.md
 # 🎉 ¡Hola, ${{ github.event.inputs.name }}!
@@ -57,7 +57,7 @@ Bienvenido a **BookTrack**, ${{ github.event.inputs.name }} ${{ github.event.inp
 ¡Gracias por unirte a BookTrack, donde cada libro cuenta una historia! 🌍  
 EOF
 
-      # 4. Hacer commit de los cambios
+      # 4. Hacer commit y push de los cambios
       - name: Commit y push de los cambios
         run: |
           git config --global user.name "github-actions[bot]"
