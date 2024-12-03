@@ -1,4 +1,4 @@
-name: Registrar Libro
+name: Gestionar Base de Datos de Libros
 
 on:
   workflow_dispatch:
@@ -29,7 +29,7 @@ on:
         type: boolean
 
 jobs:
-  add-book:
+  manage-books:
     runs-on: ubuntu-latest
 
     steps:
@@ -68,7 +68,30 @@ jobs:
             echo "$UPDATED_FAVORITES" > Libros/favoritos.json
           fi
 
-      # 3. Hacer commit y push de los cambios
+      # 3. Generar o actualizar el README con los libros registrados
+      - name: Generar o actualizar README
+        run: |
+          README="Libros/README.md"
+
+          # Crear un encabezado si el README no existe
+          if [ ! -f "$README" ]; then
+            echo "# 📚 Base de Datos de Libros" > $README
+            echo "" >> $README
+          fi
+
+          # Reiniciar contenido para actualizar el listado
+          echo "# 📚 Base de Datos de Libros" > $README
+          echo "" >> $README
+
+          for file in pendientes.json en_lectura.json acabados.json favoritos.json; do
+            state=$(echo $file | sed 's/.json//' | sed 's/_/ /g' | sed 's/\b\(.\)/\u\1/g')
+            echo "## $state" >> $README
+            echo "" >> $README
+            jq -r '.books[] | "- **Título**: \(.title)\n  - **Autor**: \(.author)\n  - **Género**: \(.genre)\n  - **Año**: \(.year)"' Libros/$file >> $README
+            echo "" >> $README
+          done
+
+      # 4. Hacer commit y push de los cambios
       - name: Commit y push de los cambios
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -77,7 +100,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
           # Añadir los archivos modificados a la etapa de commit
-          git add Libros/favoritos.json Libros/pendientes.json Libros/en_lectura.json Libros/acabados.json
+          git add Libros/pendientes.json Libros/en_lectura.json Libros/acabados.json Libros/favoritos.json Libros/README.md
 
           # Generar el mensaje de commit dinámicamente
           commit_message="Libro registrado: ${{ github.event.inputs.title }} (Estado: ${{ github.event.inputs.status }}, Favorito: ${{ github.event.inputs.favorite }})"
