@@ -28,12 +28,12 @@ jobs:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      # 2. Crear la carpeta `Usuarios/[nombre_apellido]` si no existe
+      # 2. Crear la carpeta personal para el usuario dentro de `Usuarios`
       - name: Crear carpeta personal para el usuario
         run: |
           user_dir="Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}"
           user_dir=${user_dir// /_}  # Reemplazar espacios por guiones bajos
-          mkdir -p "$user_dir"
+          mkdir -p "$user_dir"  # Crear la carpeta del usuario
 
       # 3. Guardar los datos del usuario en `Usuarios/users.json`
       - name: Guardar los datos del usuario en `users.json`
@@ -54,26 +54,7 @@ jobs:
             echo '{"users":['"$user_data"']}' > Usuarios/users.json
           fi
 
-      # 4. Crear o actualizar el `README.md` con la lista de usuarios
-      - name: Crear o actualizar README.md
-        run: |
-          README="Usuarios/README.md"
-
-          # Si el archivo README.md no existe, crearlo
-          if [ ! -f "$README" ]; then
-            echo "# 📚 **Lista de Usuarios Registrados**" > $README
-            echo "" >> $README
-          fi
-
-          # Añadir el nuevo usuario al README.md
-          echo "## ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}" >> $README
-          echo "- **Nombre completo**: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}" >> $README
-          echo "- **Fecha de nacimiento**: ${{ github.event.inputs.birthdate }}" >> $README
-          echo "- **Correo electrónico**: ${{ github.event.inputs.email }}" >> $README
-          echo "- **Notificaciones**: ${{ github.event.inputs.notifications }}" >> $README
-          echo "" >> $README
-
-      # 5. Crear un README.md creativo y divertido dentro de la carpeta personal del usuario
+      # 4. Crear un `README.md` personalizado dentro de la carpeta del usuario
       - name: Crear README.md personal para el usuario
         run: |
           user_dir="Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}"
@@ -98,6 +79,25 @@ jobs:
           echo "3. 🎯 **Desafíos grupales**: Participa en retos mensuales." >> "$user_readme"
           echo "" >> "$user_readme"
           echo "¡Estamos muy emocionados de tenerte aquí, ${{ github.event.inputs.name }}! Que tus lecturas sean infinitas y siempre encuentres tu próxima gran historia. 📖✨" >> "$user_readme"
+
+      # 5. Crear o actualizar el `README.md` general con la lista de usuarios
+      - name: Crear o actualizar README.md
+        run: |
+          README="Usuarios/README.md"
+
+          # Si el archivo README.md no existe, crearlo
+          if [ ! -f "$README" ]; then
+            echo "# 📚 **Lista de Usuarios Registrados**" > $README
+            echo "" >> $README
+          fi
+
+          # Añadir el nuevo usuario al README.md
+          echo "## ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}" >> $README
+          echo "- **Nombre completo**: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}" >> $README
+          echo "- **Fecha de nacimiento**: ${{ github.event.inputs.birthdate }}" >> $README
+          echo "- **Correo electrónico**: ${{ github.event.inputs.email }}" >> $README
+          echo "- **Notificaciones**: ${{ github.event.inputs.notifications }}" >> $README
+          echo "" >> $README
 
       # 6. Hacer commit y push de los cambios
       - name: Commit y push de los cambios
