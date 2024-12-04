@@ -59,20 +59,24 @@ jobs:
           git log --pretty=format:'- **Mensaje**: %s' >> "$README"
           echo "" >> "$README"
 
-      # 6. Hacer commit de cualquier cambio pendiente antes de hacer `git pull`
+      # 6. Configurar la identidad del usuario para Git
+      - name: Configurar la identidad del usuario de Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      # 7. Hacer commit de cualquier cambio pendiente antes de hacer `git pull`
       - name: Commit cambios pendientes
         run: |
           git add .
           git commit -m "Cometer cambios pendientes antes de git pull"
           
-      # 7. Hacer pull para sincronizar cambios remotos antes de hacer push
+      # 8. Hacer pull para sincronizar cambios remotos antes de hacer push
       - name: Pull de cambios remotos
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git pull origin main --rebase
 
-      # 8. Hacer commit y push de los cambios
+      # 9. Hacer commit y push de los cambios
       - name: Commit y push de los cambios
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
