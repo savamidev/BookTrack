@@ -24,6 +24,17 @@ on:
         options:
           - "Si"
           - "No"
+      book_type:
+        description: 'Tipo de libro (ej. Terror, Fantasía, etc.)'
+        required: true
+        type: choice
+        options:
+          - "Terror"
+          - "Fantasía"
+          - "Ciencia Ficción"
+          - "Misterio"
+          - "Aventura"
+          - "Romántico"
       user_id:
         description: 'Ingresa el ID del usuario (en mayúsculas)'
         required: true
@@ -38,11 +49,11 @@ jobs:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      # 2. Leer el archivo `users.json` para obtener la información del usuario
+      # 2. Leer el archivo `users.json` desde la carpeta `Usuarios/` para obtener la información del usuario
       - name: Leer usuarios de users.json
         id: read_users
         run: |
-          # Leer el archivo `users.json` y obtener la información del usuario
+          # Leer el archivo `Usuarios/users.json` y obtener la información del usuario por su ID
           USERS=$(jq -r '.users[] | select(.id == "${{ github.event.inputs.user_id }}")' Usuarios/users.json)
           USER_NAME=$(echo "$USERS" | jq -r '.name')
           USER_SURNAME=$(echo "$USERS" | jq -r '.surname')
@@ -51,7 +62,7 @@ jobs:
           echo "user_surname=$USER_SURNAME" >> $GITHUB_ENV
           echo "user_email=$USER_EMAIL" >> $GITHUB_ENV
 
-      # 3. Convertir la ID a mayúsculas
+      # 3. Convertir la ID de usuario a mayúsculas
       - name: Convertir el ID de usuario a mayúsculas
         id: convert_id
         run: |
@@ -59,7 +70,7 @@ jobs:
           user_id_upper=$(echo "${{ github.event.inputs.user_id }}" | tr 'a-z' 'A-Z')
           echo "user_id_upper=$user_id_upper" >> $GITHUB_ENV
 
-      # 4. Registrar el libro con la ID del usuario en mayúsculas
+      # 4. Registrar el libro con la ID del usuario en mayúsculas y tipo de libro
       - name: Registrar el libro con la ID del usuario
         run: |
           # Crear el objeto del libro con los datos proporcionados
@@ -68,8 +79,9 @@ jobs:
             --arg author "${{ github.event.inputs.book_author }}" \
             --arg status "${{ github.event.inputs.book_status }}" \
             --arg favorite "${{ github.event.inputs.book_favorite }}" \
+            --arg book_type "${{ github.event.inputs.book_type }}" \
             --arg user_id "${{ env.user_id_upper }}" \
-            '{title: $title, author: $author, status: $status, favorite: $favorite, user_id: $user_id}')
+            '{title: $title, author: $author, status: $status, favorite: $favorite, type: $book_type, user_id: $user_id}')
 
           # Selección de archivo basado en el estado del libro
           case "${{ github.event.inputs.book_status }}" in
@@ -96,9 +108,23 @@ jobs:
             echo '{"books":['"$book_data"']}' > "$target_file"
           fi
 
-      # 5. Crear o actualizar el `README.md` en la carpeta `Libros/` con la información del libro
-      - name: Crear o actualizar README.md en Libros
+          # También agregar el libro en books.json
+          books_json="Libros/books.json"
+          if [ -f "$books_json" ]; then
+            jq --argjson new_book "$book_data" '.books += [$new_book]' "$books_json" > temp.json && mv temp.json "$books_json"
+          else
+            # Si no existe, crear el archivo books.json
+            echo '{"books":['"$book_data"']}' > "$books_json"
+          fi
+
+      # 5. Verificar si el directorio Libros existe y crear el README.md
+      - name: Verificar y crear README.md en Libros
         run: |
+          # Verificar si el directorio Libros existe
+          if [ ! -d "Libros" ]; then
+            mkdir Libros
+          fi
+
           LIBROS_README="Libros/README.md"
           if [ ! -f "$LIBROS_README" ]; then
             echo "# 📚 Información de Libros Registrados" > "$LIBROS_README"
@@ -106,10 +132,11 @@ jobs:
           fi
           # Añadir el libro al README de Libros
           echo "## Título: ${{ github.event.inputs.book_title }}" >> "$LIBROS_README"
-          echo "- **Autor**: ${{ github.event.inputs.book_author }}" >> "$LIBROS/README.md"
-          echo "- **Estado**: ${{ github.event.inputs.book_status }}" >> "$LIBROS/README.md"
-          echo "- **Favorito**: ${{ github.event.inputs.book_favorite }}" >> "$LIBROS/README.md"
-          echo "" >> "$LIBROS/README.md"
+          echo "- **Autor**: ${{ github.event.inputs.book_author }}" >> "$LIBROS_README"
+          echo "- **Estado**: ${{ github.event.inputs.book_status }}" >> "$LIBROS_README"
+          echo "- **Favorito**: ${{ github.event.inputs.book_favorite }}" >> "$LIBROS_README"
+          echo "- **Tipo**: ${{ github.event.inputs.book_type }}" >> "$LIBROS_README"
+          echo "" >> "$LIBROS_README"
 
       # 6. Acceder a la carpeta personal del usuario usando el nombre (nombre_apellido)
       - name: Actualizar el README.md del usuario
@@ -137,6 +164,7 @@ jobs:
           echo "- **Autor**: ${{ github.event.inputs.book_author }}" >> "$USER_README"
           echo "- **Estado**: ${{ github.event.inputs.book_status }}" >> "$USER_README"
           echo "- **Favorito**: ${{ github.event.inputs.book_favorite }}" >> "$USER_README"
+          echo "- **Tipo**: ${{ github.event.inputs.book_type }}" >> "$USER_README"
           echo "" >> "$USER_README"
 
       # 7. Hacer commit y push de los cambios
@@ -148,11 +176,4 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
           # Añadir los archivos modificados
-          git add Libros/books.json Libros/README.md "Usuarios/${{ env.user_name }}_${{ env.user_surname }}/README.md"
-
-          # Commit con mensaje dinámico
-          git commit -m "Registrar libro: ${{ github.event.inputs.book_title }} con ID de usuario ${{ env.user_id_upper }}"
-
-          # Push con el token de autenticación
-          git push
-
+          git add Libros/books.json Libros/README.md "Usuarios/${
