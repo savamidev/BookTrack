@@ -16,3 +16,9 @@ Te damos la bienvenida a tu espacio personal en **BookTrack**, tu lugar para org
 3. 🎯 **Desafíos grupales**: Participa en retos mensuales.
 
 ¡Estamos muy emocionados de tenerte aquí, Miguel! Que tus lecturas sean infinitas y siempre encuentres tu próxima gran historia. 📖✨
+## Libro Añadido: Dune
+- **Autor**: Frank Herbert
+- **Estado**: Leyendo
+- **Favorito**: Si
+- **Tipo**: Ciencia Ficción
+
