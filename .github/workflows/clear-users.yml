@@ -6,36 +6,34 @@ on:
 jobs:
   clear-users:
     runs-on: ubuntu-latest
-    working-directory: ./Usuarios
 
     steps:
       # 1. Descargar el repositorio
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      # 2. Eliminar README de los usuarios
-      - name: Eliminar README de los usuarios
+      # 2. Eliminar todos los archivos excepto `users.json`
+      - name: Eliminar contenido excepto `users.json`
         run: |
-          find . -type f -name "README.md" -delete
+          cd Usuarios
+          # Preservar `users.json` y eliminar todo lo demás
+          find . -type f ! -name "users.json" -delete
+          find . -type d ! -path "." -exec rm -rf {} +
 
-      # 3. Limpiar el archivo de usuarios
+      # 3. Limpiar el archivo `users.json`
       - name: Limpiar archivo de usuarios
         run: |
-          echo '{"users":[]}' > users.json
+          echo '{"users":[]}' > Usuarios/users.json
 
-      # 4. Eliminar carpetas de usuarios
-      - name: Eliminar carpetas de usuarios
-        run: |
-          find . -mindepth 2 -maxdepth 2 -type d -not -path '*/node_modules/*' -exec rm -rf {} +
-          find . -mindepth 2 -maxdepth 2 -type f -not -path '*/node_modules/*' -delete
-
-      # 5. Hacer commit y push de los cambios
+      # 4. Hacer commit y push de los cambios
       - name: Commit y push de los cambios
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Agregar los cambios al repositorio
           git add .
-          git commit -m "Limpiar base de datos de usuarios"
+          git commit -m "Limpiar base de datos de usuarios, preservando users.json"
           git push
