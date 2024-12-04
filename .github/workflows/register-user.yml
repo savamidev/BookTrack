@@ -32,7 +32,6 @@ jobs:
       - name: Generar ID corto
         id: generate-id
         run: |
-          # Crear ID corto alfanumérico fácil de recordar, ejemplo: 1k2, 019
           user_id=$(openssl rand -base64 2 | tr -dc '0-9a-zA-Z' | cut -c1-3)  # ID de 3 caracteres
           echo "user_id=$user_id" >> $GITHUB_ENV
 
@@ -43,7 +42,7 @@ jobs:
           user_dir=${user_dir// /_}  # Reemplazar espacios por guiones bajos
           mkdir -p "$user_dir"  # Crear la carpeta del usuario si no existe
 
-      # 4. Guardar los datos del usuario en `Usuarios/users.json`
+      # 4. Guardar los datos del usuario en `users.json`
       - name: Guardar los datos del usuario en `users.json`
         run: |
           user_data=$(jq -n \
@@ -70,7 +69,6 @@ jobs:
           user_dir=${user_dir// /_}  # Reemplazar espacios por guiones bajos
           user_readme="$user_dir/README.md"
 
-          # Crear un README con un diseño más moderno y estilizado
           echo "# 🌟 Bienvenido a tu perfil, **${{ github.event.inputs.name }}**!" > "$user_readme"
           echo "¡Felicidades! 🎉 Has creado tu perfil personal en nuestro sistema. Aquí puedes encontrar todos los detalles sobre ti mismo." >> "$user_readme"
           echo "---" >> "$user_readme"
