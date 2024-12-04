@@ -1,0 +1,79 @@
+name: Registrar Commits en BBDDrepositorio
+
+on:
+  push:
+    branches:
+      - main  # O cualquier otra rama que desees monitorear
+
+jobs:
+  register-commits:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Descargar el repositorio
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
+
+      # 2. Verificar si la carpeta BBDDrepositorio existe, si no la crea
+      - name: Verificar y crear la carpeta BBDDrepositorio
+        run: |
+          if [ ! -d "BBDDrepositorio" ]; then
+            mkdir BBDDrepositorio
+          fi
+
+      # 3. Obtener la lista de commits del repositorio
+      - name: Obtener los commits
+        id: get_commits
+        run: |
+          # Obtener la lista de commits con la fecha, autor y mensaje
+          git log --pretty=format:'{"author": "%an", "date": "%ad", "message": "%s"}' --date=short > BBDDrepositorio/commits.json
+
+      # 4. Verificar si el archivo commits.json ya existe para actualizarlo
+      - name: Actualizar commits.json
+        run: |
+          # Verificar si el archivo commits.json ya existe
+          if [ -f "BBDDrepositorio/commits.json" ]; then
+            # Si existe, agregar nuevos commits al JSON
+            temp_json="BBDDrepositorio/temp_commits.json"
+            jq '. += ['$(git log --pretty=format:'{"author": "%an", "date": "%ad", "message": "%s"}' --date=short | jq -R -s -c 'split("\n") | map(select(length > 0) | fromjson)')']' BBDDrepositorio/commits.json > "$temp_json" && mv "$temp_json" BBDDrepositorio/commits.json
+          else
+            # Si no existe, crear el archivo JSON
+            git log --pretty=format:'{"author": "%an", "date": "%ad", "message": "%s"}' --date=short | jq -R -s -c 'split("\n") | map(select(length > 0) | fromjson)' > BBDDrepositorio/commits.json
+          fi
+
+      # 5. Verificar si el archivo README.md existe para actualizarlo
+      - name: Actualizar README.md
+        run: |
+          README="BBDDrepositorio/README.md"
+
+          # Si el archivo README.md no existe, crearlo
+          if [ ! -f "$README" ]; then
+            echo "# 📝 Detalle de Commits Realizados" > "$README"
+            echo "Este archivo contiene un resumen de todos los commits realizados en el repositorio." >> "$README"
+            echo "" >> "$README"
+          fi
+
+          # Añadir nuevos commits al README.md
+          echo "## 🚀 Commits Recientes" >> "$README"
+          git log --pretty=format:'### Commit %h' >> "$README"
+          git log --pretty=format:'- **Autor**: %an' >> "$README"
+          git log --pretty=format:'- **Fecha**: %ad' >> "$README"
+          git log --pretty=format:'- **Mensaje**: %s' >> "$README"
+          echo "" >> "$README"
+
+      # 6. Hacer commit y push de los cambios
+      - name: Commit y push de los cambios
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Añadir los archivos modificados
+          git add BBDDrepositorio/commits.json BBDDrepositorio/README.md
+
+          # Commit con mensaje dinámico
+          git commit -m "Actualizar commits en BBDDrepositorio"
+
+          # Push con el token de autenticación
+          git push
