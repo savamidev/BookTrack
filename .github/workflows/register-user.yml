@@ -35,10 +35,11 @@ jobs:
           user_id=$(echo "${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}_$(date +%s)" | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
           echo "user_id=$user_id" >> $GITHUB_ENV
 
-      # 3. Crear la carpeta personal del usuario
+      # 3. Crear la carpeta personal del usuario dentro de Usuarios/
       - name: Crear carpeta personal del usuario
         run: |
-          user_dir="Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}"
+          base_dir="Usuarios"
+          user_dir="$base_dir/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}"
           user_dir=$(echo "$user_dir" | tr '[:upper:]' '[:lower:]' | tr ' ' '_')  # Convertir a minúsculas y reemplazar espacios
           mkdir -p "$user_dir"  # Crear la carpeta del usuario si no existe
           echo "user_dir=$user_dir" >> $GITHUB_ENV
@@ -68,9 +69,12 @@ jobs:
           echo "" >> "$user_readme"
           echo "¡Estamos muy emocionados de tenerte aquí, ${{ github.event.inputs.name }}! Que tus lecturas sean infinitas y siempre encuentres tu próxima gran historia. 📖✨" >> "$user_readme"
 
-      # 5. Actualizar el archivo users.json dentro de la carpeta Usuarios
+      # 5. Actualizar el archivo users.json dentro de Usuarios/
       - name: Actualizar archivo users.json
         run: |
+          base_dir="Usuarios"
+          users_file="$base_dir/users.json"
+
           user_data=$(jq -n \
             --arg id "$user_id" \
             --arg name "${{ github.event.inputs.name }}" \
@@ -81,29 +85,30 @@ jobs:
             '{id: $id, name: $name, surname: $surname, birthdate: $birthdate, email: $email, notifications: $notifications}')
 
           # Verificar si `users.json` ya existe
-          if [ -f Usuarios/users.json ]; then
-            jq --argjson new_user "$user_data" '.users += [$new_user]' Usuarios/users.json > temp.json && mv temp.json Usuarios/users.json
+          if [ -f "$users_file" ]; then
+            jq --argjson new_user "$user_data" '.users += [$new_user]' "$users_file" > temp.json && mv temp.json "$users_file"
           else
             # Si no existe, crearlo
-            echo '{"users":['"$user_data"']}' > Usuarios/users.json
+            echo '{"users":['"$user_data"']}' > "$users_file"
           fi
 
-      # 6. Actualizar el README.md general dentro de la carpeta Usuarios
+      # 6. Actualizar el README.md general dentro de Usuarios/
       - name: Actualizar README.md general
         run: |
-          readme="Usuarios/README.md"
+          base_dir="Usuarios"
+          readme="$base_dir/README.md"
 
           # Crear el archivo si no existe
           if [ ! -f "$readme" ]; then
-            echo "# 📚 **Lista de Usuarios Registrados**" > $readme
-            echo "" >> $readme
+            echo "# 📚 **Lista de Usuarios Registrados**" > "$readme"
+            echo "" >> "$readme"
           fi
 
           # Agregar información del nuevo usuario
-          echo "## ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}" >> $readme
-          echo "- **ID único**: $user_id" >> $readme
-          echo "- **Correo electrónico**: ${{ github.event.inputs.email }}" >> $readme
-          echo "" >> $readme
+          echo "## ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}" >> "$readme"
+          echo "- **ID único**: $user_id" >> "$readme"
+          echo "- **Correo electrónico**: ${{ github.event.inputs.email }}" >> "$readme"
+          echo "" >> "$readme"
 
       # 7. Hacer commit y push de los cambios
       - name: Commit y push de los cambios
