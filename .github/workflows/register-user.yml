@@ -32,6 +32,7 @@ jobs:
       - name: Crear carpeta personal para el usuario
         run: |
           user_dir="Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}"
+          user_dir=$(echo "$user_dir" | tr '[:upper:]' '[:lower:]')  # Convertir a minúsculas
           user_dir=${user_dir// /_}  # Reemplazar espacios por guiones bajos
           mkdir -p "$user_dir"  # Crear la carpeta del usuario
 
@@ -39,8 +40,7 @@ jobs:
       - name: Generar ID único
         id: generate-id
         run: |
-          # Generar un ID único basado en el nombre, apellido y una parte aleatoria
-          user_id="${{ github.event.inputs.name | tolower }}_${{ github.event.inputs.surname | tolower }}_$(date +%s)"
+          user_id=$(echo "${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}_$(date +%s)" | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
           echo "user_id=$user_id" >> $GITHUB_ENV
 
       # 4. Guardar los datos del usuario en `Usuarios/users.json`
@@ -67,6 +67,7 @@ jobs:
       - name: Crear README.md personal para el usuario
         run: |
           user_dir="Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}"
+          user_dir=$(echo "$user_dir" | tr '[:upper:]' '[:lower:]')  # Convertir a minúsculas
           user_dir=${user_dir// /_}  # Reemplazar espacios por guiones bajos
           user_readme="$user_dir/README.md"
 
@@ -124,3 +125,5 @@ jobs:
 
           # Realizar el push con el token de autenticación
           git push
+
+   
