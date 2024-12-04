@@ -6,6 +6,7 @@ on:
 jobs:
   clear-users:
     runs-on: ubuntu-latest
+    working-directory: ./Usuarios
 
     steps:
       # 1. Descargar el repositorio
