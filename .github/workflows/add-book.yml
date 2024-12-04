@@ -25,9 +25,9 @@ on:
           - "Si"
           - "No"
       user_id:
-        description: 'Selecciona el ID del usuario'
+        description: 'Ingresa el ID del usuario (en mayúsculas)'
         required: true
-        type: choice  # Este campo será el desplegable para seleccionar el ID del usuario
+        type: string  # Campo de texto para ingresar la ID del usuario
 
 jobs:
   register-book:
@@ -38,15 +38,15 @@ jobs:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      # 2. Leer los usuarios del archivo users.json y obtener sus IDs
-      - name: Leer usuarios de users.json
-        id: read_users
+      # 2. Obtener el ID del usuario e incluirlo en mayúsculas
+      - name: Convertir el ID de usuario a mayúsculas
+        id: convert_id
         run: |
-          # Leer el archivo users.json y obtener las IDs de los usuarios registrados
-          USERS=$(jq -r '.users[] | .id' Usuarios/users.json)
-          echo "users=$USERS" >> $GITHUB_ENV
+          # Convertir el ID de usuario a mayúsculas
+          user_id_upper=$(echo "${{ github.event.inputs.user_id }}" | tr 'a-z' 'A-Z')
+          echo "user_id_upper=$user_id_upper" >> $GITHUB_ENV
 
-      # 3. Registrar el libro con la ID del usuario seleccionada
+      # 3. Registrar el libro con la ID del usuario en mayúsculas
       - name: Registrar el libro con la ID del usuario
         run: |
           # Crear el objeto del libro con los datos proporcionados
@@ -55,7 +55,7 @@ jobs:
             --arg author "${{ github.event.inputs.book_author }}" \
             --arg status "${{ github.event.inputs.book_status }}" \
             --arg favorite "${{ github.event.inputs.book_favorite }}" \
-            --arg user_id "${{ github.event.inputs.user_id }}" \
+            --arg user_id "${{ env.user_id_upper }}" \
             '{title: $title, author: $author, status: $status, favorite: $favorite, user_id: $user_id}')
 
           # Agregar el libro al archivo de libros
@@ -78,7 +78,7 @@ jobs:
           git add Libros/books.json
 
           # Commit con mensaje dinámico
-          git commit -m "Registrar libro: ${{ github.event.inputs.book_title }} con ID de usuario ${{ github.event.inputs.user_id }}"
+          git commit -m "Registrar libro: ${{ github.event.inputs.book_title }} con ID de usuario ${{ env.user_id_upper }}"
 
           # Push con el token de autenticación
           git push
