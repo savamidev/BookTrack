@@ -132,11 +132,11 @@ jobs:
           fi
           # Añadir el libro al README de Libros
           echo "## Título: ${{ github.event.inputs.book_title }}" >> "$LIBROS_README"
-          echo "- **Autor**: ${{ github.event.inputs.book_author }}" >> "$LIBROS_README"
-          echo "- **Estado**: ${{ github.event.inputs.book_status }}" >> "$LIBROS_README"
-          echo "- **Favorito**: ${{ github.event.inputs.book_favorite }}" >> "$LIBROS_README"
-          echo "- **Tipo**: ${{ github.event.inputs.book_type }}" >> "$LIBROS_README"
-          echo "" >> "$LIBROS_README"
+          echo "- **Autor**: ${{ github.event.inputs.book_author }}" >> "$LIBROS/README.md"
+          echo "- **Estado**: ${{ github.event.inputs.book_status }}" >> "$LIBROS/README.md"
+          echo "- **Favorito**: ${{ github.event.inputs.book_favorite }}" >> "$LIBROS/README.md"
+          echo "- **Tipo**: ${{ github.event.inputs.book_type }}" >> "$LIBROS/README.md"
+          echo "" >> "$LIBROS/README.md"
 
       # 6. Acceder a la carpeta personal del usuario usando el nombre (nombre_apellido)
       - name: Actualizar el README.md del usuario
@@ -176,4 +176,10 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
           # Añadir los archivos modificados
-          git add Libros/books.json Libros/README.md "Usuarios/${
+          git add Libros/books.json Libros/README.md "Usuarios/${{ env.user_name }}_${{ env.user_surname }}/README.md"
+
+          # Commit con mensaje dinámico
+          git commit -m "Registrar libro: ${{ github.event.inputs.book_title }} con ID de usuario ${{ env.user_id_upper }}"
+
+          # Push con el token de autenticación
+          git push
