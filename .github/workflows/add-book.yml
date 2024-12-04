@@ -38,7 +38,20 @@ jobs:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      # 2. Obtener el ID del usuario e incluirlo en mayúsculas
+      # 2. Leer el archivo `users.json` para obtener las IDs de los usuarios
+      - name: Leer usuarios de users.json
+        id: read_users
+        run: |
+          # Leer el archivo `users.json` y obtener la información de los usuarios
+          USERS=$(jq -r '.users[] | select(.id == "${{ github.event.inputs.user_id }}")' Usuarios/users.json)
+          USER_NAME=$(echo "$USERS" | jq -r '.name')
+          USER_SURNAME=$(echo "$USERS" | jq -r '.surname')
+          USER_EMAIL=$(echo "$USERS" | jq -r '.email')
+          echo "user_name=$USER_NAME" >> $GITHUB_ENV
+          echo "user_surname=$USER_SURNAME" >> $GITHUB_ENV
+          echo "user_email=$USER_EMAIL" >> $GITHUB_ENV
+
+      # 3. Convertir la ID a mayúsculas
       - name: Convertir el ID de usuario a mayúsculas
         id: convert_id
         run: |
@@ -46,7 +59,7 @@ jobs:
           user_id_upper=$(echo "${{ github.event.inputs.user_id }}" | tr 'a-z' 'A-Z')
           echo "user_id_upper=$user_id_upper" >> $GITHUB_ENV
 
-      # 3. Registrar el libro con la ID del usuario en mayúsculas
+      # 4. Registrar el libro con la ID del usuario en mayúsculas
       - name: Registrar el libro con la ID del usuario
         run: |
           # Crear el objeto del libro con los datos proporcionados
@@ -66,7 +79,47 @@ jobs:
             echo '{"books":['"$book_data"']}' > Libros/books.json
           fi
 
-      # 4. Hacer commit y push de los cambios
+      # 5. Crear o actualizar el `README.md` en la carpeta `Libros/` con la información del libro
+      - name: Crear o actualizar README.md en Libros
+        run: |
+          LIBROS_README="Libros/README.md"
+          if [ ! -f "$LIBROS_README" ]; then
+            echo "# 📚 Información de Libros Registrados" > "$LIBROS_README"
+            echo "" >> "$LIBROS_README"
+          fi
+          # Añadir el libro al README de Libros
+          echo "## Título: ${{ github.event.inputs.book_title }}" >> "$LIBROS_README"
+          echo "- **Autor**: ${{ github.event.inputs.book_author }}" >> "$LIBROS_README"
+          echo "- **Estado**: ${{ github.event.inputs.book_status }}" >> "$LIBROS_README"
+          echo "- **Favorito**: ${{ github.event.inputs.book_favorite }}" >> "$LIBROS_README"
+          echo "" >> "$LIBROS_README"
+
+      # 6. Crear o actualizar el `README.md` en la carpeta personal del usuario
+      - name: Crear o actualizar README.md en la carpeta personal del usuario
+        run: |
+          USER_DIR="Usuarios/${{ env.user_id_upper }}"
+          USER_README="$USER_DIR/README.md"
+          
+          # Verificar si la carpeta y el archivo README.md del usuario existen
+          if [ ! -d "$USER_DIR" ]; then
+            mkdir -p "$USER_DIR"
+          fi
+          
+          if [ ! -f "$USER_README" ]; then
+            echo "# 📚 Perfil de ${{ env.user_name }} ${{ env.user_surname }}" > "$USER_README"
+            echo "" >> "$USER_README"
+            echo "- **Correo electrónico**: ${{ env.user_email }}" >> "$USER_README"
+            echo "" >> "$USER_README"
+          fi
+          
+          # Añadir el libro al README del usuario
+          echo "## Libro Añadido: ${{ github.event.inputs.book_title }}" >> "$USER_README"
+          echo "- **Autor**: ${{ github.event.inputs.book_author }}" >> "$USER_README"
+          echo "- **Estado**: ${{ github.event.inputs.book_status }}" >> "$USER_README"
+          echo "- **Favorito**: ${{ github.event.inputs.book_favorite }}" >> "$USER_README"
+          echo "" >> "$USER_README"
+
+      # 7. Hacer commit y push de los cambios
       - name: Commit y push de los cambios
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -75,7 +128,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
           # Añadir los archivos modificados
-          git add Libros/books.json
+          git add Libros/books.json Libros/README.md "Usuarios/${{ env.user_id_upper }}/README.md"
 
           # Commit con mensaje dinámico
           git commit -m "Registrar libro: ${{ github.event.inputs.book_title }} con ID de usuario ${{ env.user_id_upper }}"
