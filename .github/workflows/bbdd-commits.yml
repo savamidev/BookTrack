@@ -21,24 +21,22 @@ jobs:
             mkdir BBDDrepositorio
           fi
 
-      # 3. Obtener la lista de commits del repositorio
+      # 3. Obtener los commits y almacenarlos en un archivo temporal
       - name: Obtener los commits
-        id: get_commits
         run: |
           # Obtener la lista de commits con la fecha, autor y mensaje
-          git log --pretty=format:'{"author": "%an", "date": "%ad", "message": "%s"}' --date=short > BBDDrepositorio/commits.json
+          git log --pretty=format:'{"author": "%an", "date": "%ad", "message": "%s"}' --date=short > BBDDrepositorio/temp_commits.json
 
       # 4. Verificar si el archivo commits.json ya existe para actualizarlo
       - name: Actualizar commits.json
         run: |
-          # Verificar si el archivo commits.json ya existe
+          # Si commits.json ya existe, agregar nuevos commits
           if [ -f "BBDDrepositorio/commits.json" ]; then
-            # Si existe, agregar nuevos commits al JSON
-            temp_json="BBDDrepositorio/temp_commits.json"
-            jq '. += ['$(git log --pretty=format:'{"author": "%an", "date": "%ad", "message": "%s"}' --date=short | jq -R -s -c 'split("\n") | map(select(length > 0) | fromjson)')']' BBDDrepositorio/commits.json > "$temp_json" && mv "$temp_json" BBDDrepositorio/commits.json
+            # Fusionar el archivo existente con los nuevos commits
+            jq -s '[.[][]]' BBDDrepositorio/commits.json BBDDrepositorio/temp_commits.json > BBDDrepositorio/commits.json
           else
-            # Si no existe, crear el archivo JSON
-            git log --pretty=format:'{"author": "%an", "date": "%ad", "message": "%s"}' --date=short | jq -R -s -c 'split("\n") | map(select(length > 0) | fromjson)' > BBDDrepositorio/commits.json
+            # Si no existe, renombrar el archivo temporal a commits.json
+            mv BBDDrepositorio/temp_commits.json BBDDrepositorio/commits.json
           fi
 
       # 5. Verificar si el archivo README.md existe para actualizarlo
