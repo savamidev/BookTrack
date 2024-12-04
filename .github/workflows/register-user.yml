@@ -28,12 +28,12 @@ jobs:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      # 2. Generar una ID única fácil de recordar
-      - name: Generar ID único fácil de recordar
+      # 2. Generar ID único
+      - name: Generar ID único
         id: generate-id
         run: |
-          # Generar un ID aleatorio alfanumérico corto (ejemplo: 1k2, 019, etc.)
-          user_id=$(openssl rand -base64 4 | tr -dc '0-9a-zA-Z' | cut -c1-3)  # Generar una cadena aleatoria corta
+          # Crear ID único fácil de recordar con el formato `nombre_apellido_YYYYMMDD`
+          user_id=$(echo "${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}_$(date +%Y%m%d%H%M%S)" | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
           echo "user_id=$user_id" >> $GITHUB_ENV
 
       # 3. Crear la carpeta personal para el usuario dentro de `Usuarios`
@@ -97,8 +97,8 @@ jobs:
 
           # Si el archivo README.md no existe, crearlo
           if [ ! -f "$README" ]; then
-            echo "# 📚 **Lista de Usuarios Registrados**" > $README
-            echo "" >> $README
+            echo "# 📚 **Lista de Usuarios Registrados**" > "$README"
+            echo "" >> "$README"
           fi
 
           # Añadir el nuevo usuario al README.md
