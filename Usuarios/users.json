@@ -1,12 +1,1 @@
-{
-  "users": [
-    {
-      "id": "miguel_vázquez_20241204165556",
-      "name": "Miguel",
-      "surname": "Vázquez",
-      "birthdate": "08/02/1990",
-      "email": "migue.626@gmail.com",
-      "notifications": "Si"
-    }
-  ]
-}
+{"users":[]}
