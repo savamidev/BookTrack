@@ -24,7 +24,80 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # ... (paso 1-5 permanecen iguales)
+      # 1. Descargar el repositorio
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
+
+      # 2. Generar una ID corta y única (3 dígitos)
+      - name: Generar ID corto
+        id: generate-id
+        run: |
+          # Crear ID corto alfanumérico fácil de recordar, ejemplo: 1k2, 019
+          user_id=$(openssl rand -base64 2 | tr -dc '0-9a-zA-Z' | cut -c1-3)  # ID de 3 caracteres
+          echo "user_id=$user_id" >> $GITHUB_ENV
+
+      # 3. Crear la carpeta personal para el usuario con nombre y ID
+      - name: Crear carpeta personal para el usuario
+        run: |
+          user_dir="Usuarios/${{ github.event.inputs.name }}_$user_id"
+          user_dir=${user_dir// /_}  # Reemplazar espacios por guiones bajos
+          mkdir -p "$user_dir"  # Crear la carpeta del usuario si no existe
+
+      # 4. Guardar los datos del usuario en `Usuarios/users.json`
+      - name: Guardar los datos del usuario en `users.json`
+        run: |
+          user_data=$(jq -n \
+            --arg id "$user_id" \
+            --arg name "${{ github.event.inputs.name }}" \
+            --arg surname "${{ github.event.inputs.surname }}" \
+            --arg birthdate "${{ github.event.inputs.birthdate }}" \
+            --arg email "${{ github.event.inputs.email }}" \
+            --arg notifications "${{ github.event.inputs.notifications }}" \
+            '{id: $id, name: $name, surname: $surname, birthdate: $birthdate, email: $email, notifications: $notifications}')
+
+          # Verificar si `users.json` ya existe, si es así, agregar el nuevo usuario
+          if [ -f Usuarios/users.json ]; then
+            jq --argjson new_user "$user_data" '.users += [$new_user]' Usuarios/users.json > temp.json && mv temp.json Usuarios/users.json
+          else
+            # Si `users.json` no existe, crear uno nuevo
+            echo '{"users":['"$user_data"']}' > Usuarios/users.json
+          fi
+
+      # 5. Crear el README.md personalizado dentro de la carpeta del usuario
+      - name: Crear README.md personal para el usuario
+        run: |
+          user_dir="Usuarios/${{ github.event.inputs.name }}_$user_id"
+          user_dir=${user_dir// /_}  # Reemplazar espacios por guiones bajos
+          user_readme="$user_dir/README.md"
+
+          # Crear un README con un diseño más moderno y estilizado
+          echo "# 🌟 Bienvenido a tu perfil, **${{ github.event.inputs.name }}**!" > "$user_readme"
+          echo "¡Felicidades! 🎉 Has creado tu perfil personal en nuestro sistema. Aquí puedes encontrar todos los detalles sobre ti mismo." >> "$user_readme"
+          echo "---" >> "$user_readme"
+          echo "" >> "$user_readme"
+          echo "## 📝 **Tus Datos**" >> "$user_readme"
+          echo "- **Nombre completo**: **${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}**" >> "$user_readme"
+          echo "- **ID único**: \`**$user_id**\`" >> "$user_readme"
+          echo "- **Fecha de nacimiento**: **${{ github.event.inputs.birthdate }}**" >> "$user_readme"
+          echo "- **Correo electrónico**: **${{ github.event.inputs.email }}**" >> "$user_readme"
+          echo "- **Notificaciones**: **${{ github.event.inputs.notifications }}**" >> "$user_readme"
+          echo "---" >> "$user_readme"
+          echo "" >> "$user_readme"
+          echo "## 🌱 **¿Qué puedes hacer ahora?**" >> "$user_readme"
+          echo "- Personaliza tu perfil agregando una biografía o tus intereses." >> "$user_readme"
+          echo "- Conecta tu cuenta con otros servicios o aplicaciones." >> "$user_readme"
+          echo "- Comparte tus logros o actividades." >> "$user_readme"
+          echo "---" >> "$user_readme"
+          echo "" >> "$user_readme"
+          echo "## 💬 **Conéctate con la comunidad**:" >> "$user_readme"
+          echo "Si tienes alguna pregunta o sugerencia, no dudes en contactarnos. ¡Estamos aquí para ayudarte!" >> "$user_readme"
+          echo "---" >> "$user_readme"
+          echo "" >> "$user_readme"
+          echo "## 📅 **Detalles importantes**:" >> "$user_readme"
+          echo "- **Fecha de creación**: *Fecha actual del sistema*" >> "$user_readme"
+          echo "---" >> "$user_readme"
+          echo "" >> "$user_readme"
+          echo "### **¡Gracias por registrarte y bienvenido a bordo!** 🚀" >> "$user_readme"
 
       # 6. Crear o actualizar el README.md global con la lista de usuarios
       - name: Crear o actualizar README.md global
@@ -33,51 +106,32 @@ jobs:
 
           # Si el archivo README.md no existe, crearlo
           if [ ! -f "$README" ]; then
-            echo "# 📚 **Lista de Usuarios Registrados**" > "$README"
-            echo "" >> "$README"
+            echo "# Base de Datos de Usuarios" > "$README"
+            echo "Este archivo contiene información sobre todos los usuarios registrados." >> "$README"
+            echo "---" >> "$README"
           fi
 
-          # Añadir el nuevo usuario al README.md
-          echo "## ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}" >> $README
-          echo "- **ID único**: $user_id" >> $README
-          echo "- **Correo electrónico**: ${{ github.event.inputs.email }}" >> $README
-          echo "" >> $README
+          # Añadir el nuevo usuario al README global
+          echo "## ${user_id} - ${github.event.inputs.name} ${github.event.inputs.surname}" >> "$README"
+          echo "- **ID**: $user_id" >> "$README"
+          echo "- **Nombre**: ${github.event.inputs.name}" >> "$README"
+          echo "- **Correo Electrónico**: ${github.event.inputs.email}" >> "$README"
+          echo "---" >> "$README"
 
-      # 7. Eliminar submódulo si existe
-      - name: Eliminar submódulo si existe
-        run: |
-          git submodule deinit --force "Usuarios/Miguel_Sánchez Vázquez"
-          git rm --cached "Usuarios/Miguel_Sánchez Vázquez"
-          git commit -m "Eliminar submódulo rastreado pero eliminado"
-
-      # 8. Limpiar índice Git
-      - name: Limpiar índice Git
-        run: |
-          git filter-branch --force --index-filter \
-            'git rm -r --cached --ignore-unmatch "Usuarios/Miguel_Sánchez Vázquez"' \
-            --prune-empty --tag-name-filter cat -- --all
-
-      # 9. Actualizar .gitignore
-      - name: Actualizar .gitignore
-        run: |
-          echo "Usuarios/*_Vázquez/*" >> .gitignore
-          git add .gitignore
-          git commit -m "Actualizar .gitignore para evitar rastrear carpetas con Vázquez"
-
-      # 10. Commit y push de los cambios
+      # 7. Realizar commit y push de los cambios
       - name: Commit y push de los cambios
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
           # Añadir todos los archivos modificados
-          git add "Usuarios/users.json" "Usuarios/README.md"
-          
+          git add "Usuarios/users.json" "Usuarios/README.md" "Usuarios/${{ github.event.inputs.name }}_$user_id/README.md"
+
           # Generar el mensaje de commit dinámicamente
-          commit_message="Actualizar estructura de usuarios y limpiar índice Git"
+          commit_message="Nuevo usuario registrado: ${github.event.inputs.name} ${github.event.inputs.surname} (ID: $user_id)"
           git commit -m "$commit_message"
 
           # Realizar el push con el token de autenticación
-          git push origin main --force
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
