@@ -38,11 +38,11 @@ jobs:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      # 2. Leer el archivo `users.json` para obtener las IDs de los usuarios
+      # 2. Leer el archivo `users.json` para obtener la información del usuario
       - name: Leer usuarios de users.json
         id: read_users
         run: |
-          # Leer el archivo `users.json` y obtener la información de los usuarios
+          # Leer el archivo `users.json` y obtener la información del usuario
           USERS=$(jq -r '.users[] | select(.id == "${{ github.event.inputs.user_id }}")' Usuarios/users.json)
           USER_NAME=$(echo "$USERS" | jq -r '.name')
           USER_SURNAME=$(echo "$USERS" | jq -r '.surname')
@@ -106,15 +106,16 @@ jobs:
           fi
           # Añadir el libro al README de Libros
           echo "## Título: ${{ github.event.inputs.book_title }}" >> "$LIBROS_README"
-          echo "- **Autor**: ${{ github.event.inputs.book_author }}" >> "$LIBROS_README"
-          echo "- **Estado**: ${{ github.event.inputs.book_status }}" >> "$LIBROS_README"
-          echo "- **Favorito**: ${{ github.event.inputs.book_favorite }}" >> "$LIBROS_README"
-          echo "" >> "$LIBROS_README"
+          echo "- **Autor**: ${{ github.event.inputs.book_author }}" >> "$LIBROS/README.md"
+          echo "- **Estado**: ${{ github.event.inputs.book_status }}" >> "$LIBROS/README.md"
+          echo "- **Favorito**: ${{ github.event.inputs.book_favorite }}" >> "$LIBROS/README.md"
+          echo "" >> "$LIBROS/README.md"
 
-      # 6. Actualizar el `README.md` en la carpeta personal del usuario
+      # 6. Acceder a la carpeta personal del usuario usando el nombre (nombre_apellido)
       - name: Actualizar el README.md del usuario
         run: |
-          USER_DIR="Usuarios/${{ env.user_id_upper }}"
+          # Construir el nombre de la carpeta del usuario
+          USER_DIR="Usuarios/${{ env.user_name }}_${{ env.user_surname }}"
           USER_README="$USER_DIR/README.md"
           
           # Verificar si la carpeta del usuario existe
@@ -147,10 +148,11 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
           # Añadir los archivos modificados
-          git add Libros/books.json Libros/README.md "Usuarios/${{ env.user_id_upper }}/README.md"
+          git add Libros/books.json Libros/README.md "Usuarios/${{ env.user_name }}_${{ env.user_surname }}/README.md"
 
           # Commit con mensaje dinámico
           git commit -m "Registrar libro: ${{ github.event.inputs.book_title }} con ID de usuario ${{ env.user_id_upper }}"
 
           # Push con el token de autenticación
           git push
+
