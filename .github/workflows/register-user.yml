@@ -63,33 +63,35 @@ jobs:
             echo '{"users":['"$user_data"']}' > Usuarios/users.json
           fi
 
-      # 5. Crear un `README.md` personalizado dentro de la carpeta del usuario
-      - name: Crear README.md personal para el usuario
-        run: |
-          user_dir="Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}"
-          user_dir=${user_dir// /_}  # Reemplazar espacios por guiones bajos
-          user_readme="$user_dir/README.md"
+    - name: Crear README.md personal para el usuario
+  run: |
+    user_dir="Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}"
+    user_dir=${user_dir// /_}  # Reemplazar espacios por guiones bajos
+    user_readme="$user_dir/README.md"
 
-          # Crear un README con un mensaje creativo y divertido
-          echo "# 🎉 Bienvenido, ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}!" > "$user_readme"
-          echo "" >> "$user_readme"
-          echo "¡Hola, ${{ github.event.inputs.name }}! 😎" >> "$user_readme"
-          echo "Te damos la bienvenida a tu espacio personal en **BookTrack**, tu lugar para organizar, compartir y explorar tus lecturas. 📚✨" >> "$user_readme"
-          echo "" >> "$user_readme"
-          echo "## 📋 **Tus Datos**" >> "$user_readme"
-          echo "- **Nombre completo**: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}" >> "$user_readme"
-          echo "- **ID único**: **$user_id** (⚠️ Usa este ID para añadir libros a tu perfil)" >> "$user_readme"
-          echo "- **Fecha de nacimiento**: ${{ github.event.inputs.birthdate }}" >> "$user_readme"
-          echo "- **Correo electrónico**: ${{ github.event.inputs.email }}" >> "$user_readme"
-          echo "- **Notificaciones**: ${{ github.event.inputs.notifications }}" >> "$user_readme"
-          echo "" >> "$user_readme"
-          echo "## 🚀 **Próximos pasos**" >> "$user_readme"
-          echo "1. 🌟 **Personaliza tu perfil**: Agrega tus lecturas en la carpeta `Usuarios/`." >> "$user_readme"
-          echo "2. 📖 **Explora clubes de lectura**: Únete y comparte tus libros favoritos." >> "$user_readme"
-          echo "3. 🎯 **Desafíos grupales**: Participa en retos mensuales." >> "$user_readme"
-          echo "" >> "$user_readme"
-          echo "¡Estamos muy emocionados de tenerte aquí, ${{ github.event.inputs.name }}! Que tus lecturas sean infinitas y siempre encuentres tu próxima gran historia. 📖✨" >> "$user_readme"
-
+    # Crear el archivo README.md solo si no existe
+    if [ ! -f "$user_readme" ]; then
+      # Crear un README con un mensaje creativo y divertido
+      echo "# 🎉 Bienvenido, ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}!" > "$user_readme"
+      echo "" >> "$user_readme"
+      echo "¡Hola, ${{ github.event.inputs.name }}! 😎" >> "$user_readme"
+      echo "Te damos la bienvenida a tu espacio personal en **BookTrack**, tu lugar para organizar, compartir y explorar tus lecturas. 📚✨" >> "$user_readme"
+      echo "" >> "$user_readme"
+      echo "## 📋 **Tus Datos**" >> "$user_readme"
+      echo "- **Nombre completo**: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}" >> "$user_readme"
+      echo "- **ID único**: **$user_id** (⚠️ Usa este ID para añadir libros a tu perfil)" >> "$user_readme"
+      echo "- **Fecha de nacimiento**: ${{ github.event.inputs.birthdate }}" >> "$user_readme"
+      echo "- **Correo electrónico**: ${{ github.event.inputs.email }}" >> "$user_readme"
+      echo "- **Notificaciones**: ${{ github.event.inputs.notifications }}" >> "$user_readme"
+      echo "" >> "$user_readme"
+      echo "## 🚀 **Próximos pasos**" >> "$user_readme"
+      echo "1. 🌟 **Personaliza tu perfil**: Agrega tus lecturas en la carpeta `Usuarios/`." >> "$user_readme"
+      echo "2. 📖 **Explora clubes de lectura**: Únete y comparte tus libros favoritos." >> "$user_readme"
+      echo "3. 🎯 **Desafíos grupales**: Participa en retos mensuales." >> "$user_readme"
+      echo "" >> "$user_readme"
+      echo "¡Estamos muy emocionados de tenerte aquí, ${{ github.event.inputs.name }}! Que tus lecturas sean infinitas y siempre encuentres tu próxima gran historia. 📖✨" >> "$user_readme"
+    fi
+    
       # 6. Crear o actualizar el `README.md` general con la lista de usuarios
       - name: Crear o actualizar README.md
         run: |
