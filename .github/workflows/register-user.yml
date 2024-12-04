@@ -28,12 +28,12 @@ jobs:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      # 2. Generar ID único
-      - name: Generar ID único
+      # 2. Generar una ID corta y única (3 dígitos)
+      - name: Generar ID corto
         id: generate-id
         run: |
-          # Crear ID único fácil de recordar con el formato `nombre_apellido_YYYYMMDD`
-          user_id=$(echo "${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}_$(date +%Y%m%d%H%M%S)" | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
+          # Crear ID corto alfanumérico fácil de recordar, ejemplo: 1k2, 019
+          user_id=$(openssl rand -base64 2 | tr -dc '0-9a-zA-Z' | cut -c1-3)  # ID de 3 caracteres
           echo "user_id=$user_id" >> $GITHUB_ENV
 
       # 3. Crear la carpeta personal para el usuario dentro de `Usuarios`
@@ -41,7 +41,7 @@ jobs:
         run: |
           user_dir="Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}"
           user_dir=${user_dir// /_}  # Reemplazar espacios por guiones bajos
-          mkdir -p "$user_dir"  # Crear la carpeta del usuario
+          mkdir -p "$user_dir"  # Crear la carpeta del usuario si no existe
 
       # 4. Guardar los datos del usuario en `Usuarios/users.json`
       - name: Guardar los datos del usuario en `users.json`
