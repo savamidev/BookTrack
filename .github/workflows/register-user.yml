@@ -42,6 +42,7 @@ jobs:
           user_dir="Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}"
           user_dir=${user_dir// /_}  # Reemplazar espacios por guiones bajos
           mkdir -p "$user_dir"  # Crear la carpeta del usuario si no existe
+          echo "Carpeta creada: $user_dir"
 
       # 4. Guardar los datos del usuario en `Usuarios/users.json`
       - name: Guardar los datos del usuario en `users.json`
@@ -90,7 +91,7 @@ jobs:
           echo "" >> "$user_readme"
           echo "¡Estamos muy emocionados de tenerte aquí, ${{ github.event.inputs.name }}! Que tus lecturas sean infinitas y siempre encuentres tu próxima gran historia. 📖✨" >> "$user_readme"
 
-      # 6. Crear o actualizar el `README.md` general con la lista de usuarios
+      # 6. Crear o actualizar el `README.md` global con la lista de usuarios
       - name: Crear o actualizar README.md global
         run: |
           README="Usuarios/README.md"
