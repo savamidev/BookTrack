@@ -38,6 +38,7 @@ jobs:
       # 3. Crear la carpeta personal para el usuario dentro de `Usuarios`
       - name: Crear carpeta personal para el usuario
         run: |
+          # Reemplazar espacios por guiones bajos y unir nombre completo
           user_dir="Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}"
           user_dir=${user_dir// /_}  # Reemplazar espacios por guiones bajos
           mkdir -p "$user_dir"  # Crear la carpeta del usuario si no existe
@@ -90,17 +91,17 @@ jobs:
           echo "¡Estamos muy emocionados de tenerte aquí, ${{ github.event.inputs.name }}! Que tus lecturas sean infinitas y siempre encuentres tu próxima gran historia. 📖✨" >> "$user_readme"
 
       # 6. Crear o actualizar el `README.md` general con la lista de usuarios
-      - name: Crear o actualizar README.md general
+      - name: Crear o actualizar README.md global
         run: |
           README="Usuarios/README.md"
 
-          # Si el archivo README.md global no existe, crearlo
+          # Si el archivo README.md no existe, crearlo
           if [ ! -f "$README" ]; then
             echo "# 📚 **Lista de Usuarios Registrados**" > "$README"
             echo "" >> "$README"
           fi
 
-          # Añadir los datos del nuevo usuario
+          # Añadir el nuevo usuario al README.md
           echo "## ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}" >> $README
           echo "- **ID único**: $user_id" >> $README
           echo "- **Correo electrónico**: ${{ github.event.inputs.email }}" >> $README
@@ -116,13 +117,10 @@ jobs:
 
           # Añadir todos los archivos modificados (incluyendo los README.md de usuario y global)
           git add "Usuarios/users.json" "Usuarios/README.md" "Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}/README.md"
-
-          # Verificar que los archivos existen antes de hacer commit
-          if [ -f "Usuarios/users.json" ] && [ -f "Usuarios/README.md" ] && [ -f "Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}/README.md" ]; then
-            commit_message="Nuevo usuario registrado: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }} (ID: $user_id)"
-            git commit -m "$commit_message"
-            git push
-          else
-            echo "Error: No se encontraron los archivos necesarios para el commit."
-            exit 1
-          fi
+          
+          # Generar el mensaje de commit dinámicamente
+          commit_message="Nuevo usuario registrado: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }} (ID: $user_id)"
+          git commit -m "$commit_message"
+          
+          # Realizar el push con el token de autenticación
+          git push
