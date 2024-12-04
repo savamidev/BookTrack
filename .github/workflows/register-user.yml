@@ -114,7 +114,27 @@ jobs:
           echo "- **Correo electrónico**: ${{ github.event.inputs.email }}" >> $README
           echo "" >> $README
 
-      # 7. Hacer commit y push de los cambios
+      # 7. Eliminar archivos rastreados pero eliminados físicamente
+      - name: Eliminar archivos rastreados pero eliminados físicamente
+        run: |
+          git rm --cached "Usuarios/Miguel_Sánchez Vázquez/README.md"
+          git commit -m "Eliminar archivo README.md rastreado pero eliminado"
+
+      # 8. Limpiar índice Git
+      - name: Limpiar índice Git
+        run: |
+          git filter-branch --force --index-filter \
+            'git rm -r --cached --ignore-unmatch "Usuarios/Miguel_Sánchez Vázquez/README.md"' \
+            --prune-empty --tag-name-filter cat -- --all
+
+      # 9. Actualizar .gitignore
+      - name: Actualizar .gitignore
+        run: |
+          echo "Usuarios/*_Vázquez/*" >> .gitignore
+          git add .gitignore
+          git commit -m "Actualizar .gitignore para evitar rastrear carpetas con Vázquez"
+
+      # 10. Commit y push de los cambios
       - name: Commit y push de los cambios
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -123,11 +143,11 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
           # Añadir todos los archivos modificados
-          git add "Usuarios/users.json" "Usuarios/README.md" "Usuarios/${{ github.event.inputs.name }}_$user_id/README.md"
-
+          git add "Usuarios/users.json" "Usuarios/README.md"
+          
           # Generar el mensaje de commit dinámicamente
-          commit_message="Nuevo usuario registrado: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }} (ID: $user_id)"
+          commit_message="Actualizar estructura de usuarios y limpiar índice Git"
           git commit -m "$commit_message"
 
           # Realizar el push con el token de autenticación
-          git push
+          git push origin main --force
