@@ -71,12 +71,29 @@ jobs:
             --arg user_id "${{ env.user_id_upper }}" \
             '{title: $title, author: $author, status: $status, favorite: $favorite, user_id: $user_id}')
 
-          # Agregar el libro al archivo de libros
-          if [ -f "Libros/books.json" ]; then
-            jq --argjson new_book "$book_data" '.books += [$new_book]' Libros/books.json > temp.json && mv temp.json Libros/books.json
+          # Selección de archivo basado en el estado del libro
+          case "${{ github.event.inputs.book_status }}" in
+            Leyendo)
+              target_file="Libros/en_lectura.json"
+              ;;
+            Pendiente)
+              target_file="Libros/pendientes.json"
+              ;;
+            Terminado)
+              target_file="Libros/acabados.json"
+              ;;
+            *)
+              echo "Estado no válido, el libro no será registrado."
+              exit 1
+              ;;
+          esac
+
+          # Agregar el libro al archivo correspondiente
+          if [ -f "$target_file" ]; then
+            jq --argjson new_book "$book_data" '.books += [$new_book]' "$target_file" > temp.json && mv temp.json "$target_file"
           else
-            # Si no existe, crear el archivo books.json
-            echo '{"books":['"$book_data"']}' > Libros/books.json
+            # Si no existe, crear el archivo correspondiente
+            echo '{"books":['"$book_data"']}' > "$target_file"
           fi
 
       # 5. Crear o actualizar el `README.md` en la carpeta `Libros/` con la información del libro
@@ -94,17 +111,19 @@ jobs:
           echo "- **Favorito**: ${{ github.event.inputs.book_favorite }}" >> "$LIBROS_README"
           echo "" >> "$LIBROS_README"
 
-      # 6. Crear o actualizar el `README.md` en la carpeta personal del usuario
-      - name: Crear o actualizar README.md en la carpeta personal del usuario
+      # 6. Actualizar el `README.md` en la carpeta personal del usuario
+      - name: Actualizar el README.md del usuario
         run: |
           USER_DIR="Usuarios/${{ env.user_id_upper }}"
           USER_README="$USER_DIR/README.md"
           
-          # Verificar si la carpeta y el archivo README.md del usuario existen
+          # Verificar si la carpeta del usuario existe
           if [ ! -d "$USER_DIR" ]; then
-            mkdir -p "$USER_DIR"
+            echo "La carpeta del usuario no existe."
+            exit 1
           fi
-          
+
+          # Verificar si el archivo README.md del usuario existe
           if [ ! -f "$USER_README" ]; then
             echo "# 📚 Perfil de ${{ env.user_name }} ${{ env.user_surname }}" > "$USER_README"
             echo "" >> "$USER_README"
