@@ -59,14 +59,18 @@ jobs:
           git log --pretty=format:'- **Mensaje**: %s' >> "$README"
           echo "" >> "$README"
 
-      # 6. Hacer commit y push de los cambios
+      # 6. Hacer pull para sincronizar cambios remotos antes de hacer push
+      - name: Pull de cambios remotos
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git pull origin main --rebase
+
+      # 7. Hacer commit y push de los cambios
       - name: Commit y push de los cambios
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
           # Añadir los archivos modificados
           git add BBDDrepositorio/commits.json BBDDrepositorio/README.md
 
