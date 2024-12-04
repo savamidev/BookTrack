@@ -32,17 +32,16 @@ jobs:
       - name: Generar ID corto
         id: generate-id
         run: |
+          # Crear ID corto alfanumérico fácil de recordar, ejemplo: 1k2, 019
           user_id=$(openssl rand -base64 2 | tr -dc '0-9a-zA-Z' | cut -c1-3)  # ID de 3 caracteres
           echo "user_id=$user_id" >> $GITHUB_ENV
 
       # 3. Crear la carpeta personal para el usuario dentro de `Usuarios`
       - name: Crear carpeta personal para el usuario
         run: |
-          # Reemplazar espacios por guiones bajos y unir nombre completo
           user_dir="Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}"
           user_dir=${user_dir// /_}  # Reemplazar espacios por guiones bajos
           mkdir -p "$user_dir"  # Crear la carpeta del usuario si no existe
-          echo "Carpeta creada: $user_dir"
 
       # 4. Guardar los datos del usuario en `Usuarios/users.json`
       - name: Guardar los datos del usuario en `users.json`
@@ -56,42 +55,51 @@ jobs:
             --arg notifications "${{ github.event.inputs.notifications }}" \
             '{id: $id, name: $name, surname: $surname, birthdate: $birthdate, email: $email, notifications: $notifications}')
 
-          # Si `users.json` ya existe, agregar el nuevo usuario
+          # Verificar si `users.json` ya existe, si es así, agregar el nuevo usuario
           if [ -f Usuarios/users.json ]; then
             jq --argjson new_user "$user_data" '.users += [$new_user]' Usuarios/users.json > temp.json && mv temp.json Usuarios/users.json
           else
-            # Si no existe, crear uno nuevo
+            # Si `users.json` no existe, crear uno nuevo
             echo '{"users":['"$user_data"']}' > Usuarios/users.json
           fi
 
-      # 5. Crear un `README.md` personalizado dentro de la carpeta del usuario
+      # 5. Crear el README.md personalizado dentro de la carpeta del usuario
       - name: Crear README.md personal para el usuario
         run: |
           user_dir="Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}"
           user_dir=${user_dir// /_}  # Reemplazar espacios por guiones bajos
           user_readme="$user_dir/README.md"
 
-          # Crear el archivo README.md para el usuario con estilo creativo
-          echo "# 🎉 ¡Bienvenido, ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}!" > "$user_readme"
+          # Crear un README con un diseño más moderno y estilizado
+          echo "# 🌟 Bienvenido a tu perfil, **${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}**!" > "$user_readme"
+          echo "¡Felicidades! 🎉 Has creado tu perfil personal en nuestro sistema. Aquí puedes encontrar todos los detalles sobre ti mismo." >> "$user_readme"
+          echo "---" >> "$user_readme"
           echo "" >> "$user_readme"
-          echo "¡Hola, ${{ github.event.inputs.name }}! 😎" >> "$user_readme"
-          echo "Te damos la bienvenida a tu espacio personal en **BookTrack**, donde podrás organizar y explorar tus lecturas. 📚✨" >> "$user_readme"
+          echo "## 📝 **Tus Datos**" >> "$user_readme"
+          echo "- **Nombre completo**: **${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}**" >> "$user_readme"
+          echo "- **ID único**: \`**$user_id**\`" >> "$user_readme"
+          echo "- **Fecha de nacimiento**: **${{ github.event.inputs.birthdate }}**" >> "$user_readme"
+          echo "- **Correo electrónico**: **${{ github.event.inputs.email }}**" >> "$user_readme"
+          echo "- **Notificaciones**: **${{ github.event.inputs.notifications }}**" >> "$user_readme"
+          echo "---" >> "$user_readme"
           echo "" >> "$user_readme"
-          echo "## 📋 **Tus Datos**" >> "$user_readme"
-          echo "- **Nombre completo**: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}" >> "$user_readme"
-          echo "- **ID único**: **$user_id** (⚠️ Usa este ID para añadir libros a tu perfil)" >> "$user_readme"
-          echo "- **Fecha de nacimiento**: ${{ github.event.inputs.birthdate }}" >> "$user_readme"
-          echo "- **Correo electrónico**: ${{ github.event.inputs.email }}" >> "$user_readme"
-          echo "- **Notificaciones**: ${{ github.event.inputs.notifications }}" >> "$user_readme"
+          echo "## 🌱 **¿Qué puedes hacer ahora?**" >> "$user_readme"
+          echo "- Personaliza tu perfil agregando una biografía o tus intereses." >> "$user_readme"
+          echo "- Conecta tu cuenta con otros servicios o aplicaciones." >> "$user_readme"
+          echo "- Comparte tus logros o actividades." >> "$user_readme"
+          echo "---" >> "$user_readme"
           echo "" >> "$user_readme"
-          echo "## 🚀 **Próximos pasos**" >> "$user_readme"
-          echo "1. 🌟 **Personaliza tu perfil**: Agrega tus lecturas en la carpeta `Usuarios/`." >> "$user_readme"
-          echo "2. 📖 **Explora clubes de lectura**: Únete y comparte tus libros favoritos." >> "$user_readme"
-          echo "3. 🎯 **Desafíos grupales**: Participa en retos mensuales." >> "$user_readme"
+          echo "## 💬 **Conéctate con la comunidad**:" >> "$user_readme"
+          echo "Si tienes alguna pregunta o sugerencia, no dudes en contactarnos. ¡Estamos aquí para ayudarte!" >> "$user_readme"
+          echo "---" >> "$user_readme"
           echo "" >> "$user_readme"
-          echo "¡Estamos muy emocionados de tenerte aquí, ${{ github.event.inputs.name }}! Que tus lecturas sean infinitas y siempre encuentres tu próxima gran historia. 📖✨" >> "$user_readme"
+          echo "## 📅 **Detalles importantes**:" >> "$user_readme"
+          echo "- **Fecha de creación**: *Fecha actual del sistema*" >> "$user_readme"
+          echo "---" >> "$user_readme"
+          echo "" >> "$user_readme"
+          echo "### **¡Gracias por registrarte y bienvenido a bordo!** 🚀" >> "$user_readme"
 
-      # 6. Crear o actualizar el `README.md` global con la lista de usuarios
+      # 6. Crear o actualizar el README.md general con la lista de usuarios
       - name: Crear o actualizar README.md global
         run: |
           README="Usuarios/README.md"
@@ -116,12 +124,12 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Añadir todos los archivos modificados (incluyendo los README.md de usuario y global)
+          # Añadir todos los archivos modificados
           git add "Usuarios/users.json" "Usuarios/README.md" "Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}/README.md"
-          
+
           # Generar el mensaje de commit dinámicamente
           commit_message="Nuevo usuario registrado: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }} (ID: $user_id)"
           git commit -m "$commit_message"
-          
+
           # Realizar el push con el token de autenticación
           git push
