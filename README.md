@@ -1,12 +1,12 @@
 # 📚 **BookTrack**  
 
-¡Hola y bienvenido a **BookTrack**, te presento un proyecto diseñado para simplificar la forma en que gestionas tus lecturas! 
+¡Hola y bienvenido a **BookTrack**, te presentamos un proyecto diseñado para simplificar la forma en que gestionas tus lecturas y compartirlas! 
 
 ---
 
 ## ✨ **¿Qué es BookTrack?**  
-BookTrack es un sistema pensado para:  
-- Desarrollar un sistema de registro de los libros que han leído, están leyendo o quieren leer.  
+Es un sistema pensado para:  
+- Desarrollar un sistema de registro de los libros que has leído, estás leyendo o quieres leer.  
 - Organizar listas de forma clara y ordenada.  
 - Colaborar con otros usuarios mediante nuestros clubes de lectura.  
 
@@ -37,6 +37,12 @@ BookTrack es un sistema pensado para:
 ### 👉 [Crear mi perfil ahora](../../actions/workflows/register-user.yml)
 
 Una vez creado, podrás personalizarlo y empezar a registrar tus lecturas. ¡Haz clic en el enlace y sigue las instrucciones! 🚀  
+
+---
+
+## 💡 **¿Quieres añadir tus libros?**  
+- **Libros**: Necesitarás ir a aqui 👉 [Añadir libro](../../actions/workflows/add-book.yml)
+- **Biblioteca**: Diariamente los administradores verificarán los libros añadidos y en menos de 24h estarán en la biblioteca comunitaria.  
 
 ---
 
