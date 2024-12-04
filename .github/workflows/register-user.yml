@@ -68,7 +68,7 @@ jobs:
           echo "" >> "$user_readme"
           echo "¡Estamos muy emocionados de tenerte aquí, ${{ github.event.inputs.name }}! Que tus lecturas sean infinitas y siempre encuentres tu próxima gran historia. 📖✨" >> "$user_readme"
 
-      # 5. Actualizar el archivo `users.json` con los datos del usuario
+      # 5. Actualizar el archivo users.json dentro de la carpeta Usuarios
       - name: Actualizar archivo users.json
         run: |
           user_data=$(jq -n \
@@ -88,7 +88,7 @@ jobs:
             echo '{"users":['"$user_data"']}' > Usuarios/users.json
           fi
 
-      # 6. Actualizar el README.md general
+      # 6. Actualizar el README.md general dentro de la carpeta Usuarios
       - name: Actualizar README.md general
         run: |
           readme="Usuarios/README.md"
