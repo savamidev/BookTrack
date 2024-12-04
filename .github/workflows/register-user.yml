@@ -117,7 +117,12 @@ jobs:
           # Añadir todos los archivos modificados (incluyendo los README.md de usuario y global)
           git add "Usuarios/users.json" "Usuarios/README.md" "Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}/README.md"
 
-          commit_message="Nuevo usuario registrado: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }} (ID: $user_id)"
-          git commit -m "$commit_message"
-
-          git push
+          # Verificar que los archivos existen antes de hacer commit
+          if [ -f "Usuarios/users.json" ] && [ -f "Usuarios/README.md" ] && [ -f "Usuarios/${{ github.event.inputs.name }}_${{ github.event.inputs.surname }}/README.md" ]; then
+            commit_message="Nuevo usuario registrado: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }} (ID: $user_id)"
+            git commit -m "$commit_message"
+            git push
+          else
+            echo "Error: No se encontraron los archivos necesarios para el commit."
+            exit 1
+          fi
