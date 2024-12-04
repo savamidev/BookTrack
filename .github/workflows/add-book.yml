@@ -9,10 +9,25 @@ on:
       book_author:
         description: 'Autor del libro'
         required: true
+      book_status:
+        description: 'Estado del libro'
+        required: true
+        type: choice
+        options:
+          - "Leyendo"
+          - "Pendiente"
+          - "Terminado"
+      book_favorite:
+        description: '¿Es tu libro favorito?'
+        required: true
+        type: choice
+        options:
+          - "Si"
+          - "No"
       user_id:
         description: 'Selecciona el ID del usuario'
         required: true
-        type: choice  # Aquí seleccionamos el tipo de input como "choice" para mostrar un desplegable
+        type: choice  # Este campo será el desplegable para seleccionar el ID del usuario
 
 jobs:
   register-book:
@@ -23,7 +38,7 @@ jobs:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      # 2. Leer los usuarios del archivo users.json
+      # 2. Leer los usuarios del archivo users.json y obtener sus IDs
       - name: Leer usuarios de users.json
         id: read_users
         run: |
@@ -38,8 +53,10 @@ jobs:
           book_data=$(jq -n \
             --arg title "${{ github.event.inputs.book_title }}" \
             --arg author "${{ github.event.inputs.book_author }}" \
+            --arg status "${{ github.event.inputs.book_status }}" \
+            --arg favorite "${{ github.event.inputs.book_favorite }}" \
             --arg user_id "${{ github.event.inputs.user_id }}" \
-            '{title: $title, author: $author, user_id: $user_id}')
+            '{title: $title, author: $author, status: $status, favorite: $favorite, user_id: $user_id}')
 
           # Agregar el libro al archivo de libros
           if [ -f "Libros/books.json" ]; then
