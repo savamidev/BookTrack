@@ -59,24 +59,32 @@ jobs:
           git log --pretty=format:'- **Mensaje**: %s' >> "$README"
           echo "" >> "$README"
 
-      # 6. Configurar la identidad del usuario para Git
+      # 6. Configurar la identidad del usuario de Git
       - name: Configurar la identidad del usuario de Git
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      # 7. Hacer commit de cualquier cambio pendiente antes de hacer `git pull`
+      # 7. Verificar si hay cambios pendientes antes de hacer commit
+      - name: Comprobar si hay cambios
+        run: |
+          # Verificar si hay cambios
+          git diff --exit-code
+        continue-on-error: true  # Si no hay cambios, continua sin generar error
+
+      # 8. Hacer commit de cualquier cambio pendiente antes de hacer `git pull`
       - name: Commit cambios pendientes
+        if: ${{ steps.comprobar-cambios.outcome == 'success' }}
         run: |
           git add .
           git commit -m "Cometer cambios pendientes antes de git pull"
           
-      # 8. Hacer pull para sincronizar cambios remotos antes de hacer push
+      # 9. Hacer pull para sincronizar cambios remotos antes de hacer push
       - name: Pull de cambios remotos
         run: |
           git pull origin main --rebase
 
-      # 9. Hacer commit y push de los cambios
+      # 10. Hacer commit y push de los cambios
       - name: Commit y push de los cambios
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
