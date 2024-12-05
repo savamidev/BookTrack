@@ -28,29 +28,25 @@ jobs:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      # 2. Instalar herramientas necesarias
-      - name: Instalar jq
-        run: sudo apt-get update && sudo apt-get install -y jq
-
-      # 3. Generar una ID corta y única (3 caracteres)
+      # 2. Generar una ID corta y única (3 dígitos)
       - name: Generar ID corto
         id: generate-id
         run: |
-          user_id=$(head /dev/urandom | tr -dc '0-9a-zA-Z' | head -c 3)
+          user_id=$(openssl rand -base64 2 | tr -dc '0-9a-zA-Z' | cut -c1-3)
           echo "user_id=$user_id" >> $GITHUB_ENV
 
-      # 4. Crear la carpeta personal para el usuario
+      # 3. Crear la carpeta personal para el usuario
       - name: Crear carpeta personal para el usuario
         run: |
           user_dir="Usuarios/${{ github.event.inputs.name }}_${{ env.user_id }}"
           user_dir=${user_dir// /_}  # Reemplazar espacios por guiones bajos
           mkdir -p "$user_dir"
 
-      # 5. Guardar los datos del usuario en `Usuarios/users.json`
-      - name: Actualizar base de datos de usuarios
+      # 4. Guardar los datos del usuario en `users.json`
+      - name: Guardar los datos del usuario en `users.json`
         run: |
           user_data=$(jq -n \
-            --arg id "${env.user_id}" \
+            --arg id "${{ env.user_id }}" \
             --arg name "${{ github.event.inputs.name }}" \
             --arg surname "${{ github.event.inputs.surname }}" \
             --arg birthdate "${{ github.event.inputs.birthdate }}" \
@@ -64,78 +60,49 @@ jobs:
             echo '{"users":['"$user_data"']}' > Usuarios/users.json
           fi
 
-      # 6. Crear README.md personalizado dentro de la carpeta del usuario
-      - name: Crear README.md personal
+      # 5. Crear README.md para el usuario
+      - name: Crear README.md personal para el usuario
         run: |
           user_dir="Usuarios/${{ github.event.inputs.name }}_${{ env.user_id }}"
           user_dir=${user_dir// /_}
           user_readme="$user_dir/README.md"
 
-          cat <<EOF > "$user_readme"
-# 🌟 Bienvenido a tu perfil, **${{ github.event.inputs.name }}**!
-¡Felicidades! 🎉 Has creado tu perfil personal en nuestro sistema. Aquí puedes encontrar todos los detalles sobre ti mismo.
+          echo "# 🌟 Bienvenido, **${{ github.event.inputs.name }}**!" > "$user_readme"
+          echo "Has registrado tu perfil con éxito. Aquí están tus datos:" >> "$user_readme"
+          echo "---" >> "$user_readme"
+          echo "" >> "$user_readme"
+          echo "## 📝 **Tus Datos**" >> "$user_readme"
+          echo "- **Nombre completo**: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}" >> "$user_readme"
+          echo "- **ID único**: ${{ env.user_id }}" >> "$user_readme"
+          echo "- **Fecha de nacimiento**: ${{ github.event.inputs.birthdate }}" >> "$user_readme"
+          echo "- **Correo electrónico**: ${{ github.event.inputs.email }}" >> "$user_readme"
+          echo "- **Notificaciones**: ${{ github.event.inputs.notifications }}" >> "$user_readme"
+          echo "---" >> "$user_readme"
 
-## 📝 **Tus Datos**
-- **Nombre completo**: **${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}**
-- **ID único**: \`${{ env.user_id }}\`
-- **Fecha de nacimiento**: **${{ github.event.inputs.birthdate }}**
-- **Correo electrónico**: **${{ github.event.inputs.email }}**
-- **Notificaciones**: **${{ github.event.inputs.notifications }}**
-
-## 🌱 **¿Qué puedes hacer ahora?**
-- Personaliza tu perfil agregando una biografía o tus intereses.
-- Conecta tu cuenta con otros servicios o aplicaciones.
-- Comparte tus logros o actividades.
-
-## 💬 **Conéctate con la comunidad**
-Si tienes alguna pregunta o sugerencia, no dudes en contactarnos. ¡Estamos aquí para ayudarte!
-
-## 📅 **Detalles importantes**
-- **Fecha de creación**: $(date '+%Y-%m-%d %H:%M:%S')
----
-### **¡Gracias por registrarte y bienvenido a bordo!** 🚀
-EOF
-
-      # 7. Actualizar el README.md global
-      - name: Actualizar README.md global
+      # 6. Actualizar README.md global
+      - name: Crear o actualizar README.md global
         run: |
-          # Asignar variables de entrada a variables de bash
-          user_id="${env.user_id}"
-          user_name="${{ github.event.inputs.name }}"
-          user_surname="${{ github.event.inputs.surname }}"
-          user_email="${{ github.event.inputs.email }}"
-
-          # Archivo README global
           README="Usuarios/README.md"
 
-          # Si el archivo README.md no existe, crearlo
           if [ ! -f "$README" ]; then
             echo "# Base de Datos de Usuarios" > "$README"
             echo "Este archivo contiene información sobre todos los usuarios registrados." >> "$README"
             echo "---" >> "$README"
           fi
 
-          # Añadir el nuevo usuario al README global
-          echo "## ${user_id} - ${user_name} ${user_surname}" >> "$README"
-          echo "- **ID**: ${user_id}" >> "$README"
-          echo "- **Nombre completo**: ${user_name} ${user_surname}" >> "$README"
-          echo "- **Correo Electrónico**: ${user_email}" >> "$README"
+          echo "## ${{ env.user_id }} - ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}" >> "$README"
+          echo "- **ID**: ${{ env.user_id }}" >> "$README"
+          echo "- **Nombre**: ${{ github.event.inputs.name }}" >> "$README"
+          echo "- **Correo Electrónico**: ${{ github.event.inputs.email }}" >> "$README"
           echo "---" >> "$README"
 
-      # 8. Realizar commit y push de los cambios
+      # 7. Commit y push de los cambios
       - name: Commit y push de los cambios
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          git add Usuarios/users.json Usuarios/README.md Usuarios/"${{ github.event.inputs.name }}_${{ env.user_id }}"/README.md
-
-          if git diff --cached --quiet; then
-            echo "No hay cambios para hacer commit."
-          else
-            commit_message="Registro de usuario: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }} (ID: ${env.user_id})"
-            git commit -m "$commit_message"
-            git push
-          fi
+          git add Usuarios/
+          git commit -m "Nuevo usuario registrado: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }} (ID: ${{ env.user_id }})"
+          git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
