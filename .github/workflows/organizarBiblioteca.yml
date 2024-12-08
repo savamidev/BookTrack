@@ -3,7 +3,7 @@ name: Organizar Biblioteca por Tipo
 on:
   push:
     paths:
-      - 'Biblioteca/biblio.json'  # Activa el flujo solo si este archivo se modifica
+      - 'Biblioteca/biblio.json'  # Activar flujo solo si este archivo se modifica
 
 jobs:
   organize-library:
@@ -14,8 +14,8 @@ jobs:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      # 2. Verificar existencia de biblioteca.json y validarlo
-      - name: Verificar existencia de biblioteca.json y validarlo
+      # 2. Limpiar y validar biblio.json
+      - name: Limpiar y validar biblio.json
         run: |
           BIBLIOTECA_JSON="Biblioteca/biblio.json"
           
@@ -25,19 +25,23 @@ jobs:
             exit 1
           fi
 
-          # Intentar leer y validar el archivo JSON con jq
-          if ! jq empty "$BIBLIOTECA_JSON" > /dev/null; then
-            echo "Error: El archivo $BIBLIOTECA_JSON tiene un formato inválido."
-            # Intentar mostrar el error
-            jq . "$BIBLIOTECA_JSON"
+          # Asegurarse de que no haya caracteres extraños o de retorno de carro
+          echo "Limpiando el archivo JSON para eliminar caracteres no visibles..."
+          cat "$BIBLIOTECA_JSON" | tr -d '\r' > Biblioteca/biblio_clean.json
+
+          # Verificar que el archivo limpio sea un JSON válido
+          if ! jq empty Biblioteca/biblio_clean.json > /dev/null; then
+            echo "Error: El archivo biblio_clean.json tiene un formato inválido."
+            # Intentar mostrar el error de jq para que se pueda depurar
+            jq . Biblioteca/biblio_clean.json
             exit 1
           fi
-          echo "El archivo biblio.json es válido."
+          echo "El archivo biblio_clean.json es válido."
 
-      # 3. Leer y procesar biblioteca.json
+      # 3. Leer y procesar biblio_clean.json
       - name: Crear carpetas y actualizar README.md
         run: |
-          BIBLIOTECA_JSON="Biblioteca/biblio.json"
+          BIBLIOTECA_JSON="Biblioteca/biblio_clean.json"  # Usar el archivo limpio para evitar errores
           
           # Leer los tipos únicos de libros
           types=$(jq -r '.books[].type' "$BIBLIOTECA_JSON" | sort | uniq)
