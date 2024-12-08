@@ -11,3 +11,9 @@
 - **Favorito**: No
 - **Tipo**: Ciencia Ficción
 
+## Título: Los amos del mundo
+- **Autor**: Cristina Martín
+- **Estado**: Leyendo
+- **Favorito**: Si
+- **Tipo**: Misterio
+

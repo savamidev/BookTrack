@@ -15,6 +15,14 @@
       "favorite": "Si",
       "type": "Ciencia Ficción",
       "user_id": "ywM"
+    },
+    {
+      "title": "Los amos del mundo",
+      "author": "Cristina Martín",
+      "status": "Leyendo",
+      "favorite": "Si",
+      "type": "Misterio",
+      "user_id": "ywM"
     }
   ]
 }

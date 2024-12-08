@@ -21,3 +21,9 @@ Has registrado tu perfil con éxito. Aquí están tus datos:
 - **Favorito**: No
 - **Tipo**: Ciencia Ficción
 
+## Libro Añadido: Los amos del mundo
+- **Autor**: Cristina Martín
+- **Estado**: Leyendo
+- **Favorito**: Si
+- **Tipo**: Misterio
+
