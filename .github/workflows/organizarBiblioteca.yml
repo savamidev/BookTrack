@@ -3,7 +3,7 @@ name: Organizar Biblioteca por Tipo
 on:
   push:
     paths:
-      - 'Biblioteca/biblioteca.json'
+      - 'Biblioteca/biblioteca.json' # Activa el flujo solo si este archivo se modifica
 
 jobs:
   organize-library:
