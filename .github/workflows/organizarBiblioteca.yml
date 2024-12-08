@@ -3,7 +3,7 @@ name: Organizar Biblioteca por Tipo
 on:
   push:
     paths:
-      - 'Biblioteca/biblioteca.json'
+      - 'Biblioteca/biblioteca.json'  # Detecta cambios en este archivo
 
 jobs:
   organize-library:
@@ -18,7 +18,7 @@ jobs:
       - name: Validar biblioteca.json
         run: |
           BIBLIOTECA_JSON="Biblioteca/biblioteca.json"
-
+          
           # Verificar que el archivo JSON es válido
           if ! jq empty "$BIBLIOTECA_JSON"; then
             echo "Error: El archivo biblioteca.json tiene un formato inválido."
@@ -29,21 +29,19 @@ jobs:
       # 3. Leer y procesar biblioteca.json
       - name: Procesar biblioteca.json
         run: |
-          # Definir ruta al archivo JSON
           BIBLIOTECA_JSON="Biblioteca/biblioteca.json"
-
+          
           # Leer los tipos únicos y procesar libros
           types=$(jq -r '.books[].type' "$BIBLIOTECA_JSON" | sort | uniq)
-
-          # Procesar cada tipo y organizar
+          
           for type in $types; do
             # Crear carpeta para cada tipo si no existe
             type_dir="Libros/$type"
             mkdir -p "$type_dir"
-
+  
             # Ruta al README.md dentro de la carpeta
             readme="$type_dir/README.md"
-
+  
             # Crear README.md si no existe
             if [ ! -f "$readme" ]; then
               echo "# 📚 Libros de $type" > "$readme"
@@ -51,7 +49,7 @@ jobs:
               echo "---" >> "$readme"
               echo "" >> "$readme"
             fi
-
+  
             # Añadir libros al README.md
             books=$(jq -c ".books[] | select(.type==\"$type\")" "$BIBLIOTECA_JSON")
             for book in $books; do
@@ -59,7 +57,7 @@ jobs:
               author=$(echo "$book" | jq -r '.author')
               status=$(echo "$book" | jq -r '.status')
               favorite=$(echo "$book" | jq -r '.favorite')
-
+  
               # Verificar si el libro ya está en el README
               if ! grep -q "## $title" "$readme"; then
                 echo "## $title" >> "$readme"
