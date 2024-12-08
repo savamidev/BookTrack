@@ -1,9 +1,9 @@
-name: Actualizar BBDD Biblioteca
+name: Actualizar Biblioteca
 
 on:
   push:
     paths:
-      - 'Libros/books.json' # Se activa cuando books.json cambia
+      - 'Libros/books.json'  # Aseguramos que GitHub detecte cambios en este archivo
 
 jobs:
   update-library:
