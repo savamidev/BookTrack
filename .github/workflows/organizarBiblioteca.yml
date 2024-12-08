@@ -86,4 +86,3 @@ jobs:
           git add Libros/
           git commit -m "Organizar biblioteca por tipo y actualizar README.md de libros" || echo "No hay cambios para commitear."
           git push
-
