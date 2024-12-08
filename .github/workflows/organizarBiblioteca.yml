@@ -3,7 +3,7 @@ name: Organizar Biblioteca por Tipo
 on:
   push:
     paths:
-      - 'Biblioteca/biblioteca.json'  # Detecta cambios en este archivo
+      - 'Biblioteca/biblioteca.json'  # Activa el flujo solo si este archivo se modifica
 
 jobs:
   organize-library:
@@ -14,42 +14,42 @@ jobs:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      # 2. Validar biblioteca.json
-      - name: Validar biblioteca.json
+      # 2. Verificar que el archivo biblioteca.json existe
+      - name: Verificar existencia de biblioteca.json
         run: |
           BIBLIOTECA_JSON="Biblioteca/biblioteca.json"
           
-          # Verificar que el archivo JSON es válido
-          if ! jq empty "$BIBLIOTECA_JSON"; then
-            echo "Error: El archivo biblioteca.json tiene un formato inválido."
+          # Verificar si el archivo JSON existe
+          if [ ! -f "$BIBLIOTECA_JSON" ]; then
+            echo "El archivo $BIBLIOTECA_JSON no existe."
             exit 1
           fi
-          echo "El archivo biblioteca.json es válido."
 
       # 3. Leer y procesar biblioteca.json
-      - name: Procesar biblioteca.json
+      - name: Crear carpetas y actualizar README.md
         run: |
           BIBLIOTECA_JSON="Biblioteca/biblioteca.json"
           
-          # Leer los tipos únicos y procesar libros
+          # Leer los tipos únicos de libros
           types=$(jq -r '.books[].type' "$BIBLIOTECA_JSON" | sort | uniq)
-          
+
+          # Procesar cada tipo de libro
           for type in $types; do
-            # Crear carpeta para cada tipo si no existe
+            # Crear la carpeta para cada tipo si no existe
             type_dir="Libros/$type"
             mkdir -p "$type_dir"
-  
+
             # Ruta al README.md dentro de la carpeta
             readme="$type_dir/README.md"
-  
-            # Crear README.md si no existe
+
+            # Crear o modificar el README.md
             if [ ! -f "$readme" ]; then
               echo "# 📚 Libros de $type" > "$readme"
               echo "Bienvenido a la colección de libros de **$type**. Aquí encontrarás los libros clasificados por este género." >> "$readme"
               echo "---" >> "$readme"
               echo "" >> "$readme"
             fi
-  
+
             # Añadir libros al README.md
             books=$(jq -c ".books[] | select(.type==\"$type\")" "$BIBLIOTECA_JSON")
             for book in $books; do
@@ -57,7 +57,7 @@ jobs:
               author=$(echo "$book" | jq -r '.author')
               status=$(echo "$book" | jq -r '.status')
               favorite=$(echo "$book" | jq -r '.favorite')
-  
+
               # Verificar si el libro ya está en el README
               if ! grep -q "## $title" "$readme"; then
                 echo "## $title" >> "$readme"
