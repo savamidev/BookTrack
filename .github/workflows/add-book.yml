@@ -36,7 +36,7 @@ on:
           - "Aventura"
           - "Romántico"
       user_id:
-        description: 'Ingresa el ID del usuario (en mayúsculas)'
+        description: 'Ingresa el ID del usuario (Diferencias entre mayúsculas y minúsculas)'
         required: true
         type: string  # Campo de texto para ingresar la ID del usuario
 
@@ -138,11 +138,11 @@ jobs:
           echo "- **Tipo**: ${{ github.event.inputs.book_type }}" >> "$LIBROS_README"
           echo "" >> "$LIBROS_README"
 
-      # 6. Acceder a la carpeta personal del usuario usando el nombre (nombre_apellido)
+      # 6. Acceder a la carpeta personal del usuario usando el nombre (nombre_id)
       - name: Actualizar el README.md del usuario
         run: |
           # Construir el nombre de la carpeta del usuario
-          USER_DIR="Usuarios/${{ env.user_name }}_${{ env.user_surname }}"
+          USER_DIR="Usuarios/${{ env.user_name }}_${{ env.user_id }}"
           USER_README="$USER_DIR/README.md"
           
           # Verificar si la carpeta del usuario existe
