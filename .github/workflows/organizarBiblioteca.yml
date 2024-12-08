@@ -3,7 +3,7 @@ name: Organizar Biblioteca por Tipo
 on:
   push:
     paths:
-      - 'Biblioteca/biblioteca.json'  # Activar flujo cuando se modifique biblioteca.json
+      - 'Biblioteca/biblioteca.json'  # Activa el flujo solo si este archivo se modifica
 
 jobs:
   organize-library:
@@ -25,9 +25,11 @@ jobs:
             exit 1
           fi
 
-          # Verificar que el archivo JSON sea válido
+          # Intentar leer y validar el archivo JSON con jq
           if ! jq empty "$BIBLIOTECA_JSON" > /dev/null; then
             echo "Error: El archivo $BIBLIOTECA_JSON tiene un formato inválido."
+            # Intentar mostrar el error
+            jq . "$BIBLIOTECA_JSON"
             exit 1
           fi
           echo "El archivo biblioteca.json es válido."
