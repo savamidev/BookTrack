@@ -3,7 +3,7 @@ name: Organizar Biblioteca por Tipo
 on:
   push:
     paths:
-      - 'Biblioteca/biblioteca.json'  # Activa el flujo solo si este archivo se modifica
+      - 'Biblioteca/biblio.json'  # Activa el flujo solo si este archivo se modifica
 
 jobs:
   organize-library:
@@ -17,7 +17,7 @@ jobs:
       # 2. Verificar existencia de biblioteca.json y validarlo
       - name: Verificar existencia de biblioteca.json y validarlo
         run: |
-          BIBLIOTECA_JSON="Biblioteca/biblioteca.json"
+          BIBLIOTECA_JSON="Biblioteca/biblio.json"
           
           # Verificar si el archivo JSON existe
           if [ ! -f "$BIBLIOTECA_JSON" ]; then
@@ -32,12 +32,12 @@ jobs:
             jq . "$BIBLIOTECA_JSON"
             exit 1
           fi
-          echo "El archivo biblioteca.json es válido."
+          echo "El archivo biblio.json es válido."
 
       # 3. Leer y procesar biblioteca.json
       - name: Crear carpetas y actualizar README.md
         run: |
-          BIBLIOTECA_JSON="Biblioteca/biblioteca.json"
+          BIBLIOTECA_JSON="Biblioteca/biblio.json"
           
           # Leer los tipos únicos de libros
           types=$(jq -r '.books[].type' "$BIBLIOTECA_JSON" | sort | uniq)
