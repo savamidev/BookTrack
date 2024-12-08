@@ -62,14 +62,7 @@ jobs:
           echo "user_surname=$USER_SURNAME" >> $GITHUB_ENV
           echo "user_email=$USER_EMAIL" >> $GITHUB_ENV
 
-      # 3. Convertir la ID de usuario a mayúsculas
-      - name: Convertir el ID de usuario a mayúsculas
-        id: convert_id
-        run: |
-          # Convertir el ID de usuario a mayúsculas
-          user_id_upper=$(echo "${{ github.event.inputs.user_id }}" | tr 'a-z' 'A-Z')
-          echo "user_id_upper=$user_id_upper" >> $GITHUB_ENV
-
+    
       # 4. Registrar el libro con la ID del usuario en mayúsculas y tipo de libro
       - name: Registrar el libro con la ID del usuario
         run: |
