@@ -1,3 +1,20 @@
 {
-  "books": []
+  "books": [
+    {
+      "title": "Dune",
+      "author": "Frank Herbert",
+      "status": "Leyendo",
+      "favorite": "Si",
+      "type": "Ciencia Ficción",
+      "user_id": "ywM"
+    },
+    {
+      "title": "Hábitos Atómicos",
+      "author": "James Clear",
+      "status": "Leyendo",
+      "favorite": "Si",
+      "type": "Ciencia Ficción",
+      "user_id": "ywM"
+    }
+  ]
 }
