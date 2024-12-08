@@ -130,7 +130,7 @@ jobs:
       # 6. Actualizar el README.md del usuario
       - name: Actualizar el README.md del usuario
         run: |
-          USER_DIR="Usuarios/${{ env.user_name }}_${{ env.user_id }}"
+          USER_DIR="Usuarios/${{ env.user_name }}_${{ github.event.inputs.user_id }}"
           USER_README="$USER_DIR/README.md"
 
           if [ ! -d "$USER_DIR" ]; then
