@@ -20,7 +20,11 @@ jobs:
           BIBLIOTECA_JSON="Biblioteca/biblioteca.json"
 
           # Verificar que el archivo JSON es válido
-          jq empty "$BIBLIOTECA_JSON" || { echo "Error: El archivo biblioteca.json tiene un formato inválido."; exit 1; }
+          if ! jq empty "$BIBLIOTECA_JSON"; then
+            echo "Error: El archivo biblioteca.json tiene un formato inválido."
+            exit 1
+          fi
+          echo "El archivo biblioteca.json es válido."
 
       # 3. Leer y procesar biblioteca.json
       - name: Procesar biblioteca.json
@@ -30,6 +34,8 @@ jobs:
 
           # Leer los tipos únicos y procesar libros
           types=$(jq -r '.books[].type' "$BIBLIOTECA_JSON" | sort | uniq)
+
+          # Procesar cada tipo y organizar
           for type in $types; do
             # Crear carpeta para cada tipo si no existe
             type_dir="Libros/$type"
@@ -80,3 +86,4 @@ jobs:
           git add Libros/
           git commit -m "Organizar biblioteca por tipo y actualizar README.md de libros" || echo "No hay cambios para commitear."
           git push
+
