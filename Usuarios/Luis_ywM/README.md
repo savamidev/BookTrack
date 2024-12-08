@@ -9,3 +9,9 @@ Has registrado tu perfil con éxito. Aquí están tus datos:
 - **Correo electrónico**: migue.626@gmail.com
 - **Notificaciones**: Si
 ---
+## Libro Añadido: Dune
+- **Autor**: Frank Herbert
+- **Estado**: Leyendo
+- **Favorito**: Si
+- **Tipo**: Ciencia Ficción
+
