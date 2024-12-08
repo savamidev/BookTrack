@@ -3,7 +3,7 @@ name: Organizar Biblioteca por Tipo
 on:
   push:
     paths:
-      - 'Biblioteca/biblioteca.json' # Activa el flujo solo si este archivo se modifica
+      - 'Biblioteca/biblioteca.json'
 
 jobs:
   organize-library:
@@ -14,17 +14,19 @@ jobs:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      # 2. Leer y procesar biblioteca.json
+      # 2. Validar biblioteca.json
+      - name: Validar biblioteca.json
+        run: |
+          BIBLIOTECA_JSON="Biblioteca/biblioteca.json"
+
+          # Verificar que el archivo JSON es válido
+          jq empty "$BIBLIOTECA_JSON" || { echo "Error: El archivo biblioteca.json tiene un formato inválido."; exit 1; }
+
+      # 3. Leer y procesar biblioteca.json
       - name: Procesar biblioteca.json
         run: |
           # Definir ruta al archivo JSON
           BIBLIOTECA_JSON="Biblioteca/biblioteca.json"
-
-          # Verificar que el archivo existe
-          if [ ! -f "$BIBLIOTECA_JSON" ]; then
-            echo "El archivo $BIBLIOTECA_JSON no existe. Deteniendo el flujo de trabajo."
-            exit 1
-          fi
 
           # Leer los tipos únicos y procesar libros
           types=$(jq -r '.books[].type' "$BIBLIOTECA_JSON" | sort | uniq)
@@ -67,13 +69,14 @@ jobs:
             done
           done
 
-      # 3. Hacer commit y push de los cambios
+      # 4. Hacer commit y push de los cambios
       - name: Commit y push de los cambios
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
           git add Libros/
-          git commit -m "Actualizar sistema de carpetas por tipo y README.md de libros"
+          git commit -m "Organizar biblioteca por tipo y actualizar README.md de libros" || echo "No hay cambios para commitear."
           git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
