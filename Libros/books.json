@@ -7,6 +7,14 @@
       "favorite": "Si",
       "type": "Ciencia Ficción",
       "user_id": "ywM"
+    },
+    {
+      "title": "Hábitos Atómicos",
+      "author": "James Clear",
+      "status": "Leyendo",
+      "favorite": "No",
+      "type": "Ciencia Ficción",
+      "user_id": "ywM"
     }
   ]
 }

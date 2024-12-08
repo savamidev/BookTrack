@@ -15,3 +15,9 @@ Has registrado tu perfil con éxito. Aquí están tus datos:
 - **Favorito**: Si
 - **Tipo**: Ciencia Ficción
 
+## Libro Añadido: Hábitos Atómicos
+- **Autor**: James Clear
+- **Estado**: Leyendo
+- **Favorito**: No
+- **Tipo**: Ciencia Ficción
+
