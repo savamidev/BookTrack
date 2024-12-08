@@ -25,6 +25,10 @@ jobs:
             exit 1
           fi
 
+          # Mostrar el contenido del archivo JSON para depuración
+          echo "Contenido de biblio.json:"
+          cat "$BIBLIOTECA_JSON"
+
           # Asegurarse de que no haya caracteres extraños o de retorno de carro
           echo "Limpiando el archivo JSON para eliminar caracteres no visibles..."
           cat "$BIBLIOTECA_JSON" | tr -d '\r' > Biblioteca/biblio_clean.json
