@@ -3,7 +3,7 @@ name: Organizar Biblioteca por Tipo
 on:
   push:
     paths:
-      - 'Biblioteca/biblioteca.json'  # Activa el flujo solo si este archivo se modifica
+      - 'Biblioteca/biblioteca.json'  # Activar flujo cuando se modifique biblioteca.json
 
 jobs:
   organize-library:
@@ -14,8 +14,8 @@ jobs:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      # 2. Verificar que el archivo biblioteca.json existe
-      - name: Verificar existencia de biblioteca.json
+      # 2. Verificar existencia de biblioteca.json y validarlo
+      - name: Verificar existencia de biblioteca.json y validarlo
         run: |
           BIBLIOTECA_JSON="Biblioteca/biblioteca.json"
           
@@ -24,6 +24,13 @@ jobs:
             echo "El archivo $BIBLIOTECA_JSON no existe."
             exit 1
           fi
+
+          # Verificar que el archivo JSON sea válido
+          if ! jq empty "$BIBLIOTECA_JSON" > /dev/null; then
+            echo "Error: El archivo $BIBLIOTECA_JSON tiene un formato inválido."
+            exit 1
+          fi
+          echo "El archivo biblioteca.json es válido."
 
       # 3. Leer y procesar biblioteca.json
       - name: Crear carpetas y actualizar README.md
