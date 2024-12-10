@@ -31,3 +31,10 @@
 - 🔖 **Tipo**: _Ciencia Ficción_
 
 ---
+## 📚 **Nuevo Libro Añadido: Los amos del mundo**
+- ✍️ **Autor**: Cristina Martín
+- 📖 **Estado**: _Leyendo_
+- ❤️ **Favorito**: Si
+- 🔖 **Tipo**: _Terror_
+
+---
