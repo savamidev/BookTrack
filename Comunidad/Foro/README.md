@@ -5,8 +5,8 @@
 ## 🌟 **¿Cómo participar?**
 
 1. **Únete a un hilo de conversación**: Cada libro propuesto tiene su propio hilo, y dentro de cada hilo se pueden abrir nuevos temas de discusión.
-2. **Crea tu propio tema**: Si tienes una reflexión o pregunta que te gustaría discutir, crea un nuevo tema en el foro.
-3. **Responde a otros**: No olvides interactuar con otros miembros del club, responder sus comentarios y compartir tus propias opiniones.
+2. **[Crea tu propio tema](https://github.com/savamidev/BookTrack/issues)**: Si tienes una reflexión o pregunta que te gustaría discutir, crea un nuevo tema en el foro.
+   - Label: Crear tema foro 🖌️
 
 ---
 
