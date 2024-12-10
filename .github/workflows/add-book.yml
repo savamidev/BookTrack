@@ -107,39 +107,16 @@ jobs:
             echo '{"books":['"$book_data"']}' > "$books_json"
           fi
 
-      # 5. Actualizar README.md en la carpeta Libros
-      - name: Actualizar README.md en Libros
-        run: |
-          if [ ! -d "Libros" ]; then
-            mkdir Libros
-          fi
-
-          LIBROS_README="Libros/README.md"
-          if [ ! -f "$LIBROS_README" ]; then
-            echo "# 📚 Información de Libros Registrados" > "$LIBROS_README"
-            echo "" >> "$LIBROS_README"
-          fi
-
-          echo "## Título: ${{ github.event.inputs.book_title }}" >> "$LIBROS_README"
-          echo "- **Autor**: ${{ github.event.inputs.book_author }}" >> "$LIBROS_README"
-          echo "- **Estado**: ${{ github.event.inputs.book_status }}" >> "$LIBROS_README"
-          echo "- **Favorito**: ${{ github.event.inputs.book_favorite }}" >> "$LIBROS_README"
-          echo "- **Tipo**: ${{ github.event.inputs.book_type }}" >> "$LIBROS_README"
-          echo "" >> "$LIBROS_README"
-          
-      # 6. Actualizar el README.md del usuario
+      # 5. Actualizar el README.md del usuario
       - name: Actualizar el README.md del usuario
         run: |
           USER_DIR="Usuarios/${{ env.user_name }}_${{ github.event.inputs.user_id }}"
           USER_README="$USER_DIR/README.md"
 
-          echo "USER_DIR: $USER_DIR"
-          echo "USER_README: $USER_README"
-
           # Verificar si el directorio del usuario existe, si no, crear el directorio
           if [ ! -d "$USER_DIR" ]; then
-            echo "La carpeta del usuario no existe, creando..."
-            mkdir -p "$USER_DIR"  # Crea el directorio y sus subdirectorios si no existen
+            echo "Creando la carpeta del usuario..."
+            mkdir -p "$USER_DIR"
           fi
 
           # Verificar si el archivo README.md del usuario existe, si no, crearlo
@@ -150,36 +127,22 @@ jobs:
             echo "" >> "$USER_README"
           fi
 
-          # Agregar los detalles del libro al README.md
-          echo "# 📚 **Detalles del Libro: ${{ github.event.inputs.book_title }}** 📚" >> "$USER_README"
-          echo "¡Aquí tienes toda la información sobre el libro! 🌟" >> "$USER_README"
-          echo "---" >> "$USER_README"
-          echo "" >> "$USER_README"
-          echo "## ✍️ **Autor**: ${{ github.event.inputs.book_author }} 👨‍💻" >> "$USER_README"
-          echo "- Un escritor reconocido por su estilo único y su contribución al mundo literario. 📖" >> "$USER_README"
-          echo "" >> "$USER_README"
-          echo "## 📖 **Estado**: ${{ github.event.inputs.book_status }} 📌" >> "$USER_README"
-          echo "- ¿Estás leyendo este libro? ¿Lo has terminado o está en tu lista de pendientes? 📅" >> "$USER_README"
-          echo "" >> "$USER_README"
-          echo "## ❤️ **¿Es tu libro favorito?**: ${{ github.event.inputs.book_favorite }} ⭐" >> "$USER_README"
-          echo "- ¿Te enamoraste de la historia? O tal vez no tanto... ¡Cuéntanos por qué! 💬" >> "$USER_README"
-          echo "- [Investiga la Comunidad y cuéntanos!](https://github.com/savamidev/BookTrack/tree/15ec9e01d2d1cc4414761866cdc42dbf9581f510/Biblioteca)" >> "$USER_README"
-          echo "" >> "$USER_README"
-          echo "## 🔖 **Tipo de libro**: ${{ github.event.inputs.book_type }} 📚" >> "$USER_README"
-          echo "- ¿Es una novela de fantasía, ciencia ficción, misterio o algo completamente diferente? 🌠" >> "$USER_README"
+          # Agregar los detalles del libro al README.md del usuario
+          echo "## 📖 **Detalles del Libro: ${{ github.event.inputs.book_title }}**" >> "$USER_README"
+          echo "- **Autor**: ${{ github.event.inputs.book_author }}" >> "$USER_README"
+          echo "- **Estado**: ${{ github.event.inputs.book_status }}" >> "$USER_README"
+          echo "- **Favorito**: ${{ github.event.inputs.book_favorite }}" >> "$USER_README"
+          echo "- **Tipo**: ${{ github.event.inputs.book_type }}" >> "$USER_README"
           echo "---" >> "$USER_README"
           echo "" >> "$USER_README"
 
-          # Verificar que el archivo README.md del usuario se actualizó correctamente
-          cat "$USER_README"
-
-      # 7. Hacer commit y push de los cambios
+      # 6. Hacer commit y push de los cambios
       - name: Commit y push de los cambios
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add Libros/books.json Libros/README.md "Usuarios/${{ env.user_name }}_${{ env.user_id }}/README.md"
+          git add "Usuarios/${{ env.user_name }}_${{ env.user_id }}/README.md" Libros/books.json Libros/*.json
           git commit -m "Registrar libro para ${{ env.user_name }} ${{ env.user_surname }}"
           git push
