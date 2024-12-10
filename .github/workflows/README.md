@@ -4,24 +4,7 @@ Este proyecto facilita la gestión de usuarios y libros mediante flujos de traba
 
 ---
 
-## **1. Actualizar Biblioteca**
-Automatiza la actualización de la biblioteca general combinando datos de los archivos `books.json` y `biblioteca.json`.
-
-### Flujo de trabajo
-- **Archivo**: `toBooksBiblioteca.yml`
-
-### Características
-- Detecta cambios en `books.json`.
-- Combina datos en `biblioteca.json` evitando duplicados.
-- Realiza un commit automático para guardar los cambios.
-
-### Archivos involucrados
-- `Libros/books.json`
-- `Biblioteca/biblioteca.json`
-
----
-
-## **2. Registrar Usuario**
+## **1. Registrar Usuario**
 Permite registrar nuevos usuarios y genera automáticamente directorios y archivos personalizados.
 
 ### Flujo de trabajo
@@ -38,7 +21,7 @@ Permite registrar nuevos usuarios y genera automáticamente directorios y archiv
 
 ---
 
-## **3. Registrar Libro**
+## **2. Registrar Libro**
 Añade libros a la biblioteca personal de un usuario registrado y clasifica los libros por estado.
 
 ### Flujo de trabajo
@@ -58,15 +41,11 @@ Añade libros a la biblioteca personal de un usuario registrado y clasifica los 
 
 ## **Cómo Usar**
 
-### 1. Actualizar la Biblioteca
-1. Realiza un cambio en `books.json`.
-2. Realiza un push. La acción actualizará automáticamente `biblioteca.json`.
-
-### 2. Registrar un Usuario
+### 1. Registrar un Usuario
 1. Ve a la pestaña **Actions** en el repositorio.
 2. Ejecuta el flujo de trabajo **Registrar Usuario** e ingresa los datos solicitados.
 
-### 3. Añadir un Libro
+### 2. Añadir un Libro
 1. En la pestaña **Actions**, ejecuta el flujo **Registrar Libro**.
 2. Proporciona los detalles del libro y el ID del usuario.
 
