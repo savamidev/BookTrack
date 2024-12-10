@@ -160,6 +160,7 @@ jobs:
           echo "" >> "$USER_README"
           echo "## ❤️ **¿Es tu libro favorito?**: ${{ github.event.inputs.book_favorite }} ⭐" >> "$USER_README"
           echo "- ¿Te enamoraste de la historia? O tal vez no tanto... ¡Cuéntanos por qué! 💬" >> "$USER_README"
+          echo "- [Investiga la Comunidad y cuentanos!](https://github.com/savamidev/BookTrack/tree/15ec9e01d2d1cc4414761866cdc42dbf9581f510/Biblioteca)
           echo "" >> "$USER_README"
           echo "## 🔖 **Tipo de libro**: ${{ github.event.inputs.book_type }} 📚" >> "$USER_README"
           echo "- ¿Es una novela de fantasía, ciencia ficción, misterio o algo completamente diferente? 🌠" >> "$USER_README"
