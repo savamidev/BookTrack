@@ -13,7 +13,7 @@ Este espacio ha sido creado pensando en ti, para que encuentres un lugar donde *
 - 🔍 **Descubrir nuevos géneros y autores**: Amplía tu biblioteca personal con recomendaciones únicas.  
 - 🛋️ **Un espacio acogedor**: Un lugar donde puedes hablar libremente sobre lo que amas de los libros.  
 
-### 🗣️ **[Hablar en los foros](#)**  
+### 🗣️ **[Hablar en los foros](https://github.com/savamidev/BookTrack/tree/25d2f283428aea89cc36deb8efd330934166084f/Comunidad/Foro)**  
 ¡Los foros son el corazón de nuestra comunidad! Aquí puedes:  
 - 💡 **Iniciar o participar en debates** sobre libros, autores y géneros.  
 - 🖋️ **Compartir tus recomendaciones** o pedir sugerencias personalizadas.  
