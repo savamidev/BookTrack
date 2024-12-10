@@ -19,7 +19,7 @@ Bienvenido a nuestra **Biblioteca Principal**, un santuario literario que alberg
 - **Número de páginas:** 694  
 - **Descripción:**  
   En un mundo lleno de intrigas, traiciones y batallas épicas, las casas nobles luchan por el poder supremo: el Trono de Hierro. Con personajes complejos, giros inesperados y una trama que nunca da tregua, "Juego de Tronos" es la primera parte de una saga que cambiará tu forma de ver la fantasía.  
-- 🌐 **Explora más:** [Juego de Tronos](https://www.georgerrmartin.com/grrm_book/a-game-of-thrones-a-song-of-ice-and-fire-book-one/)  
+- 🌐 **Explora más:** [Juego de Tronos](https://github.com/savamidev/BookTrack/blob/f45dcff65d2b0bdf948574eb361e58a4bd56cb6f/Biblioteca/Canci%C3%B3n%20de%20Hielo%20y%20Fuego%3A%20Juego%20de%20Tronos.md)  
 
 ---
 
