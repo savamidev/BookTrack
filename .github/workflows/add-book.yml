@@ -133,11 +133,13 @@ jobs:
           USER_DIR="Usuarios/${{ env.user_name }}_${{ github.event.inputs.user_id }}"
           USER_README="$USER_DIR/README.md"
 
+          # Verificar si el directorio del usuario existe, si no, crear el directorio
           if [ ! -d "$USER_DIR" ]; then
-            echo "La carpeta del usuario no existe."
-            exit 1
+            echo "La carpeta del usuario no existe, creando..."
+            mkdir -p "$USER_DIR"  # Crea el directorio y sus subdirectorios si no existen
           fi
 
+          # Verificar si el archivo README.md del usuario existe, si no, crearlo
           if [ ! -f "$USER_README" ]; then
             echo "# 📚 Perfil de ${{ env.user_name }} ${{ env.user_surname }}" > "$USER_README"
             echo "" >> "$USER_README"
@@ -145,23 +147,24 @@ jobs:
             echo "" >> "$USER_README"
           fi
 
-            echo "# 📚 **Detalles del Libro: ${{ github.event.inputs.book_title }}** 📚" > "$LIBROS_README"
-            echo "¡Aquí tienes toda la información sobre el libro! 🌟" >> "$LIBROS_README"
-            echo "---" >> "$LIBROS_README"
-            echo "" >> "$LIBROS_README"
-            echo "## ✍️ **Autor**: ${{ github.event.inputs.book_author }} 👨‍💻" >> "$LIBROS_README"
-            echo "- Un escritor reconocido por su estilo único y su contribución al mundo literario. 📖" >> "$LIBROS_README"
-            echo "" >> "$LIBROS_README"
-            echo "## 📖 **Estado**: ${{ github.event.inputs.book_status }} 📌" >> "$LIBROS_README"
-            echo "- ¿Estás leyendo este libro? ¿Lo has terminado o está en tu lista de pendientes? 📅" >> "$LIBROS_README"
-            echo "" >> "$LIBROS_README"
-            echo "## ❤️ **¿Es tu libro favorito?**: ${{ github.event.inputs.book_favorite }} ⭐" >> "$LIBROS_README"
-            echo "- ¿Te enamoraste de la historia? O tal vez no tanto... ¡Cuéntanos por qué! 💬" >> "$LIBROS_README"
-            echo "" >> "$LIBROS_README"
-            echo "## 🔖 **Tipo de libro**: ${{ github.event.inputs.book_type }} 📚" >> "$LIBROS_README"
-            echo "- ¿Es una novela de fantasía, ciencia ficción, misterio o algo completamente diferente? 🌠" >> "$LIBROS_README"
-            echo "---" >> "$LIBROS_README"
-            echo "" >> "$LIBROS_README"
+          # Agregar los detalles del libro al README.md
+          echo "# 📚 **Detalles del Libro: ${{ github.event.inputs.book_title }}** 📚" >> "$USER_README"
+          echo "¡Aquí tienes toda la información sobre el libro! 🌟" >> "$USER_README"
+          echo "---" >> "$USER_README"
+          echo "" >> "$USER_README"
+          echo "## ✍️ **Autor**: ${{ github.event.inputs.book_author }} 👨‍💻" >> "$USER_README"
+          echo "- Un escritor reconocido por su estilo único y su contribución al mundo literario. 📖" >> "$USER_README"
+          echo "" >> "$USER_README"
+          echo "## 📖 **Estado**: ${{ github.event.inputs.book_status }} 📌" >> "$USER_README"
+          echo "- ¿Estás leyendo este libro? ¿Lo has terminado o está en tu lista de pendientes? 📅" >> "$USER_README"
+          echo "" >> "$USER_README"
+          echo "## ❤️ **¿Es tu libro favorito?**: ${{ github.event.inputs.book_favorite }} ⭐" >> "$USER_README"
+          echo "- ¿Te enamoraste de la historia? O tal vez no tanto... ¡Cuéntanos por qué! 💬" >> "$USER_README"
+          echo "" >> "$USER_README"
+          echo "## 🔖 **Tipo de libro**: ${{ github.event.inputs.book_type }} 📚" >> "$USER_README"
+          echo "- ¿Es una novela de fantasía, ciencia ficción, misterio o algo completamente diferente? 🌠" >> "$USER_README"
+          echo "---" >> "$USER_README"
+          echo "" >> "$USER_README"
 
       # 7. Hacer commit y push de los cambios
       - name: Commit y push de los cambios
