@@ -1,7 +1,7 @@
-# 🌟 **Biblioteca Principal: El Refugio de los Lectores Apasionados**  
+# 🌟 **Biblioteca Principal**  
 
 
-Bienvenido a nuestra **Biblioteca Principal**, un santuario literario que alberga las obras más impactantes, llenas de magia, misterio, aventuras y sabiduría. Si eres un amante de los libros, aquí encontrarás tesoros literarios que te transportarán a mundos inolvidables. ¡Embárcate en un viaje único a través de las palabras!
+Bienvenido a nuestra **Biblioteca Principal**, si eres un amante de los libros, aquí encontrarás tu espacio perfecto.
 
 ---
 
