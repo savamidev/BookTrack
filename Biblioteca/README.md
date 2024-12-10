@@ -10,7 +10,7 @@ Bienvenido a nuestra **Biblioteca Principal**, un santuario literario que alberg
 - **Número de páginas:** 872  
 - **Descripción:**  
   La historia de Kvothe, un joven prodigio cuya vida está marcada por la magia, la música y el misterio. Desde su niñez hasta su ascenso como una leyenda, Kvothe enfrenta los desafíos de la Universidad y las sombras de su propio pasado. Este libro es más que una simple novela de fantasía, es una obra maestra de narración.  
-- 🌐 **Descubre más:** [El Nombre del Viento](https://www.patrickrothfuss.com/content/book.asp)  
+- 🌐 **Descubre más:** [El Nombre del Viento]([https://www.patrickrothfuss.com/content/book.asp](https://github.com/savamidev/BookTrack/blob/f45dcff65d2b0bdf948574eb361e58a4bd56cb6f/Biblioteca/El%20Nombre%20del%20Viento.md))  
 
 ---
 
