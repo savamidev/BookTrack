@@ -17,3 +17,10 @@
 ---
 
 ¡Estamos emocionados de tenerte con nosotros! 🎉 Nos vemos en la plataforma. 🌟
+## 📖 **Detalles del Libro: Dune**
+- **Autor**: Frank Herbert
+- **Estado**: Pendiente
+- **Favorito**: No
+- **Tipo**: Ciencia Ficción
+---
+

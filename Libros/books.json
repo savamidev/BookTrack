@@ -31,6 +31,14 @@
       "favorite": "Si",
       "type": "Terror",
       "user_id": "miI"
+    },
+    {
+      "title": "Dune",
+      "author": "Frank Herbert",
+      "status": "Pendiente",
+      "favorite": "No",
+      "type": "Ciencia Ficción",
+      "user_id": "mU"
     }
   ]
 }
