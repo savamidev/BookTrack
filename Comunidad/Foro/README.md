@@ -14,7 +14,7 @@
 
 ### 🗣️ **Personajes**:  
 **Hilo:** ¿Quién es tu personaje favorito hasta ahora y por qué?  
-🔗 **[Ver discusión sobre personajes](#)**
+🔗 **[Ver discusión sobre personajes](https://github.com/savamidev/BookTrack/blob/80950c2bbfeace58bd5daf5a2242a59ce8bb8f43/Comunidad/Foro/Personajes.md)**
 
 ### 📖 **Teorías y Spoilers**:  
 **Hilo:** Si ya has leído más allá, ¿qué teorías tienes sobre el futuro de Kvothe? ¡Solo para quienes ya avanzaron en el libro!  
