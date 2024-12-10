@@ -1,5 +1,6 @@
 # 🌟 **El Nombre del Viento** - Patrick Rothfuss  
-![Carátula de El Nombre del Viento](https://images-na.ssl-images-amazon.com/images/I/51ah1ay6cDL._SX327_BO1,204,203,200_.jpg)  
+![image](https://github.com/user-attachments/assets/7eb1384d-2495-4878-bf3f-e74998e9ee64)
+
 
 Bienvenido al universo de **El Nombre del Viento**, una obra maestra de la fantasía épica que ha cautivado a miles de lectores en todo el mundo. En esta página encontrarás todo lo que necesitas saber sobre este fascinante libro, desde su sinopsis y personajes hasta la historia detrás de su creación.
 
