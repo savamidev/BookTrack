@@ -1,1 +1,102 @@
+# 🌟 **Biblioteca Principal: El Refugio de los Lectores Apasionados**  
+
+
+Bienvenido a nuestra **Biblioteca Principal**, un santuario literario que alberga las obras más impactantes, llenas de magia, misterio, aventuras y sabiduría. Si eres un amante de los libros, aquí encontrarás tesoros literarios que te transportarán a mundos inolvidables. ¡Embárcate en un viaje único a través de las palabras!
+
+---
+
+## 📖 **1. El Nombre del Viento**  
+- **Autor:** Patrick Rothfuss  
+- **Número de páginas:** 872  
+- **Descripción:**  
+  La historia de Kvothe, un joven prodigio cuya vida está marcada por la magia, la música y el misterio. Desde su niñez hasta su ascenso como una leyenda, Kvothe enfrenta los desafíos de la Universidad y las sombras de su propio pasado. Este libro es más que una simple novela de fantasía, es una obra maestra de narración.  
+- 🌐 **Descubre más:** [El Nombre del Viento](https://www.patrickrothfuss.com/content/book.asp)  
+
+---
+
+## 📖 **2. Canción de Hielo y Fuego: Juego de Tronos**  
+- **Autor:** George R. R. Martin  
+- **Número de páginas:** 694  
+- **Descripción:**  
+  En un mundo lleno de intrigas, traiciones y batallas épicas, las casas nobles luchan por el poder supremo: el Trono de Hierro. Con personajes complejos, giros inesperados y una trama que nunca da tregua, "Juego de Tronos" es la primera parte de una saga que cambiará tu forma de ver la fantasía.  
+- 🌐 **Explora más:** [Juego de Tronos](https://www.georgerrmartin.com/grrm_book/a-game-of-thrones-a-song-of-ice-and-fire-book-one/)  
+
+---
+
+## 📖 **3. Harry Potter y la Piedra Filosofal**  
+- **Autor:** J.K. Rowling  
+- **Número de páginas:** 309  
+- **Descripción:**  
+  Un niño huérfano descubre que es un mago y se embarca en un viaje a la escuela de magia más famosa del mundo. "La Piedra Filosofal" marca el inicio de la saga de *Harry Potter*, donde la magia, la amistad y la valentía se combinan en una historia que ha cautivado a generaciones de lectores.  
+- 🌐 **Conoce más:** [Harry Potter y la Piedra Filosofal](https://www.jkrowling.com/books/harry-potter-and-the-philosophers-stone/)  
+
+---
+
+## 📖 **4. El Hobbit**  
+- **Autor:** J.R.R. Tolkien  
+- **Número de páginas:** 310  
+- **Descripción:**  
+  Acompaña a Bilbo Bolsón en su inesperada aventura hacia la Montaña Solitaria, donde enfrentará dragones, trolls y el legendario anillo que cambiará el destino de toda la Tierra Media. Una obra clásica que ha dejado una huella indeleble en la literatura de fantasía.  
+- 🌐 **Explora más:** [El Hobbit](https://www.tolkiensociety.org/author/j-r-r-tolkien/)  
+
+---
+
+## 📖 **5. 1984**  
+- **Autor:** George Orwell  
+- **Número de páginas:** 328  
+- **Descripción:**  
+  En un futuro distópico, el gobierno lo controla todo, incluso los pensamientos. Winston Smith vive en una sociedad vigilada por el Gran Hermano, donde la libertad es solo un recuerdo. "1984" es una crítica poderosa a la opresión y el totalitarismo.  
+- 🌐 **Descubre más:** [1984](https://www.george-orwell.org/1984/)  
+
+---
+
+## 📖 **6. La Sombra del Viento**  
+- **Autor:** Carlos Ruiz Zafón  
+- **Número de páginas:** 575  
+- **Descripción:**  
+  En la Barcelona de la posguerra, un joven llamado Daniel Sempere se ve envuelto en un misterio literario que cambiará su vida para siempre. La historia de *La Sombra del Viento* está llena de secretos, pasiones y libros perdidos, y es una de las obras más queridas por los lectores en todo el mundo.  
+- 🌐 **Explora más:** [La Sombra del Viento](https://www.carlosruizzafon.co.uk/)  
+
+---
+
+## 📖 **7. El Alquimista**  
+- **Autor:** Paulo Coelho  
+- **Número de páginas:** 208  
+- **Descripción:**  
+  Un joven pastor llamado Santiago emprende un viaje por el desierto buscando un tesoro, solo para descubrir que la verdadera riqueza reside en el autoconocimiento. "El Alquimista" es una obra filosófica que inspira a los lectores a seguir sus sueños y escuchar su corazón.  
+- 🌐 **Descubre más:** [El Alquimista](https://www.paulocoelho.com/en/)  
+
+---
+
+## 📖 **8. Matar a un Ruiseñor**  
+- **Autor:** Harper Lee  
+- **Número de páginas:** 324  
+- **Descripción:**  
+  Ambientada en los años 30 en el sur de Estados Unidos, esta obra narra la lucha por la justicia de Atticus Finch, un abogado que defiende a un hombre negro acusado injustamente de violación. La novela aborda temas de racismo, moralidad y la lucha por lo que es correcto.  
+- 🌐 **Conoce más:** [Matar a un Ruiseñor](https://www.harperlee.com/)  
+
+---
+
+## 📖 **9. Los Miserables**  
+- **Autor:** Victor Hugo  
+- **Número de páginas:** 1,456  
+- **Descripción:**  
+  La historia de Jean Valjean, un exconvicto que busca redención mientras es perseguido por el implacable inspector Javert. "Los Miserables" es una obra monumental que explora la justicia, el sacrificio y el amor en la Francia post-revolucionaria.  
+- 🌐 **Explora más:** [Los Miserables](https://www.gutenberg.org/ebooks/135)  
+
+---
+
+## 📖 **10. El Código Da Vinci**  
+- **Autor:** Dan Brown  
+- **Número de páginas:** 454  
+- **Descripción:**  
+  Un thriller de misterio donde el profesor de simbología Robert Langdon se ve envuelto en una carrera para resolver un asesinato en el Museo del Louvre. El misterio gira en torno a antiguos secretos, códigos y la historia del arte, lo que convierte este libro en una lectura fascinante y vertiginosa.  
+- 🌐 **Descubre más:** [El Código Da Vinci](https://danbrown.com/)  
+
+---
+
+### 📚 **¡Y así termina nuestra lista de libros imprescindibles!**  
+Cada uno de estos títulos ofrece algo único, ya sea una historia profunda, una reflexión filosófica o un escape a mundos imaginarios. ¡Haz de tu lectura una aventura inolvidable!
+
+🔖 **¿Tienes algún libro favorito que te gustaría agregar?** Comparte tu recomendación en los comentarios y sigamos expandiendo esta biblioteca juntos.  
 
