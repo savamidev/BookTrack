@@ -48,7 +48,7 @@ Si tienes un libro que consideras perfecto para el próximo mes, ¡compártelo c
 **Para añadir un libro, por favor sigue estos pasos:**
 
 1. **Añadir el título del libro** [en la siguiente sección.](https://github.com/savamidev/BookTrack/issues)
-2. **Label a usar Voto Próximo Club Lectura 🎯**
+2. **Label a usar: ¡Agrega tu Libro al Ranking! 🏆**
 3. **Incluir el nombre del autor**.  
 4. **Proporcionar una breve sinopsis** del libro.  
 5. **Sugerir el género** al que pertenece.  
@@ -58,10 +58,9 @@ Si tienes un libro que consideras perfecto para el próximo mes, ¡compártelo c
 
 ## 📝 **Instrucciones para votar:**
 
-1. Marca la casilla de tu libro preferido.
-2. Si deseas añadir un nuevo libro, por favor sigue las instrucciones en la sección anterior.
-3. Recuerda que puedes votar una sola vez, ¡así que elige sabiamente!  
-4. La votación finalizará el **[Fecha límite]** y el libro con más votos será el elegido para la próxima lectura.  
+1. Ir a esta [sección.](https://github.com/savamidev/BookTrack/issues)
+2. Label: Voto Próximo Club Lectura 🎯  
+3. La votación finalizará el **[31/12/2024]** y el libro con más votos será el elegido para la próxima lectura.  
 
 ---
 
