@@ -18,7 +18,7 @@
 
 ### 📖 **Teorías y Spoilers**:  
 **Hilo:** Si ya has leído más allá, ¿qué teorías tienes sobre el futuro de Kvothe? ¡Solo para quienes ya avanzaron en el libro!  
-🔗 **[Ver teorías y spoilers](#)**
+🔗 **[Ver teorías y spoilers](https://github.com/savamidev/BookTrack/blob/9df64b6a09d3ba911fd98a5980a1936d4c287187/Comunidad/Foro/Teor%C3%ADas%20y%20Spoilers.md)**
 
 ---
 
