@@ -1,28 +1,3 @@
 {
-  "users": [
-    {
-      "id": "ywM",
-      "name": "Luis",
-      "surname": "Andrade",
-      "birthdate": "08/02/1990",
-      "email": "migue.626@gmail.com",
-      "notifications": "Si"
-    },
-    {
-      "id": "a9Y",
-      "name": "Miguel",
-      "surname": "Sánchez Vázquez",
-      "birthdate": "08/02/1990",
-      "email": "migue.626@gmail.com",
-      "notifications": "Si"
-    },
-    {
-      "id": "miI",
-      "name": "Miguel",
-      "surname": "Vázquez",
-      "birthdate": "08/02/1990",
-      "email": "migue.626@gmail.com",
-      "notifications": "Si"
-    }
-  ]
+  "users": []
 }
