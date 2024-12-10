@@ -23,6 +23,14 @@
       "favorite": "No",
       "type": "Misterio",
       "user_id": "ywM"
+    },
+    {
+      "title": "Los amos del mundo",
+      "author": "James Clear",
+      "status": "Leyendo",
+      "favorite": "Si",
+      "type": "Misterio",
+      "user_id": "a9Y"
     }
   ]
 }

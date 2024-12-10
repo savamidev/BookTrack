@@ -1,19 +1,17 @@
+# 📚 **Detalles del Libro: Los amos del mundo** 📚
+¡Aquí tienes toda la información sobre el libro! 🌟
+---
 
-## Título: Dune
-- **Autor**: Frank Herbert
-- **Estado**: Leyendo
-- **Favorito**: Si
-- **Tipo**: Ciencia Ficción
+## ✍️ **Autor**: James Clear 👨‍💻
+- Un escritor reconocido por su estilo único y su contribución al mundo literario. 📖
 
-## Título: Hábitos Atómicos
-- **Autor**: James Clear
-- **Estado**: Leyendo
-- **Favorito**: No
-- **Tipo**: Ciencia Ficción
+## 📖 **Estado**: Leyendo 📌
+- ¿Estás leyendo este libro? ¿Lo has terminado o está en tu lista de pendientes? 📅
 
-## Título: Los amos del mundo
-- **Autor**: Cristina Martín
-- **Estado**: Leyendo
-- **Favorito**: Si
-- **Tipo**: Misterio
+## ❤️ **¿Es tu libro favorito?**: Si ⭐
+- ¿Te enamoraste de la historia? O tal vez no tanto... ¡Cuéntanos por qué! 💬
+
+## 🔖 **Tipo de libro**: Misterio 📚
+- ¿Es una novela de fantasía, ciencia ficción, misterio o algo completamente diferente? 🌠
+---
 
