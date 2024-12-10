@@ -87,6 +87,6 @@ Si disfrutaste de Patrick Rothfuss, probablemente también te gusten estos autor
 
 ### 🚀 **Nuevos Miembros**
 Deberás de enviar tu petición de unión [aqui](https://github.com/savamidev/BookTrack/issues)
-Recuerda el label a utilizar es: Unirme al club de lectura ➕
+- Recuerda el label a utilizar es: Unirme al club de lectura ➕
 
 
