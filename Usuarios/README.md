@@ -6,3 +6,8 @@ Este archivo contiene información sobre todos los usuarios registrados.
 - **Nombre**: Luis
 - **Correo Electrónico**: migue.626@gmail.com
 ---
+## miI - Miguel Vázquez
+- **ID**: miI
+- **Nombre**: Miguel
+- **Correo Electrónico**: migue.626@gmail.com
+---
