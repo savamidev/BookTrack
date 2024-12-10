@@ -28,7 +28,7 @@ Bienvenido a nuestra **Biblioteca Principal**, un santuario literario que alberg
 - **Número de páginas:** 309  
 - **Descripción:**  
   Un niño huérfano descubre que es un mago y se embarca en un viaje a la escuela de magia más famosa del mundo. "La Piedra Filosofal" marca el inicio de la saga de *Harry Potter*, donde la magia, la amistad y la valentía se combinan en una historia que ha cautivado a generaciones de lectores.  
-- 🌐 **Conoce más:** [Harry Potter y la Piedra Filosofal](https://www.jkrowling.com/books/harry-potter-and-the-philosophers-stone/)  
+- 🌐 **Conoce más:** [Harry Potter y la Piedra Filosofal](https://github.com/savamidev/BookTrack/blob/60fc15664e0073828b6beff21b6f46e7782f5122/Biblioteca/Harry%20Potter%20y%20la%20Piedra%20Filosofal.md)  
 
 ---
 
