@@ -29,8 +29,8 @@
 
 ---
 
-## 💬 **Comentarios y Opiniones**
-
+## 💬 **[Comentarios y Opiniones](https://github.com/savamidev/BookTrack/issues)**
+## Recuerda, los comentarios deben crearse a través de issues: Añadir Comentario 💬
 ### 📝 **Comentarios recientes:**
 
 #### 👤 **Carlos Fernández** | 12 de diciembre de 2024 | 18:30
