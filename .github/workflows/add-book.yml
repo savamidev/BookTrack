@@ -57,10 +57,11 @@ jobs:
       - name: Leer usuarios de users.json
         id: read_users
         run: |
-          USERS=$(jq -r '.users[] | select(.name == "${{ github.event.inputs.user_id }}")' Usuarios/users.json)
+          USERS=$(jq -r '.users[] | select(.id == "${{ github.event.inputs.user_id }}")' Usuarios/users.json)
           USER_NAME=$(echo "$USERS" | jq -r '.name')
           USER_SURNAME=$(echo "$USERS" | jq -r '.surname')
           USER_EMAIL=$(echo "$USERS" | jq -r '.email')
+          echo "user_id=${{ github.event.inputs.user_id }}" >> $GITHUB_ENV
           echo "user_name=$USER_NAME" >> $GITHUB_ENV
           echo "user_surname=$USER_SURNAME" >> $GITHUB_ENV
           echo "user_email=$USER_EMAIL" >> $GITHUB_ENV
@@ -74,8 +75,8 @@ jobs:
             --arg status "${{ github.event.inputs.book_status }}" \
             --arg favorite "${{ github.event.inputs.book_favorite }}" \
             --arg book_type "${{ github.event.inputs.book_type }}" \
-            --arg user_name "${{ env.user_name }}" \
-            '{title: $title, author: $author, status: $status, favorite: $favorite, type: $book_type, user_name: $user_name}')
+            --arg user_id "${{ env.user_id }}" \
+            '{title: $title, author: $author, status: $status, favorite: $favorite, type: $book_type, user_id: $user_id}')
 
           case "${{ github.event.inputs.book_status }}" in
             Leyendo)
@@ -129,8 +130,11 @@ jobs:
       # 6. Actualizar el README.md del usuario
       - name: Actualizar el README.md del usuario
         run: |
-          USER_DIR="Usuarios/${{ env.user_name }}"
+          USER_DIR="Usuarios/${{ env.user_name }}_${{ github.event.inputs.user_id }}"
           USER_README="$USER_DIR/README.md"
+
+          echo "USER_DIR: $USER_DIR"
+          echo "USER_README: $USER_README"
 
           # Verificar si el directorio del usuario existe, si no, crear el directorio
           if [ ! -d "$USER_DIR" ]; then
@@ -159,12 +163,15 @@ jobs:
           echo "" >> "$USER_README"
           echo "## ❤️ **¿Es tu libro favorito?**: ${{ github.event.inputs.book_favorite }} ⭐" >> "$USER_README"
           echo "- ¿Te enamoraste de la historia? O tal vez no tanto... ¡Cuéntanos por qué! 💬" >> "$USER_README"
-          echo "- [Investiga la Comunidad y cuentanos!](https://github.com/savamidev/BookTrack/tree/15ec9e01d2d1cc4414761866cdc42dbf9581f510/Biblioteca)" >> "$USER_README"
+          echo "- [Investiga la Comunidad y cuéntanos!](https://github.com/savamidev/BookTrack/tree/15ec9e01d2d1cc4414761866cdc42dbf9581f510/Biblioteca)" >> "$USER_README"
           echo "" >> "$USER_README"
           echo "## 🔖 **Tipo de libro**: ${{ github.event.inputs.book_type }} 📚" >> "$USER_README"
           echo "- ¿Es una novela de fantasía, ciencia ficción, misterio o algo completamente diferente? 🌠" >> "$USER_README"
           echo "---" >> "$USER_README"
           echo "" >> "$USER_README"
+
+          # Verificar que el archivo README.md del usuario se actualizó correctamente
+          cat "$USER_README"
 
       # 7. Hacer commit y push de los cambios
       - name: Commit y push de los cambios
@@ -173,6 +180,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add Libros/books.json Libros/README.md "Usuarios/${{ env.user_name }}/README.md"
+          git add Libros/books.json Libros/README.md "Usuarios/${{ env.user_name }}_${{ env.user_id }}/README.md"
           git commit -m "Registrar libro para ${{ env.user_name }} ${{ env.user_surname }}"
           git push
