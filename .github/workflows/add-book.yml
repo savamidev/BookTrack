@@ -120,25 +120,13 @@ jobs:
             echo "" >> "$LIBROS_README"
           fi
 
-          echo "# 📚 **Detalles del Libro: ${{ github.event.inputs.book_title }}** 📚" > "$LIBROS_README"
-          echo "¡Aquí tienes toda la información sobre el libro! 🌟" >> "$LIBROS_README"
-          echo "---" >> "$LIBROS_README"
+          echo "## Título: ${{ github.event.inputs.book_title }}" >> "$LIBROS_README"
+          echo "- **Autor**: ${{ github.event.inputs.book_author }}" >> "$LIBROS_README"
+          echo "- **Estado**: ${{ github.event.inputs.book_status }}" >> "$LIBROS_README"
+          echo "- **Favorito**: ${{ github.event.inputs.book_favorite }}" >> "$LIBROS_README"
+          echo "- **Tipo**: ${{ github.event.inputs.book_type }}" >> "$LIBROS_README"
           echo "" >> "$LIBROS_README"
-          echo "## ✍️ **Autor**: ${{ github.event.inputs.book_author }} 👨‍💻" >> "$LIBROS_README"
-          echo "- Un escritor reconocido por su estilo único y su contribución al mundo literario. 📖" >> "$LIBROS_README"
-          echo "" >> "$LIBROS_README"
-          echo "## 📖 **Estado**: ${{ github.event.inputs.book_status }} 📌" >> "$LIBROS_README"
-          echo "- ¿Estás leyendo este libro? ¿Lo has terminado o está en tu lista de pendientes? 📅" >> "$LIBROS_README"
-          echo "" >> "$LIBROS_README"
-          echo "## ❤️ **¿Es tu libro favorito?**: ${{ github.event.inputs.book_favorite }} ⭐" >> "$LIBROS_README"
-          echo "- ¿Te enamoraste de la historia? O tal vez no tanto... ¡Cuéntanos por qué! 💬" >> "$LIBROS_README"
-          echo "" >> "$LIBROS_README"
-          echo "## 🔖 **Tipo de libro**: ${{ github.event.inputs.book_type }} 📚" >> "$LIBROS_README"
-          echo "- ¿Es una novela de fantasía, ciencia ficción, misterio o algo completamente diferente? 🌠" >> "$LIBROS_README"
-          echo "---" >> "$LIBROS_README"
-          echo "" >> "$LIBROS_README"
-
-
+          
       # 6. Actualizar el README.md del usuario
       - name: Actualizar el README.md del usuario
         run: |
@@ -157,12 +145,23 @@ jobs:
             echo "" >> "$USER_README"
           fi
 
-          echo "## Libro Añadido: ${{ github.event.inputs.book_title }}" >> "$USER_README"
-          echo "- **Autor**: ${{ github.event.inputs.book_author }}" >> "$USER_README"
-          echo "- **Estado**: ${{ github.event.inputs.book_status }}" >> "$USER_README"
-          echo "- **Favorito**: ${{ github.event.inputs.book_favorite }}" >> "$USER_README"
-          echo "- **Tipo**: ${{ github.event.inputs.book_type }}" >> "$USER_README"
-          echo "" >> "$USER_README"
+          echo "# 📚 **Detalles del Libro: ${{ github.event.inputs.book_title }}** 📚" > "$LIBROS_README"
+          echo "¡Aquí tienes toda la información sobre el libro! 🌟" >> "$LIBROS_README"
+          echo "---" >> "$LIBROS_README"
+          echo "" >> "$LIBROS_README"
+          echo "## ✍️ **Autor**: ${{ github.event.inputs.book_author }} 👨‍💻" >> "$LIBROS_README"
+          echo "- Un escritor reconocido por su estilo único y su contribución al mundo literario. 📖" >> "$LIBROS_README"
+          echo "" >> "$LIBROS_README"
+          echo "## 📖 **Estado**: ${{ github.event.inputs.book_status }} 📌" >> "$LIBROS_README"
+          echo "- ¿Estás leyendo este libro? ¿Lo has terminado o está en tu lista de pendientes? 📅" >> "$LIBROS_README"
+          echo "" >> "$LIBROS_README"
+          echo "## ❤️ **¿Es tu libro favorito?**: ${{ github.event.inputs.book_favorite }} ⭐" >> "$LIBROS_README"
+          echo "- ¿Te enamoraste de la historia? O tal vez no tanto... ¡Cuéntanos por qué! 💬" >> "$LIBROS_README"
+          echo "" >> "$LIBROS_README"
+          echo "## 🔖 **Tipo de libro**: ${{ github.event.inputs.book_type }} 📚" >> "$LIBROS_README"
+          echo "- ¿Es una novela de fantasía, ciencia ficción, misterio o algo completamente diferente? 🌠" >> "$LIBROS_README"
+          echo "---" >> "$LIBROS_README"
+          echo "" >> "$LIBROS_README"
 
       # 7. Hacer commit y push de los cambios
       - name: Commit y push de los cambios
