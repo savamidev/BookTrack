@@ -1,5 +1,6 @@
 # 📚 Bienvenido al Club de Lectura  
 
+¡Hola! 👋  
 Estamos encantados de que te unas a nuestro **Club de Lectura**.
 
 ---
@@ -23,23 +24,30 @@ El club está abierto para todos los niveles de lectura. Ya seas un lector exper
 
 - 📖 **Descubre nuevos géneros**: Ampliarás tu horizonte literario al leer libros que quizás no habrías elegido por ti mismo.   
 - 👨‍👩‍👧‍👦 **Conoce gente nueva**: Conectarás con otros lectores apasionados y harás amigos con intereses similares.  
-- 🏅 **Motivación para leer más**: La estructura del club y las discusiones te mantendrán motivado para seguir leyendo cada mes.  
 
 ---
 
-## 📚 **Próximo libro a leer**  
+## 📚 **Libro Actual**  
+
 Este mes, estamos leyendo:  
-- 📖 **[Título del libro](#)**: Una breve descripción del libro y lo que puedes esperar al leerlo.  
+### 📖 **[Título del libro](#)**  
+**Autor:** [Nombre del autor]  
+**Género:** [Género del libro]  
+**Sinopsis:**  
+Una breve descripción del libro y lo que puedes esperar al leerlo. Este es un libro que promete [breve descripción del tema o estilo].  
+
+### 📅 **Fechas Importantes**  
+- **Fecha de inicio de lectura**: [01/12/2024]  
+- **Fecha de la próxima discusión**: [20/12/2024] a las [19:30] en [plataforma o enlace de reunión].  
 
 ---
 
 ## 📅 **Próxima reunión**  
-La próxima reunión del club se llevará a cabo el **[día]** a las **[hora]** en **[plataforma o enlace de reunión]**. ¡Te esperamos!
+La próxima reunión del club se llevará a cabo el **[10/01/2025]** a las **[19:30]** en **[plataforma o enlace de reunión]**. ¡Te esperamos!
 
 ---
 
 ## 📝 **¿Cómo unirte?**
-Únete al club y comienza a disfrutar de la lectura con nosotros. Para hacerlo, solo tienes que:  
-1. Registrarte en nuestra página de membresía.  
-2. Participar en las discusiones y aportar tus comentarios.  
-3. ¡Disfrutar de la lectura y de las buenas conversaciones!
+
+Registrarte en nuestra página(Podrás acceder al link en la página principal).  
+
