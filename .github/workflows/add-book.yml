@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       book_title:
-        description: 'Título del libro'
+        description: '📚 Título del libro'
         required: true
       book_author:
-        description: 'Autor del libro'
+        description: '✍️ Autor del libro'
         required: true
       book_status:
-        description: 'Estado del libro'
+        description: '📖 Estado del libro'
         required: true
         type: choice
         options:
@@ -18,14 +18,14 @@ on:
           - "Pendiente"
           - "Terminado"
       book_favorite:
-        description: '¿Es tu libro favorito?'
+        description: '❤️ ¿Es tu libro favorito?'
         required: true
         type: choice
         options:
           - "Si"
           - "No"
       book_type:
-        description: 'Tipo de libro (ej. Terror, Fantasía, etc.)'
+        description: '🔖 Tipo de libro (ej. Terror, Fantasía, etc.)'
         required: true
         type: choice
         options:
@@ -36,37 +36,29 @@ on:
           - "Aventura"
           - "Romántico"
       user_id:
-        description: 'Ingresa el ID del usuario (Diferencias entre mayúsculas y minúsculas)'
+        description: '🆔 Ingresa el ID del usuario'
         required: true
-        type: string
 
 jobs:
   register-book:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Descargar el repositorio
       - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      # 2. Instalar jq
       - name: Instalar jq
         run: sudo apt-get install -y jq
 
-      # 3. Leer usuarios de users.json
       - name: Leer usuarios de users.json
         id: read_users
         run: |
-          USERS=$(jq -r '.users[] | select(.id == "${{ github.event.inputs.user_id }}")' Usuarios/users.json)
-          USER_NAME=$(echo "$USERS" | jq -r '.name')
-          USER_SURNAME=$(echo "$USERS" | jq -r '.surname')
-          USER_EMAIL=$(echo "$USERS" | jq -r '.email')
-          echo "user_id=${{ github.event.inputs.user_id }}" >> $GITHUB_ENV
+          USER=$(jq -r '.users[] | select(.id == "${{ github.event.inputs.user_id }}")' Usuarios/users.json)
+          USER_NAME=$(echo "$USER" | jq -r '.name')
+          USER_SURNAME=$(echo "$USER" | jq -r '.surname')
           echo "user_name=$USER_NAME" >> $GITHUB_ENV
           echo "user_surname=$USER_SURNAME" >> $GITHUB_ENV
-          echo "user_email=$USER_EMAIL" >> $GITHUB_ENV
 
-      # 4. Registrar el libro
       - name: Registrar el libro
         run: |
           book_data=$(jq -n \
@@ -75,23 +67,14 @@ jobs:
             --arg status "${{ github.event.inputs.book_status }}" \
             --arg favorite "${{ github.event.inputs.book_favorite }}" \
             --arg book_type "${{ github.event.inputs.book_type }}" \
-            --arg user_id "${{ env.user_id }}" \
+            --arg user_id "${{ github.event.inputs.user_id }}" \
             '{title: $title, author: $author, status: $status, favorite: $favorite, type: $book_type, user_id: $user_id}')
 
           case "${{ github.event.inputs.book_status }}" in
-            Leyendo)
-              target_file="Libros/en_lectura.json"
-              ;;
-            Pendiente)
-              target_file="Libros/pendientes.json"
-              ;;
-            Terminado)
-              target_file="Libros/acabados.json"
-              ;;
-            *)
-              echo "Estado no válido, el libro no será registrado."
-              exit 1
-              ;;
+            Leyendo) target_file="Libros/en_lectura.json" ;;
+            Pendiente) target_file="Libros/pendientes.json" ;;
+            Terminado) target_file="Libros/acabados.json" ;;
+            *) exit 1 ;;
           esac
 
           if [ -f "$target_file" ]; then
@@ -100,49 +83,33 @@ jobs:
             echo '{"books":['"$book_data"']}' > "$target_file"
           fi
 
-          books_json="Libros/books.json"
-          if [ -f "$books_json" ]; then
-            jq --argjson new_book "$book_data" '.books += [$new_book]' "$books_json" > temp.json && mv temp.json "$books_json"
-          else
-            echo '{"books":['"$book_data"']}' > "$books_json"
-          fi
-
-      # 5. Actualizar el README.md del usuario
-      - name: Actualizar el README.md del usuario
+      - name: Actualizar README.md del usuario
         run: |
           USER_DIR="Usuarios/${{ env.user_name }}_${{ github.event.inputs.user_id }}"
           USER_README="$USER_DIR/README.md"
 
-          # Verificar si el directorio del usuario existe, si no, crear el directorio
-          if [ ! -d "$USER_DIR" ]; then
-            echo "Creando la carpeta del usuario..."
-            mkdir -p "$USER_DIR"
-          fi
+          mkdir -p "$USER_DIR"
 
-          # Verificar si el archivo README.md del usuario existe, si no, crearlo
           if [ ! -f "$USER_README" ]; then
-            echo "# 📚 Perfil de ${{ env.user_name }} ${{ env.user_surname }}" > "$USER_README"
-            echo "" >> "$USER_README"
-            echo "- **Correo electrónico**: ${{ env.user_email }}" >> "$USER_README"
+            echo "# 🌟 ¡Bienvenido al espacio literario de ${{ env.user_name }} ${{ env.user_surname }}!" > "$USER_README"
+            echo "📬 **Correo**: _privacidad garantizada_ 😎" >> "$USER_README"
             echo "" >> "$USER_README"
           fi
 
-          # Agregar los detalles del libro al README.md del usuario
-          echo "## 📖 **Detalles del Libro: ${{ github.event.inputs.book_title }}**" >> "$USER_README"
-          echo "- **Autor**: ${{ github.event.inputs.book_author }}" >> "$USER_README"
-          echo "- **Estado**: ${{ github.event.inputs.book_status }}" >> "$USER_README"
-          echo "- **Favorito**: ${{ github.event.inputs.book_favorite }}" >> "$USER_README"
-          echo "- **Tipo**: ${{ github.event.inputs.book_type }}" >> "$USER_README"
-          echo "---" >> "$USER_README"
+          echo "## 📚 **Nuevo Libro Añadido: ${{ github.event.inputs.book_title }}**" >> "$USER_README"
+          echo "- ✍️ **Autor**: ${{ github.event.inputs.book_author }}" >> "$USER_README"
+          echo "- 📖 **Estado**: _${{ github.event.inputs.book_status }}_" >> "$USER_README"
+          echo "- ❤️ **Favorito**: ${{ github.event.inputs.book_favorite }}" >> "$USER_README"
+          echo "- 🔖 **Tipo**: _${{ github.event.inputs.book_type }}_" >> "$USER_README"
           echo "" >> "$USER_README"
+          echo "---" >> "$USER_README"
 
-      # 6. Hacer commit y push de los cambios
       - name: Commit y push de los cambios
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add "Usuarios/${{ env.user_name }}_${{ env.user_id }}/README.md" Libros/books.json Libros/*.json
-          git commit -m "Registrar libro para ${{ env.user_name }} ${{ env.user_surname }}"
+          git add "Usuarios/${{ env.user_name }}_${{ github.event.inputs.user_id }}/README.md"
+          git commit -m "🎉 Nuevo libro registrado para ${{ env.user_name }} ${{ env.user_surname }}"
           git push
