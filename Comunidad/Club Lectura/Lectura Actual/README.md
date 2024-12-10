@@ -76,7 +76,7 @@ Si disfrutaste de Patrick Rothfuss, probablemente también te gusten estos autor
 - **George R. R. Martin**: Creador de *"Canción de Hielo y Fuego"*, una saga que combina magia, política y traiciones en un mundo medieval ficticio.
 - **Ursula K. Le Guin**: Conocida por su serie *"Terramar"*, donde la magia, la sabiduría y el destino juegan roles centrales.
 
-  ## 👥 **Miembros del Club de Lectura**
+## 👥 **Miembros del Club de Lectura**
 
 ### 🌟 **Miembros Actuales**
 - Carla Fernández  
