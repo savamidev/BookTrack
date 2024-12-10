@@ -24,3 +24,10 @@
 - **Tipo**: Ciencia Ficción
 ---
 
+## 📚 **Nuevo Libro Añadido: Hábitos Atómicos**
+- ✍️ **Autor**: James Clear
+- 📖 **Estado**: _Pendiente_
+- ❤️ **Favorito**: Si
+- 🔖 **Tipo**: _Ciencia Ficción_
+
+---
