@@ -7,7 +7,7 @@ Este espacio ha sido creado pensando en ti, para que encuentres un lugar donde *
 
 ## 🌟 ¿Qué puedes hacer aquí?  
 
-### 📖 **[Unirte a clubs de lectura](#)**  
+### 📖 **[Unirte a clubs de lectura](https://github.com/savamidev/BookTrack/tree/9d031702ed627be504d86c294014e6414be146f2/Comunidad/Club%20Lectura)**  
 ¿Te gustaría leer acompañado? Únete a uno de nuestros clubs de lectura y disfruta de:  
 - 💬 **Discusiones sobre libros específicos**: Comparte tus reflexiones y aprende de otras perspectivas.  
 - 🔍 **Descubrir nuevos géneros y autores**: Amplía tu biblioteca personal con recomendaciones únicas.  
