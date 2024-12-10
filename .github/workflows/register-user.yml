@@ -67,17 +67,25 @@ jobs:
           user_dir=${user_dir// /_}
           user_readme="$user_dir/README.md"
 
-          echo "# 🌟 Bienvenido, **${{ github.event.inputs.name }}**!" > "$user_readme"
-          echo "Has registrado tu perfil con éxito. Aquí están tus datos:" >> "$user_readme"
+          echo "# 🎉 Bienvenido, **${{ github.event.inputs.name }}**! 🎉" > "$user_readme"
+          echo "¡Has registrado tu perfil con éxito! 🥳 Aquí están tus datos:" >> "$user_readme"
           echo "---" >> "$user_readme"
           echo "" >> "$user_readme"
           echo "## 📝 **Tus Datos**" >> "$user_readme"
           echo "- **Nombre completo**: ${{ github.event.inputs.name }} ${{ github.event.inputs.surname }}" >> "$user_readme"
-          echo "- **ID único**: ${{ env.user_id }}" >> "$user_readme"
+          echo "- **ID único**: ${{ env.user_id }} 🔑" >> "$user_readme"
           echo "- **Fecha de nacimiento**: ${{ github.event.inputs.birthdate }}" >> "$user_readme"
           echo "- **Correo electrónico**: ${{ github.event.inputs.email }}" >> "$user_readme"
-          echo "- **Notificaciones**: ${{ github.event.inputs.notifications }}" >> "$user_readme"
+          echo "- **Notificaciones**: ${{ github.event.inputs.notifications }} 🔔" >> "$user_readme"
           echo "---" >> "$user_readme"
+          echo "" >> "$user_readme"
+          echo "## 🎯 **Próximos Pasos**" >> "$user_readme"
+          echo "1. **Personaliza tu perfil**: Agrega una foto, cambia tu bio y más. 📸" >> "$user_readme"
+          echo "2. **Participa en la comunidad**: Únete a debates, comparte tus ideas y conoce a otros usuarios. 💬" >> "$user_readme"
+          echo "3. **Configura tus notificaciones**: Asegúrate de estar al tanto de todas las novedades. 🔔" >> "$user_readme"
+          echo "---" >> "$user_readme"
+          echo "" >> "$user_readme"
+          echo "¡Estamos emocionados de tenerte con nosotros! 🎉 Nos vemos en la plataforma. 🌟" >> "$user_readme"
 
       # 6. Actualizar README.md global
       - name: Crear o actualizar README.md global
