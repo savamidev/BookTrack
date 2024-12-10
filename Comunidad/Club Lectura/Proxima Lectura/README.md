@@ -48,7 +48,7 @@ Si tienes un libro que consideras perfecto para el próximo mes, ¡compártelo c
 **Para añadir un libro, por favor sigue estos pasos:**
 
 1. **Añadir el título del libro** [en la siguiente sección.](https://github.com/savamidev/BookTrack/issues)
-2. **Label a usar: ¡Agrega tu Libro al Ranking! 🏆**
+2. **Label a usar: Libro propuesto Próxima Lectura 📚**
 3. **Incluir el nombre del autor**.  
 4. **Proporcionar una breve sinopsis** del libro.  
 5. **Sugerir el género** al que pertenece.  
