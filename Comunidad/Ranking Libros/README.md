@@ -27,4 +27,4 @@ Aquí, la comunidad elige qué historias se llevan el **trofeo de oro** 🥇, cu
 ## 🎯 **¡Tú decides!**
 📩 ¿Tienes un libro favorito que debería estar aquí? 
 **[Agrega tu recomendación](https://github.com/savamidev/BookTrack/issues)** 
-- Label: ¡Agrega tu Libro al Ranking! 🏆
+- Label: Voto Ranking Libros 🗳️
