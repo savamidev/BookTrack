@@ -16,10 +16,6 @@
 **Hilo:** ¿Quién es tu personaje favorito hasta ahora y por qué?  
 🔗 **[Ver discusión sobre personajes](#)**
 
-### 🧙 **El Sistema de Magia**:  
-**Hilo:** ¿Qué opinas de la magia en este mundo? ¿Es original o te recuerda a otros libros?  
-🔗 **[Ver discusión sobre el sistema de magia](#)**
-
 ### 📖 **Teorías y Spoilers**:  
 **Hilo:** Si ya has leído más allá, ¿qué teorías tienes sobre el futuro de Kvothe? ¡Solo para quienes ya avanzaron en el libro!  
 🔗 **[Ver teorías y spoilers](#)**
