@@ -1,3 +1,12 @@
 {
-  "books": []
+  "books": [
+    {
+      "title": "Dune",
+      "author": "Frank Herbert",
+      "status": "Leyendo",
+      "favorite": "Si",
+      "type": "Ciencia Ficción",
+      "user_id": "miI"
+    }
+  ]
 }

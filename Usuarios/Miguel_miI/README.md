@@ -17,3 +17,20 @@
 ---
 
 ¡Estamos emocionados de tenerte con nosotros! 🎉 Nos vemos en la plataforma. 🌟
+# 📚 **Detalles del Libro: Dune** 📚
+¡Aquí tienes toda la información sobre el libro! 🌟
+---
+
+## ✍️ **Autor**: Frank Herbert 👨‍💻
+- Un escritor reconocido por su estilo único y su contribución al mundo literario. 📖
+
+## 📖 **Estado**: Leyendo 📌
+- ¿Estás leyendo este libro? ¿Lo has terminado o está en tu lista de pendientes? 📅
+
+## ❤️ **¿Es tu libro favorito?**: Si ⭐
+- ¿Te enamoraste de la historia? O tal vez no tanto... ¡Cuéntanos por qué! 💬
+
+## 🔖 **Tipo de libro**: Ciencia Ficción 📚
+- ¿Es una novela de fantasía, ciencia ficción, misterio o algo completamente diferente? 🌠
+---
+
