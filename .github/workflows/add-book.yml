@@ -104,12 +104,30 @@ jobs:
           echo "" >> "$USER_README"
           echo "---" >> "$USER_README"
 
+      - name: Actualizar README.md de la carpeta Libros
+        run: |
+          LIBROS_README="Libros/README.md"
+
+          if [ ! -f "$LIBROS_README" ]; then
+            echo "# 📚 ¡Bienvenido al mundo de los libros!" > "$LIBROS_README"
+            echo "Aquí encontrarás un rincón literario lleno de historias, aventuras y sueños. 🌟" >> "$LIBROS_README"
+            echo "" >> "$LIBROS_README"
+          fi
+
+          echo "## 📖 **Nuevo libro agregado**" >> "$LIBROS_README"
+          echo "- 🌟 **Título**: _${{ github.event.inputs.book_title }}_" >> "$LIBROS_README"
+          echo "- ✍️ **Autor**: _${{ github.event.inputs.book_author }}_" >> "$LIBROS_README"
+          echo "- 🔖 **Género**: _${{ github.event.inputs.book_type }}_" >> "$LIBROS_README"
+          echo "- 📌 **Estado**: _${{ github.event.inputs.book_status }}_" >> "$LIBROS_README"
+          echo "- ❤️ **Favorito**: ${{ github.event.inputs.book_favorite }}" >> "$LIBROS_README"
+          echo "---" >> "$LIBROS_README"
+
       - name: Commit y push de los cambios
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add "Usuarios/${{ env.user_name }}_${{ github.event.inputs.user_id }}/README.md"
-          git commit -m "🎉 Nuevo libro registrado para ${{ env.user_name }} ${{ env.user_surname }}"
+          git add "Libros/README.md" "Usuarios/${{ env.user_name }}_${{ github.event.inputs.user_id }}/README.md"
+          git commit -m "📚 Actualización de README: Libro registrado para ${{ env.user_name }} ${{ env.user_surname }}"
           git push
