@@ -17,9 +17,4 @@
 ---
 
 ¡Estamos emocionados de tenerte con nosotros! 🎉 Nos vemos en la plataforma. 🌟
-## Libro Añadido: Los amos del mundo
-- **Autor**: James Clear
-- **Estado**: Leyendo
-- **Favorito**: Si
-- **Tipo**: Misterio
 
