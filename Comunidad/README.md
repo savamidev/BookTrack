@@ -19,7 +19,7 @@ Este espacio ha sido creado pensando en ti, para que encuentres un lugar donde *
 - 🖋️ **Compartir tus recomendaciones** o pedir sugerencias personalizadas.  
 - 🌐 **Hablar de temas más allá de la lectura**: Comparte ideas, reflexiona y conecta con otros lectores.  
 
-### 🏆 **[Participar en el ranking de libros](#)**  
+### 🏆 **[Participar en el ranking de libros](https://github.com/savamidev/BookTrack/tree/f99a1ee047af151f2cc4ae3037cfbb25805a02e3/Comunidad/Ranking%20Libros)**  
 Ayúdanos a construir el **ranking definitivo** de libros de la comunidad:  
 - ⭐ **Vota por tus lecturas favoritas** y apoya a los libros que más amas.  
 - 📊 **Descubre qué libros están siendo tendencia** y amplía tu lista de pendientes.  
