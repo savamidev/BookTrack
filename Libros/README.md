@@ -9,3 +9,10 @@
 - 📌 **Estado**: _Leyendo_
 - ❤️ **Favorito**: Si
 ---
+## 📖 **Nuevo libro agregado**
+- 🌟 **Título**: _1984_
+- ✍️ **Autor**: _George Orwell_
+- 🔖 **Género**: _Misterio_
+- 📌 **Estado**: _Terminado_
+- ❤️ **Favorito**: Si
+---

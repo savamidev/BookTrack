@@ -17,3 +17,10 @@
 ---
 
 ¡Estamos emocionados de tenerte con nosotros! 🎉 Nos vemos en la plataforma. 🌟
+## 📚 **Nuevo Libro Añadido: 1984**
+- ✍️ **Autor**: George Orwell
+- 📖 **Estado**: _Terminado_
+- ❤️ **Favorito**: Si
+- 🔖 **Tipo**: _Misterio_
+
+---
