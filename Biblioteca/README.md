@@ -82,7 +82,7 @@ Bienvenido a nuestra **Biblioteca Principal**, si eres un amante de los libros, 
 - **Número de páginas:** 1,456  
 - **Descripción:**  
   La historia de Jean Valjean, un exconvicto que busca redención mientras es perseguido por el implacable inspector Javert. "Los Miserables" es una obra monumental que explora la justicia, el sacrificio y el amor en la Francia post-revolucionaria.  
-- 🌐 **Explora más:** [Los Miserables](https://www.gutenberg.org/ebooks/135)  
+- 🌐 **Explora más:** [Los Miserables](https://github.com/savamidev/BookTrack/blob/e76fddc8a486212bad03df4f3b7a81f37b3f207d/Biblioteca/Los%20Miserables.md)  
 
 ---
 
