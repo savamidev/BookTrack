@@ -100,7 +100,7 @@ Bienvenido a nuestra **Biblioteca Principal**, si eres un amante de los libros, 
 - **Número de páginas:** 456  
 - **Descripción:**  
   Una obra que desentraña los secretos y las estructuras de poder global que operan tras bambalinas. Cristina Martín Jiménez analiza cómo las élites mundiales, a través de organismos internacionales, eventos globales y estrategias ocultas, ejercen influencia sobre la política, la economía y la sociedad. Este libro invita a reflexionar y cuestionar las narrativas oficiales, ofreciendo una perspectiva audaz y documentada sobre el mundo actual.  
-- 🌐 **Descubre más:** [El Libro Negro de los Amos del Mundo](https://github.com/savamidev/BookTrack/blob/main/Biblioteca/El%20Libro%20Negro%20de%
+- 🌐 **Descubre más:** [El Libro Negro de los Amos del Mundo](https://github.com/savamidev/BookTrack/blob/44d032ad49808ddf88659f41cc4c29531df3cb33/Biblioteca/El%20Libro%20Negro%20de%20los%20Amos%20del%20Mundo.md)
 
 ---
 
