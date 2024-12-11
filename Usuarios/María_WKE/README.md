@@ -24,3 +24,10 @@
 - 🔖 **Tipo**: _Misterio_
 
 ---
+## 📚 **Nuevo Libro Añadido: Matar a un Ruiseñor**
+- ✍️ **Autor**: Harper Lee
+- 📖 **Estado**: _Leyendo_
+- ❤️ **Favorito**: Si
+- 🔖 **Tipo**: _Romántico_
+
+---

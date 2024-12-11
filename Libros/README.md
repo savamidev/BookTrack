@@ -72,3 +72,10 @@
 - 📌 **Estado**: _Pendiente_
 - ❤️ **Favorito**: No
 ---
+## 📖 **Nuevo libro agregado**
+- 🌟 **Título**: _Matar a un Ruiseñor_
+- ✍️ **Autor**: _Harper Lee_
+- 🔖 **Género**: _Romántico_
+- 📌 **Estado**: _Leyendo_
+- ❤️ **Favorito**: Si
+---
