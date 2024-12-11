@@ -95,8 +95,15 @@ Bienvenido a nuestra **Biblioteca Principal**, si eres un amante de los libros, 
 
 ---
 
-### 📚 **¡Y así termina nuestra lista de libros imprescindibles!**  
-Cada uno de estos títulos ofrece algo único, ya sea una historia profunda, una reflexión filosófica o un escape a mundos imaginarios. ¡Haz de tu lectura una aventura inolvidable!
+## 📖 **11. El Libro Negro de los Amos del Mundo**  
+- **Autor:** Cristina Martín Jiménez  
+- **Número de páginas:** 456  
+- **Descripción:**  
+  Una obra que desentraña los secretos y las estructuras de poder global que operan tras bambalinas. Cristina Martín Jiménez analiza cómo las élites mundiales, a través de organismos internacionales, eventos globales y estrategias ocultas, ejercen influencia sobre la política, la economía y la sociedad. Este libro invita a reflexionar y cuestionar las narrativas oficiales, ofreciendo una perspectiva audaz y documentada sobre el mundo actual.  
+- 🌐 **Descubre más:** [El Libro Negro de los Amos del Mundo](https://github.com/savamidev/BookTrack/blob/main/Biblioteca/El%20Libro%20Negro%20de%
+
+---
+
 
 🔖 **¿Tienes algún libro favorito que te gustaría agregar?** Comparte tu recomendación en los comentarios y sigamos expandiendo esta biblioteca juntos.  
 
