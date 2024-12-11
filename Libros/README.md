@@ -58,3 +58,10 @@
 - 📌 **Estado**: _Leyendo_
 - ❤️ **Favorito**: Si
 ---
+## 📖 **Nuevo libro agregado**
+- 🌟 **Título**: _Harry Potter y la Piedra Filosofal_
+- ✍️ **Autor**: _J.K. Rowling_
+- 🔖 **Género**: _Fantasía_
+- 📌 **Estado**: _Terminado_
+- ❤️ **Favorito**: Si
+---

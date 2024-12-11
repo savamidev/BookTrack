@@ -24,3 +24,10 @@
 - 🔖 **Tipo**: _Fantasía_
 
 ---
+## 📚 **Nuevo Libro Añadido: Harry Potter y la Piedra Filosofal**
+- ✍️ **Autor**: J.K. Rowling
+- 📖 **Estado**: _Terminado_
+- ❤️ **Favorito**: Si
+- 🔖 **Tipo**: _Fantasía_
+
+---
