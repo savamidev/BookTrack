@@ -5,7 +5,7 @@
 ## 📝 **Tus Datos**
 - **Nombre completo**: José Martínez
 - **ID único**: kiU 🔑
-- **Fecha de nacimiento**: 06/03/1990
+- **Fecha de nacimiento**: 06/04/1990
 - **Correo electrónico**: martinete.111@gmail.com
 - **Notificaciones**: Si 🔔
 ---
