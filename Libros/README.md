@@ -44,3 +44,10 @@
 - 📌 **Estado**: _Leyendo_
 - ❤️ **Favorito**: No
 ---
+## 📖 **Nuevo libro agregado**
+- 🌟 **Título**: _El Libro Negro de los Amos del Mundo_
+- ✍️ **Autor**: _Cristina Martín Jiménez_
+- 🔖 **Género**: _Misterio_
+- 📌 **Estado**: _Leyendo_
+- ❤️ **Favorito**: Si
+---

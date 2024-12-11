@@ -24,3 +24,10 @@
 - 🔖 **Tipo**: _Fantasía_
 
 ---
+## 📚 **Nuevo Libro Añadido: El Libro Negro de los Amos del Mundo**
+- ✍️ **Autor**: Cristina Martín Jiménez
+- 📖 **Estado**: _Leyendo_
+- ❤️ **Favorito**: Si
+- 🔖 **Tipo**: _Misterio_
+
+---
