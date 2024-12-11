@@ -23,6 +23,14 @@
       "birthdate": "01/05/1993",
       "email": "maria.glez@gmail.com",
       "notifications": "Si"
+    },
+    {
+      "id": "If4",
+      "name": "Luis",
+      "surname": "Pérez",
+      "birthdate": "08/04/1976",
+      "email": "perez.ruiz@gmail.com",
+      "notifications": "Si"
     }
   ]
 }
