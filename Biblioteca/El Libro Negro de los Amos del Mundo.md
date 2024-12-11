@@ -1,6 +1,6 @@
 # ✨ **El Libro Negro de los Amos del Mundo**  
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/f90b4b3c-3e3e-4325-ab63-1a42354ed31d)
 
 Bienvenido a la página dedicada a **El Libro Negro de los Amos del Mundo**, una obra que desentraña los secretos detrás del poder global. Cristina Martín Jiménez examina cómo las élites controlan los eventos mundiales, la economía y las estructuras de poder. Aquí encontrarás detalles completos sobre el libro, sus enfoques y cómo estos temas impactan en nuestra realidad.
 
