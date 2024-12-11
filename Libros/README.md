@@ -1,3 +1,6 @@
+# Este espacio es para Administradores.
+
+--- 
 
 ## 📖 **Nuevo libro agregado**
 - 🌟 **Título**: _Los amos del mundo_
