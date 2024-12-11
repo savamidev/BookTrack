@@ -16,3 +16,10 @@
 - 📌 **Estado**: _Terminado_
 - ❤️ **Favorito**: Si
 ---
+## 📖 **Nuevo libro agregado**
+- 🌟 **Título**: _Canción de Hielo y Fuego_
+- ✍️ **Autor**: _George R. R. Martin_
+- 🔖 **Género**: _Fantasía_
+- 📌 **Estado**: _Pendiente_
+- ❤️ **Favorito**: No
+---

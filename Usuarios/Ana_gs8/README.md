@@ -24,3 +24,10 @@
 - 🔖 **Tipo**: _Misterio_
 
 ---
+## 📚 **Nuevo Libro Añadido: Canción de Hielo y Fuego**
+- ✍️ **Autor**: George R. R. Martin
+- 📖 **Estado**: _Pendiente_
+- ❤️ **Favorito**: No
+- 🔖 **Tipo**: _Fantasía_
+
+---
