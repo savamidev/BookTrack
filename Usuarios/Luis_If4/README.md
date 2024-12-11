@@ -17,3 +17,10 @@
 ---
 
 ¡Estamos emocionados de tenerte con nosotros! 🎉 Nos vemos en la plataforma. 🌟
+## 📚 **Nuevo Libro Añadido: El Nombre del Viento**
+- ✍️ **Autor**: Patrick Rothfuss
+- 📖 **Estado**: _Leyendo_
+- ❤️ **Favorito**: Si
+- 🔖 **Tipo**: _Fantasía_
+
+---

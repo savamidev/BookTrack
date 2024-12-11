@@ -51,3 +51,10 @@
 - 📌 **Estado**: _Leyendo_
 - ❤️ **Favorito**: Si
 ---
+## 📖 **Nuevo libro agregado**
+- 🌟 **Título**: _El Nombre del Viento_
+- ✍️ **Autor**: _Patrick Rothfuss_
+- 🔖 **Género**: _Fantasía_
+- 📌 **Estado**: _Leyendo_
+- ❤️ **Favorito**: Si
+---
