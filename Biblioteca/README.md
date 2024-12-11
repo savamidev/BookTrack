@@ -64,7 +64,7 @@ Bienvenido a nuestra **Biblioteca Principal**, si eres un amante de los libros, 
 - **Número de páginas:** 208  
 - **Descripción:**  
   Un joven pastor llamado Santiago emprende un viaje por el desierto buscando un tesoro, solo para descubrir que la verdadera riqueza reside en el autoconocimiento. "El Alquimista" es una obra filosófica que inspira a los lectores a seguir sus sueños y escuchar su corazón.  
-- 🌐 **Descubre más:** [El Alquimista](https://www.paulocoelho.com/en/)  
+- 🌐 **Descubre más:** [El Alquimista](https://github.com/savamidev/BookTrack/blob/2336372ad239c9867ad257df884cbf37cf85f4ea/Biblioteca/El%20Alquimista.md)  
 
 ---
 
