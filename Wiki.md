@@ -5,20 +5,19 @@
 ---
 
 ## 🗂️ Índice  
-1. [Introducción](#introducción)  
-2. [Características](#características)  
-3. [Instalación](#instalación)  
-4. [Usuarios](#usuarios)  
-5. [Libros](#libros)  
-6. [Comunidad](#comunidad)
-7. [Instalación] (#instalación) 
-8. [Licencia](#licencia)  
+1. [Introducción](#📝-introducción)  
+2. [Características](#✨-características)  
+3. [Instalación](#⚙️-instalación)  
+4. [Usuarios](#✨-usuarios)  
+5. [Libros](#✨-libros)  
+6. [Comunidad](#✨-comunidad)  
+7. [Licencia](#🪪-licencia)  
 
 ---
 
 ## 📝 Introducción  
 
-Este proyecto de biblioteca está diseñado para facilitar la gestión de libros, colaboraciones y aprendizaje. 
+Este proyecto de biblioteca está diseñado para facilitar la gestión de libros, colaboraciones y aprendizaje.  
 
 **Objetivo principal:**  
 Crear una herramienta sencilla y eficiente para organizar una biblioteca.  
@@ -28,76 +27,66 @@ Crear una herramienta sencilla y eficiente para organizar una biblioteca.
 ## ✨ Características  
 
 - Gestión de libros: añadir, editar, eliminar, comentar... 📚  
-- Creación de perfiles personales.
-- Comunidad: foros, clubs de lectura,ranking de libros...
+- Creación de perfiles personales.  
+- Comunidad: foros, clubs de lectura, ranking de libros...  
 - Interfaz amigable y minimalista 🎨  
- 
 
 ---
 
-## ✨ Usuarios 
+## ✨ Usuarios  
 
- ### Creación: 
- - Cada nuevo colaborador invitado a nuestra Biblioteca, deberá de registrarse.
- - Registro: en la pestaña de actions existe la herramienta "Registro de  usuarios" donde deberás de rellenar los datos que te solicitamos. Este proceso no requiere nada más es automático.
- - Perfil: una vez registrado, se creará una carpeta personal perfil de la persona con su nombre e id. Dentro de esta carpeta encontraremos los datos del usuario y aquellos libros que posteriormente se vayan añadiendo.
+### Creación:  
+- Cada nuevo colaborador invitado a nuestra Biblioteca deberá registrarse.  
+- **Registro:** en la pestaña de "actions" existe la herramienta "Registro de usuarios" donde deberás rellenar los datos que te solicitamos. Este proceso es automático.  
+- **Perfil:** una vez registrado, se creará una carpeta personal con el nombre y ID del usuario, que contendrá sus datos y libros asociados.  
 
- ### Modificación:
- - Las modificaciones se realizan a través de pull request:
-   - Creación de nueva rama de trabajo.
-   - Modificar las zonas de interés.
-   - Enviar pull request a los administradores.
-   - Respuesta: de 24h a 48h.
-   - Seguimiento: podrás ver el estado de tu pull requiest en el proyecto existente en el repositorio.
-  
- ---
+### Modificación:  
+- Las modificaciones se realizan a través de pull requests:  
+  1. Crear una nueva rama de trabajo.  
+  2. Modificar las zonas de interés.  
+  3. Enviar un pull request a los administradores.  
+  4. Tiempo de respuesta: 24 a 48 horas.  
 
-## ✨ Libros 
+---
 
- ### Creación: 
- - El colaborador debe de estar registrado.
- - Añadir libro: en la pestaña de actions existe una herramienta llamada "Registrar libro", esta herramienta nos permite añadir un libro a nuestro perfil con los datos que nos irá solicitando.
- - Importante: se requiere el id asociado al perfil para que automáticamente se añada a tu perfil personal.
- - Una vez creado... TODO LISTO! Los administradores revisan la base de datos con una recurrencia de 24h a 48h, y una vez se verifique que el libro es correcto y no existen duplicados se añadirán a la biblioteca.
-   
- ### Modificación:
- - Las modificaciones se realizan a través de pull request:
-   - Creación de nueva rama de trabajo.
-   - Modificar las zonas de interés.
-   - Enviar pull request a los administradores.
-   - Respuesta: de 24h a 48h.
-   - Seguimiento: podrás ver el estado de tu pull requiest en el proyecto existente en el repositorio.
-  
- ---
+## ✨ Libros  
 
- ## ✨ Comunidad 
+### Creación:  
+- El colaborador debe estar registrado.  
+- **Añadir libro:** usa la herramienta "Registrar libro" en la pestaña de "actions".  
+- **Revisión:** los administradores verifican los datos del libro en un plazo de 24 a 48 horas antes de agregarlo a la biblioteca.  
 
- ### Interaciones: 
- - Todo colaborador que desee formar parte de nuestra comunidad debe de estar registrado.
- - Todas las iteraciones posibles están indicadas en cada parte correspondiente.
- - Con carácter general, todas estas se ejecutan mediante issues, a la hora de crear un issues es de vital importancia que elijas correctamente el label correspondiente para que nuestros administradores puedan desarrollar su trabajo.
- - Todo issues sin etiqueta o con etiqueta errónea, será descartada automáticamente. Podrás abrir un nuevo issues con el label "Soporte" para poder tratar el tema.
+### Modificación:  
+- Se realiza mediante pull requests, siguiendo el mismo procedimiento que para los usuarios.  
 
-### Soporte: 
- - Puedes contactar con nuestro soporte a traves de issues, usando el label "Soporte". Estructura:
-  - Tema:
-  - Motivo:
-  - Detalle:
-  - Categoria (perfil, libro, comunidad y biblioteca).
-  - IMPORTANTE: debes asociarlo al proyecto del repositorio para realizar el seguimiento correctamente.
+---
 
- ---
+## ✨ Comunidad  
+
+### Interacciones:  
+- Para formar parte de la comunidad, es necesario estar registrado.  
+- Las interacciones se gestionan mediante **issues**, usando etiquetas (`labels`) correctas para facilitar la administración.  
+- Issues sin etiquetas o con etiquetas incorrectas serán descartados automáticamente.  
+
+### Soporte:  
+- Usa el label "Soporte" para crear un issue estructurado:  
+  - **Tema:**  
+  - **Motivo:**  
+  - **Detalle:**  
+  - **Categoría:** perfil, libro, comunidad o biblioteca.  
+
+---
 
 ## ⚙️ Instalación  
 
 ### Prerrequisitos  
-- Tener instalado [Java](https://www.java.com/) (versión X o superior)  
-- Sistema de control de versiones [Git](https://git-scm.com/)  
+- Tener instalado [Java](https://www.java.com/) (versión X o superior).  
+- Sistema de control de versiones [Git](https://git-scm.com/).  
 
 ### Pasos  
 1. Clona este repositorio:  
    ```bash  
-   git clone https://github.com/tu_usuario/nombre-del-repositorio.git
+   git clone https://github.com/tu_usuario/nombre-del-repositorio.git  
 
 
 ----
