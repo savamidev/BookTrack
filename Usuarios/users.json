@@ -31,6 +31,14 @@
       "birthdate": "08/04/1976",
       "email": "perez.ruiz@gmail.com",
       "notifications": "Si"
+    },
+    {
+      "id": "gs8",
+      "name": "Ana",
+      "surname": "Rodríaguez",
+      "birthdate": "21/11/1987",
+      "email": "anita.banana@gmail.com",
+      "notifications": "No"
     }
   ]
 }

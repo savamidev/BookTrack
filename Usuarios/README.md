@@ -19,3 +19,8 @@
 - **Nombre**: Luis
 - **Correo Electrónico**: perez.ruiz@gmail.com
 ---
+## gs8 - Ana Rodríaguez
+- **ID**: gs8
+- **Nombre**: Ana
+- **Correo Electrónico**: anita.banana@gmail.com
+---
