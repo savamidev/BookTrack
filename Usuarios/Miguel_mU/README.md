@@ -24,17 +24,11 @@
 - **Tipo**: Ciencia Ficción
 ---
 
-## 📚 **Nuevo Libro Añadido: Hábitos Atómicos**
+## 📚 **Nuevo Libro Añadido: Hábitos Atómicos** (En revisión)
 - ✍️ **Autor**: James Clear
 - 📖 **Estado**: _Pendiente_
 - ❤️ **Favorito**: Si
 - 🔖 **Tipo**: _Ciencia Ficción_
 
 ---
-## 📚 **Nuevo Libro Añadido: Los amos del mundo**
-- ✍️ **Autor**: Cristina Martín
-- 📖 **Estado**: _Leyendo_
-- ❤️ **Favorito**: Si
-- 🔖 **Tipo**: _Terror_
 
----
