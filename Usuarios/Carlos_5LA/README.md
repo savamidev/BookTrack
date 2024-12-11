@@ -17,14 +17,14 @@
 ---
 
 ¡Estamos emocionados de tenerte con nosotros! 🎉 Nos vemos en la plataforma. 🌟
-## 📚 **Nuevo Libro Añadido: El Alquimista**
+## 📚 **Nuevo Libro Añadido: [El Alquimista](https://github.com/savamidev/BookTrack/blob/a155c6f52c585acb99ef24d34de69a18816c2ee2/Biblioteca/El%20Alquimista.md)**
 - ✍️ **Autor**: Paulo Coelho
 - 📖 **Estado**: _Leyendo_
 - ❤️ **Favorito**: Si
 - 🔖 **Tipo**: _Ciencia Ficción_
 
 ---
-## 📚 **Nuevo Libro Añadido: El Código Da Vinci**
+## 📚 **Nuevo Libro Añadido: [El Código Da Vinci](https://github.com/savamidev/BookTrack/blob/a155c6f52c585acb99ef24d34de69a18816c2ee2/Biblioteca/El%20C%C3%B3digo%20Da%20Vinci.md)**
 - ✍️ **Autor**: Dan Brown
 - 📖 **Estado**: _Terminado_
 - ❤️ **Favorito**: Si
