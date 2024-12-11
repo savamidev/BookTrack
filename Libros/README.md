@@ -30,3 +30,10 @@
 - 📌 **Estado**: _Leyendo_
 - ❤️ **Favorito**: Si
 ---
+## 📖 **Nuevo libro agregado**
+- 🌟 **Título**: _El Código Da Vinci_
+- ✍️ **Autor**: _Dan Brown_
+- 🔖 **Género**: _Misterio_
+- 📌 **Estado**: _Terminado_
+- ❤️ **Favorito**: Si
+---

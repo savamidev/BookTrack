@@ -24,3 +24,10 @@
 - 🔖 **Tipo**: _Ciencia Ficción_
 
 ---
+## 📚 **Nuevo Libro Añadido: El Código Da Vinci**
+- ✍️ **Autor**: Dan Brown
+- 📖 **Estado**: _Terminado_
+- ❤️ **Favorito**: Si
+- 🔖 **Tipo**: _Misterio_
+
+---
