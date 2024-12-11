@@ -30,11 +30,11 @@ El club está abierto para todos los niveles de lectura. Ya seas un lector exper
 ## 📚 **Libro Actual**  
 
 Este mes, estamos leyendo:  
-### 📖 **[Título del libro](#)**  
-**Autor:** [Nombre del autor]  
-**Género:** [Género del libro]  
+### 📖 **[El Nombre del Viento](https://github.com/savamidev/BookTrack/blob/687ae133ca2c88352343f6d4baa96d9ae83e3b5d/Biblioteca/El%20Nombre%20del%20Viento.md)**  
+**Autor:** [Patrick Rothfuss]  
+**Género:** [Fantasía]  
 **Sinopsis:**  
-Una breve descripción del libro y lo que puedes esperar al leerlo. Este es un libro que promete [breve descripción del tema o estilo].  
+El nombre del viento. Crónica del asesino de reyes: primer día es una novela de fantasía épica, perteneciente a la serie Crónica del Asesino de Reyes, escrita por Patrick Rothfuss, escritor estadounidense y profesor adjunto de lengua y filología inglesa en la Universidad de Wisconsin.
 
 ### 📅 **Fechas Importantes**  
 - **Fecha de inicio de lectura**: [01/12/2024]  
