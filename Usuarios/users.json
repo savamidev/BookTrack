@@ -39,6 +39,14 @@
       "birthdate": "21/11/1987",
       "email": "anita.banana@gmail.com",
       "notifications": "No"
+    },
+    {
+      "id": "kiU",
+      "name": "José",
+      "surname": "Martínez",
+      "birthdate": "06/03/1990",
+      "email": "martinete.111@gmail.com",
+      "notifications": "Si"
     }
   ]
 }
