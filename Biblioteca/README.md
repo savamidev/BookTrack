@@ -73,7 +73,7 @@ Bienvenido a nuestra **Biblioteca Principal**, si eres un amante de los libros, 
 - **Número de páginas:** 324  
 - **Descripción:**  
   Ambientada en los años 30 en el sur de Estados Unidos, esta obra narra la lucha por la justicia de Atticus Finch, un abogado que defiende a un hombre negro acusado injustamente de violación. La novela aborda temas de racismo, moralidad y la lucha por lo que es correcto.  
-- 🌐 **Conoce más:** [Matar a un Ruiseñor](https://www.harperlee.com/)  
+- 🌐 **Conoce más:** [Matar a un Ruiseñor](https://github.com/savamidev/BookTrack/blob/91b7cc3143395d3d1c1bf0aca7c1fdff1e8010a7/Biblioteca/Matar%20a%20un%20Ruise%C3%B1or.md)  
 
 ---
 
