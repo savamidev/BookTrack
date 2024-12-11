@@ -2,7 +2,7 @@
 
 ¡Hola, lector entusiasta! 👋  
 
-## 📚 **Libro Actual: "El Nombre del Viento"**  
+## 📚 **Libro Actual: "[El Nombre del Viento](https://github.com/savamidev/BookTrack/blob/687ae133ca2c88352343f6d4baa96d9ae83e3b5d/Biblioteca/El%20Nombre%20del%20Viento.md)"**  
 **Autor:** Patrick Rothfuss  
 **Género:** Fantasía épica  
 **Sinopsis:**  
@@ -15,17 +15,17 @@
 ### **Semana 1: Introducción y los primeros capítulos**  
 - 📖 **Lectura:** Capítulos 1-5  
 - 💬 **Discusión:** ¿Qué opinas de la introducción del personaje Kvothe? ¿Cómo se presenta el mundo de la Universidad?  
-- 🕒 **Fecha de discusión:** [Fecha] a las [Hora] en [Plataforma de reunión].  
+- 🕒 **Fecha de discusión:** [01/12/2024] a las [19:30] en [Google Meet].  
 
 ### **Semana 2: Profundizando en el aprendizaje y las relaciones**  
 - 📖 **Lectura:** Capítulos 6-12  
 - 💬 **Discusión:** ¿Cómo se desarrolla la relación de Kvothe con sus compañeros? ¿Qué piensas de la forma en que se describe la magia?  
-- 🕒 **Fecha de discusión:** [Fecha] a las [Hora] en [Plataforma de reunión].  
+- 🕒 **Fecha de discusión:** [10/12/2024] a las [19:30] en [Google Meet].  
 
 ### **Semana 3: El conflicto y los misterios del pasado**  
 - 📖 **Lectura:** Capítulos 13-20  
 - 💬 **Discusión:** ¿Qué opinas de los primeros indicios del pasado de Kvothe? ¿Cómo crees que su historia se conecta con las leyendas que lo rodean?  
-- 🕒 **Fecha de discusión:** [Fecha] a las [Hora] en [Plataforma de reunión].  
+- 🕒 **Fecha de discusión:** [21/12/2024] a las [19:30] en [Google Meet].  
 
 ---
 
@@ -79,11 +79,11 @@ Si disfrutaste de Patrick Rothfuss, probablemente también te gusten estos autor
 ## 👥 **Miembros del Club de Lectura**
 
 ### 🌟 **Miembros Actuales**
-- Carla Fernández  
-- Andrés Pérez  
-- Elena Gómez  
-- Luis Martínez  
-- Ana Rodríguez  
+- José Martínez
+- Ana Rodríguez 
+- Luis Pérez  
+- Carlos Fernánde
+- María González
 
 ### 🚀 **Nuevos Miembros**
 Deberás de enviar tu petición de unión [aqui](https://github.com/savamidev/BookTrack/issues)
