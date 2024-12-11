@@ -17,14 +17,14 @@
 ---
 
 ¡Estamos emocionados de tenerte con nosotros! 🎉 Nos vemos en la plataforma. 🌟
-## 📚 **Nuevo Libro Añadido: El Hobbit**
+## 📚 **Nuevo Libro Añadido: [El Hobbit](https://github.com/savamidev/BookTrack/blob/2a83a547da810bba3bcc4822b66cd6a7c8d9d976/Biblioteca/El%20Hobbit.md)**
 - ✍️ **Autor**: J.R.R. Tolkien
 - 📖 **Estado**: _Leyendo_
 - ❤️ **Favorito**: No
 - 🔖 **Tipo**: _Fantasía_
 
 ---
-## 📚 **Nuevo Libro Añadido: El Libro Negro de los Amos del Mundo**
+## 📚 **Nuevo Libro Añadido: [El Libro Negro de los Amos del Mundo](https://github.com/savamidev/BookTrack/blob/2a83a547da810bba3bcc4822b66cd6a7c8d9d976/Biblioteca/El%20Libro%20Negro%20de%20los%20Amos%20del%20Mundo.md)**
 - ✍️ **Autor**: Cristina Martín Jiménez
 - 📖 **Estado**: _Leyendo_
 - ❤️ **Favorito**: Si
