@@ -9,7 +9,7 @@
 2. [Características](#características)  
 3. [Instalación](#instalación)  
 4. [Usuarios](#usuarios)  
-5. [Libros](#Libros)  
+5. [Libros](#libros)  
 6. [Comunidad](#comunidad)
 7. [Instalación] (#instalación) 
 8. [Licencia](#licencia)  
