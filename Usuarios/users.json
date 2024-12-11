@@ -15,6 +15,14 @@
       "birthdate": "04/11/2005",
       "email": "carlos.Fer@gmail.com",
       "notifications": "No"
+    },
+    {
+      "id": "WKE",
+      "name": "María",
+      "surname": "González",
+      "birthdate": "01/05/1993",
+      "email": "maria.glez@gmail.com",
+      "notifications": "Si"
     }
   ]
 }
