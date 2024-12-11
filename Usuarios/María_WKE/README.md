@@ -17,14 +17,14 @@
 ---
 
 ¡Estamos emocionados de tenerte con nosotros! 🎉 Nos vemos en la plataforma. 🌟
-## 📚 **Nuevo Libro Añadido: La Sombra del Viento**
+## 📚 **Nuevo Libro Añadido: [La Sombra del Viento](https://github.com/savamidev/BookTrack/blob/cac5569595301e1cc5b8f617c61ffec9bd1a0f85/Biblioteca/La%20Sombra%20del%20Viento.md)**
 - ✍️ **Autor**: Carlos Ruiz Zafón
 - 📖 **Estado**: _Pendiente_
 - ❤️ **Favorito**: No
 - 🔖 **Tipo**: _Misterio_
 
 ---
-## 📚 **Nuevo Libro Añadido: Matar a un Ruiseñor**
+## 📚 **Nuevo Libro Añadido: [Matar a un Ruiseñor](https://github.com/savamidev/BookTrack/blob/cac5569595301e1cc5b8f617c61ffec9bd1a0f85/Biblioteca/Matar%20a%20un%20Ruise%C3%B1or.md)**
 - ✍️ **Autor**: Harper Lee
 - 📖 **Estado**: _Leyendo_
 - ❤️ **Favorito**: Si
