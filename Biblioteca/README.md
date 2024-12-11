@@ -46,7 +46,7 @@ Bienvenido a nuestra **Biblioteca Principal**, si eres un amante de los libros, 
 - **Número de páginas:** 328  
 - **Descripción:**  
   En un futuro distópico, el gobierno lo controla todo, incluso los pensamientos. Winston Smith vive en una sociedad vigilada por el Gran Hermano, donde la libertad es solo un recuerdo. "1984" es una crítica poderosa a la opresión y el totalitarismo.  
-- 🌐 **Descubre más:** [1984](https://www.george-orwell.org/1984/)  
+- 🌐 **Descubre más:** [1984](https://github.com/savamidev/BookTrack/blob/7259be2cd8e63863657f58e815f2b32c29e59687/Biblioteca/1984.md)  
 
 ---
 
