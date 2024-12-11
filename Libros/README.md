@@ -65,3 +65,10 @@
 - 📌 **Estado**: _Terminado_
 - ❤️ **Favorito**: Si
 ---
+## 📖 **Nuevo libro agregado**
+- 🌟 **Título**: _La Sombra del Viento_
+- ✍️ **Autor**: _Carlos Ruiz Zafón_
+- 🔖 **Género**: _Misterio_
+- 📌 **Estado**: _Pendiente_
+- ❤️ **Favorito**: No
+---

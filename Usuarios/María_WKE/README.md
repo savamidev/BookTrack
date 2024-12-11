@@ -17,3 +17,10 @@
 ---
 
 ¡Estamos emocionados de tenerte con nosotros! 🎉 Nos vemos en la plataforma. 🌟
+## 📚 **Nuevo Libro Añadido: La Sombra del Viento**
+- ✍️ **Autor**: Carlos Ruiz Zafón
+- 📖 **Estado**: _Pendiente_
+- ❤️ **Favorito**: No
+- 🔖 **Tipo**: _Misterio_
+
+---
