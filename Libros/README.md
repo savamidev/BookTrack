@@ -37,3 +37,10 @@
 - 📌 **Estado**: _Terminado_
 - ❤️ **Favorito**: Si
 ---
+## 📖 **Nuevo libro agregado**
+- 🌟 **Título**: _El Hobbit_
+- ✍️ **Autor**: _J.R.R. Tolkien_
+- 🔖 **Género**: _Fantasía_
+- 📌 **Estado**: _Leyendo_
+- ❤️ **Favorito**: No
+---

@@ -17,3 +17,10 @@
 ---
 
 ¡Estamos emocionados de tenerte con nosotros! 🎉 Nos vemos en la plataforma. 🌟
+## 📚 **Nuevo Libro Añadido: El Hobbit**
+- ✍️ **Autor**: J.R.R. Tolkien
+- 📖 **Estado**: _Leyendo_
+- ❤️ **Favorito**: No
+- 🔖 **Tipo**: _Fantasía_
+
+---
