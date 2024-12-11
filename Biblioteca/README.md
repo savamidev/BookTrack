@@ -55,7 +55,7 @@ Bienvenido a nuestra **Biblioteca Principal**, si eres un amante de los libros, 
 - **Número de páginas:** 575  
 - **Descripción:**  
   En la Barcelona de la posguerra, un joven llamado Daniel Sempere se ve envuelto en un misterio literario que cambiará su vida para siempre. La historia de *La Sombra del Viento* está llena de secretos, pasiones y libros perdidos, y es una de las obras más queridas por los lectores en todo el mundo.  
-- 🌐 **Explora más:** [La Sombra del Viento](https://www.carlosruizzafon.co.uk/)  
+- 🌐 **Explora más:** [La Sombra del Viento](https://github.com/savamidev/BookTrack/blob/ab1ef766677084a4011feb3848497a9536763373/Biblioteca/La%20Sombra%20del%20Viento.md)  
 
 ---
 
