@@ -37,7 +37,7 @@ Bienvenido a nuestra **Biblioteca Principal**, si eres un amante de los libros, 
 - **Número de páginas:** 310  
 - **Descripción:**  
   Acompaña a Bilbo Bolsón en su inesperada aventura hacia la Montaña Solitaria, donde enfrentará dragones, trolls y el legendario anillo que cambiará el destino de toda la Tierra Media. Una obra clásica que ha dejado una huella indeleble en la literatura de fantasía.  
-- 🌐 **Explora más:** [El Hobbit](https://www.tolkiensociety.org/author/j-r-r-tolkien/)  
+- 🌐 **Explora más:** [El Hobbit](https://github.com/savamidev/BookTrack/blob/50001ebe68170a9efcfd683017d685fa55ec735a/Biblioteca/El%20Hobbit.md)  
 
 ---
 
