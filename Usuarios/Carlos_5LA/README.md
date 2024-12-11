@@ -17,3 +17,10 @@
 ---
 
 ¡Estamos emocionados de tenerte con nosotros! 🎉 Nos vemos en la plataforma. 🌟
+## 📚 **Nuevo Libro Añadido: El Alquimista**
+- ✍️ **Autor**: Paulo Coelho
+- 📖 **Estado**: _Leyendo_
+- ❤️ **Favorito**: Si
+- 🔖 **Tipo**: _Ciencia Ficción_
+
+---

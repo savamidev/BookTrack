@@ -23,3 +23,10 @@
 - 📌 **Estado**: _Pendiente_
 - ❤️ **Favorito**: No
 ---
+## 📖 **Nuevo libro agregado**
+- 🌟 **Título**: _El Alquimista_
+- ✍️ **Autor**: _Paulo Coelho_
+- 🔖 **Género**: _Ciencia Ficción_
+- 📌 **Estado**: _Leyendo_
+- ❤️ **Favorito**: Si
+---
