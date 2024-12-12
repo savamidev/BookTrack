@@ -8,6 +8,7 @@
 
 ---
 
+
 #### 📖 **Libros incluidos:** 
 
 ## [El Alquimista](https://github.com/savamidev/BookTrack/blob/a155c6f52c585acb99ef24d34de69a18816c2ee2/Biblioteca/El%20Alquimista.md)
@@ -24,12 +25,16 @@
 - ❤️ **Favorito**: Si
 - 🔖 **Tipo**: _Misterio_
 
+
 ---
 
 ### 🚀 Interacciones  
 
-❤️ **[Seguir esta lista](#)**  
-💬 **[Comentar](#)**  
+❤️ **[Seguir esta lista](https://github.com/savamidev/BookTrack/issues)**  
+  - Label: Seguir Lista 🖇️
+    
+💬 **[Comentar]([issues](https://github.com/savamidev/BookTrack/issues))**  
+  - Label: Añadir comentario 💬
 
 #### **Personas que siguen esta lista:**  
 👤 **María González**   
