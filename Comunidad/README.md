@@ -25,6 +25,12 @@ Ayúdanos a construir el **ranking definitivo** de libros de la comunidad:
 - 📊 **Descubre qué libros están siendo tendencia** y amplía tu lista de pendientes.  
 - ✍️ **Comparte tu opinión** para ayudar a otros a encontrar su próxima lectura perfecta.  
 
+### 🖇️ **[Listas de libros](https://github.com/savamidev/BookTrack/tree/67d1621fbe90bb2c045b8f38b07abdb7df4329b3/Comunidad/Listas)**  
+Comparte tus libros favoritos **Listas** para que otros usuarios amplien sus conocimientos:  
+- ⭐ **Comparte listas** da a conocer toda tu biblioteca.  
+- 📊 **Descubre libros de otros lectores** y amplía tu lista de pendientes.  
+- ✍️ **Comparte tu opinión** para ayudar a otros a encontrar su próxima lectura perfecta.  
+
 ---
 
 ## 🔗 **¿Listo para comenzar?**  
