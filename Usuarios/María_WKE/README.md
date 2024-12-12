@@ -38,6 +38,9 @@
 - ❤️ **Favorito**: No
 - 🔖 **Tipo**: _Misterio_
 
+### Reseña personal.
+  _Me ha parecido fascinante, el mundo creado, el sistema de mágia, los personajes, su evolución_
+
 ---
 ## 📚 **Nuevo Libro Añadido: [Matar a un Ruiseñor](https://github.com/savamidev/BookTrack/blob/cac5569595301e1cc5b8f617c61ffec9bd1a0f85/Biblioteca/Matar%20a%20un%20Ruise%C3%B1or.md)**
 - ✍️ **Autor**: Harper Lee
