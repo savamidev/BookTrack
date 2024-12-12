@@ -16,7 +16,22 @@
 3. **Configura tus notificaciones**: Asegúrate de estar al tanto de todas las novedades. 🔔
 ---
 
-¡Estamos emocionados de tenerte con nosotros! 🎉 Nos vemos en la plataforma. 🌟
+## Tus listas 🧡
+
+  ### Privada.
+  
+  ---
+
+  ### Pública
+
+  ---
+  
+  ### Seguidas
+
+  ---
+
+---
+
 ## 📚 **Nuevo Libro Añadido: [La Sombra del Viento](https://github.com/savamidev/BookTrack/blob/cac5569595301e1cc5b8f617c61ffec9bd1a0f85/Biblioteca/La%20Sombra%20del%20Viento.md)**
 - ✍️ **Autor**: Carlos Ruiz Zafón
 - 📖 **Estado**: _Pendiente_
