@@ -76,7 +76,7 @@ Este libro ha generado numerosas teorías sobre los destinos de sus personajes, 
 - ¿Qué teorías tienes sobre el futuro de los personajes?
 - ¿Crees que el destino de la familia Stark será trágico o triunfante?
 
-🔗 Únete a la discusión en [nuestro foro](https://github.com/savamidev/BookTrack/issues).
+🔗 Únete a la discusión en [nuestro foro](https://github.com/savamidev/BookTrack/tree/2b946b63e43cb0260d074543c65a7f8b5dca1d89/Comunidad/Foro).
 
 ---
 
