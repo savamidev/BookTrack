@@ -1,0 +1,25 @@
+name: Saludos
+
+# Este flujo de trabajo envía un mensaje amigable a los usuarios cuando crean su primer issue o pull request.
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    # Especifica el sistema operativo en el que se ejecutará el flujo de trabajo.
+    runs-on: ubuntu-latest
+
+    # Define los permisos necesarios para el flujo de trabajo.
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+      # Utiliza la acción "first-interaction" de GitHub para enviar saludos.
+      - name: Enviar mensaje de bienvenida
+        uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }} # Token proporcionado por GitHub para la autenticación.
+          issue-message: |
+            👋 ¡Bienvenido al repositorio! Gracias por abrir tu primer issue. Valoramos tu contribución y responderemos lo antes posible. 😊
+          pr-message: |
+            🎉 ¡Gracias por enviar tu primer pull request! Nuestro equipo lo revisará en breve. ¡Agradecemos tus esfuerzos para mejorar el proyecto! 🚀
