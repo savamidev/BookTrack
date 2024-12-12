@@ -16,7 +16,22 @@
 3. **Configura tus notificaciones**: Asegúrate de estar al tanto de todas las novedades. 🔔
 ---
 
-¡Estamos emocionados de tenerte con nosotros! 🎉 Nos vemos en la plataforma. 🌟
+## Tus listas 🧡
+
+  ### Privada.
+  
+  ---
+
+  ### Pública
+
+  ---
+  
+  ### Seguidas
+  **[Lista Indispensables](https://github.com/savamidev/BookTrack/blob/3b301f4e5ae08894b8cdea21c250cf62d27ea04e/Comunidad/Listas/Jos%C3%A9%20Lista.md)** 
+  
+
+---
+
 ## 📚 **Nuevo Libro Añadido: [El Nombre del Viento](https://github.com/savamidev/BookTrack/blob/687ae133ca2c88352343f6d4baa96d9ae83e3b5d/Biblioteca/El%20Nombre%20del%20Viento.md)**
 - ✍️ **Autor**: Patrick Rothfuss
 - 📖 **Estado**: _Leyendo_
