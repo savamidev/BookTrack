@@ -14,9 +14,37 @@
 1. **Personaliza tu perfil**: Agrega una foto, cambia tu bio y más. 📸
 2. **Participa en la comunidad**: Únete a debates, comparte tus ideas y conoce a otros usuarios. 💬
 3. **Configura tus notificaciones**: Asegúrate de estar al tanto de todas las novedades. 🔔
+
 ---
 
-¡Estamos emocionados de tenerte con nosotros! 🎉 Nos vemos en la plataforma. 🌟
+## Tus listas 🧡
+
+  ### Privada. 
+
+---
+
+  ### Pública Fantasía
+  
+ _**El Hobbit**_  
+   - ✍️ Autor: J.R.R. Tolkien  
+   - 🔖 Género: Fantasía
+
+_**El Nombre del Viento**_  
+   - ✍️ Autor: Patrick Rothfuss
+   - 🔖 Género: Fantasía
+
+_**Harry Potter y la Piedra Filosofal**_  
+   - ✍️ Autor: J.K. Rowling
+   - 🔖 Género: Fantasía 
+
+  ---
+  
+  ### Seguidas
+
+  ---
+
+---
+
 ## 📚 **Nuevo Libro Añadido: [El Hobbit](https://github.com/savamidev/BookTrack/blob/2a83a547da810bba3bcc4822b66cd6a7c8d9d976/Biblioteca/El%20Hobbit.md)**
 - ✍️ **Autor**: J.R.R. Tolkien
 - 📖 **Estado**: _Leyendo_
