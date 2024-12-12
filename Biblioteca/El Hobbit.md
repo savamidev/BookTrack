@@ -79,7 +79,7 @@ Aunque Smaug parece invencible en el libro, la historia nos enseña que incluso 
 - ¿Qué piensas sobre el personaje de Bilbo?  
 - ¿Cómo crees que la aventura de Bilbo conecta con *El Señor de los Anillos*?
 
-🔗 Únete a la discusión en [nuestro foro](https://github.com/savamidev/BookTrack/issues).
+🔗 Únete a la discusión en [nuestro foro](https://github.com/savamidev/BookTrack/tree/2b946b63e43cb0260d074543c65a7f8b5dca1d89/Comunidad/Foro).
 
 ---
 
