@@ -74,7 +74,7 @@ El libro expone cómo ciertas crisis internacionales, como las guerras o las cri
 - ¿Qué piensas sobre la relación entre las organizaciones globales y la política local?  
 - ¿Crees que las teorías presentadas en el libro tienen base real?
 
-🔗 Únete a la discusión en [nuestro foro](https://github.com/savamidev/BookTrack/issues).
+🔗 Únete a la discusión en [nuestro foro](https://github.com/savamidev/BookTrack/tree/2b946b63e43cb0260d074543c65a7f8b5dca1d89/Comunidad/Foro).
 
 ---
 
