@@ -79,7 +79,7 @@ A lo largo de la novela, el misterio de la "sombra" que persigue a Daniel y a lo
 - ¿Qué piensas sobre la relación entre Daniel y Bea?  
 - ¿Cómo interpretas la figura del Cementerio de los Libros Olvidados?
 
-🔗 Únete a la discusión en [nuestro foro](https://github.com/savamidev/BookTrack/issues).
+🔗 Únete a la discusión en [nuestro foro](https://github.com/savamidev/BookTrack/tree/2b946b63e43cb0260d074543c65a7f8b5dca1d89/Comunidad/Foro).
 
 ---
 
