@@ -76,7 +76,7 @@ Este libro ha dado lugar a muchas teorías entre los lectores. Desde la misterio
 - ¿Qué piensas de la magia de Kvothe?  
 - ¿Crees que la historia de Kvothe tiene un final feliz o trágico?
 
-🔗 Únete a la discusión en [nuestro foro](https://github.com/savamidev/BookTrack/issues).
+🔗 Únete a la discusión en [nuestro foro](https://github.com/savamidev/BookTrack/tree/2b946b63e43cb0260d074543c65a7f8b5dca1d89/Comunidad/Foro).
 
 ---
 
