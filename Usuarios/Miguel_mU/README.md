@@ -16,7 +16,22 @@
 3. **Configura tus notificaciones**: Asegúrate de estar al tanto de todas las novedades. 🔔
 ---
 
-¡Estamos emocionados de tenerte con nosotros! 🎉 Nos vemos en la plataforma. 🌟
+## Tus listas 🧡
+
+  ### Privada.
+ 
+  ---
+
+  ### Pública
+
+  ---
+  
+  ### Seguidas
+  **[Lista Indispensables](https://github.com/savamidev/BookTrack/blob/3b301f4e5ae08894b8cdea21c250cf62d27ea04e/Comunidad/Listas/Jos%C3%A9%20Lista.md)** 
+  ---
+
+---
+
 ## 📖 **Detalles del Libro: Dune**
 - **Autor**: Frank Herbert
 - **Estado**: Pendiente
