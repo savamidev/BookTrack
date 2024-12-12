@@ -86,7 +86,7 @@ Jean Valjean, a pesar de sus errores pasados, encuentra la redención a través 
 - ¿Qué piensas sobre la relación entre la ley y la misericordia en la obra?  
 - ¿Qué mensaje crees que Hugo quería transmitir sobre la pobreza y la injusticia social?
 
-🔗 Únete a la discusión en [nuestro foro](https://github.com/savamidev/BookTrack/issues).
+🔗 Únete a la discusión en [nuestro foro](https://github.com/savamidev/BookTrack/tree/2b946b63e43cb0260d074543c65a7f8b5dca1d89/Comunidad/Foro).
 
 ---
 
