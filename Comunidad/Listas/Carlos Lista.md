@@ -24,11 +24,6 @@
 - ❤️ **Favorito**: Si
 - 🔖 **Tipo**: _Misterio_
 
-3. **El silencio de los inocentes**  
-   - ✍️ Autor: Thomas Harris  
-   - 📖 Estado: Pendiente  
-   - 🔖 Género: Suspenso, Policial  
-
 ---
 
 ### 🚀 Interacciones  
@@ -37,13 +32,13 @@
 💬 **[Comentar](#)**  
 
 #### **Personas que siguen esta lista:**  
-👤 **Maria**   
+👤 **María González**   
 
 ---
 
 ### 💬 **Comentarios**  
 
-📌 **Maria**: *"Leí 'El psicoanalista' gracias a esta lista y no pude soltarlo. ¡Gracias por la recomendación!"*  
+📌 **Maria**: *"Leí 'El Código Da Vinci' gracias a esta lista y no pude soltarlo. ¡Gracias por la recomendación!"*  
 
 
 ---
