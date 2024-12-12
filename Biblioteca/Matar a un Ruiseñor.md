@@ -87,7 +87,7 @@ A pesar de los esfuerzos de Atticus para defender a Tom Robinson, el sistema jud
 - ¿Cómo interpretas el desarrollo de los personajes de Scout y Jem?  
 - ¿Qué mensaje sobre el racismo y la justicia te deja esta obra?
 
-🔗 Únete a la discusión en [nuestro foro](https://github.com/savamidev/BookTrack/issues).
+🔗 Únete a la discusión en [nuestro foro](https://github.com/savamidev/BookTrack/tree/2b946b63e43cb0260d074543c65a7f8b5dca1d89/Comunidad/Foro).
 
 ---
 
