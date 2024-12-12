@@ -5,6 +5,7 @@ Este proyecto facilita la gestión de usuarios y libros mediante flujos de traba
 ---
 
 ## **1. Registrar Usuario**
+
 Permite registrar nuevos usuarios y genera automáticamente directorios y archivos personalizados.
 
 ### Flujo de trabajo
@@ -22,6 +23,7 @@ Permite registrar nuevos usuarios y genera automáticamente directorios y archiv
 ---
 
 ## **2. Registrar Libro**
+
 Añade libros a la biblioteca personal de un usuario registrado y clasifica los libros por estado.
 
 ### Flujo de trabajo
@@ -36,6 +38,21 @@ Añade libros a la biblioteca personal de un usuario registrado y clasifica los 
 - `Libros/[estado].json`
 - `Libros/books.json`
 - `Usuarios/[nombre]_[id]/README.md`
+
+---
+
+## **3. Saludos**
+
+Este flujo de trabajo envía un mensaje amigable a los usuarios cuando crean su primer *issue* o *pull request*.
+
+### Descripción
+- **Archivo**: `greetings.yml`
+- **Eventos activadores**: `pull_request_target`, `issues`
+
+### Características
+- Da la bienvenida a los usuarios que interactúan por primera vez con el repositorio.
+- Mensajes personalizados para *issues* y *pull requests*.
+
 
 ---
 
