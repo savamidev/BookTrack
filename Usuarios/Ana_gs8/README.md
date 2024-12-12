@@ -16,7 +16,23 @@
 3. **Configura tus notificaciones**: Asegúrate de estar al tanto de todas las novedades. 🔔
 ---
 
-¡Estamos emocionados de tenerte con nosotros! 🎉 Nos vemos en la plataforma. 🌟
+## Tus listas 🧡
+
+  ### Privada.
+  
+  _**1984**_  
+   - ✍️ Autor: George Orwell  
+   - 🔖 Género: Distopía  
+  ---
+
+  ### Pública
+
+  ---
+  
+  ### Seguidas
+
+  ---
+
 ## 📚 **Nuevo Libro Añadido: [1984](https://github.com/savamidev/BookTrack/blob/7259be2cd8e63863657f58e815f2b32c29e59687/Biblioteca/1984.md)**
 - ✍️ **Autor**: George Orwell
 - 📖 **Estado**: _Terminado_
