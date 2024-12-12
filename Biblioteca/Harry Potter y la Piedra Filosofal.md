@@ -84,7 +84,7 @@ Aunque Voldemort parece estar derrotado al final de este libro, la historia mues
 - ¿Qué piensas sobre la relación de Harry con sus amigos?  
 - ¿Qué crees sobre el misterio de la Piedra Filosofal?
 
-🔗 Únete a la discusión en [nuestro foro](https://github.com/savamidev/BookTrack/issues).
+🔗 Únete a la discusión en [nuestro foro](https://github.com/savamidev/BookTrack/tree/2b946b63e43cb0260d074543c65a7f8b5dca1d89/Comunidad/Foro).
 
 ---
 
