@@ -16,6 +16,30 @@
 3. **Configura tus notificaciones**: Asegúrate de estar al tanto de todas las novedades. 🔔
 ---
 
+## Tus listas 🧡
+
+  ### Privada.
+
+  ---
+
+  ### Pública: [Indispensables](https://github.com/savamidev/BookTrack/blob/00b550c3661275cba63868ec46d0636981b08e5f/Comunidad/Listas/Carlos%20Lista.md)
+  
+  _**El Alquimista**_  
+   - ✍️ Autor: Paulo Coelho 
+   - 🔖 Género: Ciencia Ficción
+
+  _**El Código Da Vinci**_  
+   - ✍️ Autor: Dan Brown
+   - 🔖 Género: Misterio
+
+  ---
+  
+  ### Seguidas
+
+  ---
+
+---
+
 ¡Estamos emocionados de tenerte con nosotros! 🎉 Nos vemos en la plataforma. 🌟
 ## 📚 **Nuevo Libro Añadido: [El Alquimista](https://github.com/savamidev/BookTrack/blob/a155c6f52c585acb99ef24d34de69a18816c2ee2/Biblioteca/El%20Alquimista.md)**
 - ✍️ **Autor**: Paulo Coelho
