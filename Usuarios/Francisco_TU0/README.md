@@ -17,3 +17,10 @@
 ---
 
 ¡Estamos emocionados de tenerte con nosotros! 🎉 Nos vemos en la plataforma. 🌟
+## 📚 **Nuevo Libro Añadido: Dune**
+- ✍️ **Autor**: Frank Herbert
+- 📖 **Estado**: _Terminado_
+- ❤️ **Favorito**: Si
+- 🔖 **Tipo**: _Ciencia Ficción_
+
+---

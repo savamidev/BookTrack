@@ -79,3 +79,10 @@
 - 📌 **Estado**: _Leyendo_
 - ❤️ **Favorito**: Si
 ---
+## 📖 **Nuevo libro agregado**
+- 🌟 **Título**: _Dune_
+- ✍️ **Autor**: _Frank Herbert_
+- 🔖 **Género**: _Ciencia Ficción_
+- 📌 **Estado**: _Terminado_
+- ❤️ **Favorito**: Si
+---
